@@ -2,11 +2,14 @@ extends KinematicBody2D
 
 const SPEED = 100
 const GRAVITY = 10
-const JUMP_POWER = -200
+const JUMP_POWER = -300
 const FLOOR = Vector2(0, -1)
 
 var velocity = Vector2()
 var on_ground = false
+var numJumps = 0;
+
+# Key mappings can be changed in Project > Project Settings > Input Map
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
@@ -20,14 +23,18 @@ func _physics_process(delta):
 	
 	
 	# Jumping
-	if Input.is_action_pressed("ui_up") && on_ground == true:
-		velocity.y = JUMP_POWER
-		on_ground = false
+	if Input.is_action_just_pressed("ui_up"): 
+		if numJumps < 2:
+			numJumps += 1
+			velocity.y = JUMP_POWER
+			on_ground = false;
+			#print(numJumps)
 	
 	velocity.y += GRAVITY
 	
 	if is_on_floor():
 		on_ground = true
+		numJumps = 0
 	else:
 		on_ground = false
 	

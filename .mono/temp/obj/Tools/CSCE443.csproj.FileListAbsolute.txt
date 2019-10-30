@@ -1,6 +1,0 @@
-X:\Libraries\Documents\GitHub\2DSideScroller\.mono\temp\bin\Tools\CSCE443.dll
-X:\Libraries\Documents\GitHub\2DSideScroller\.mono\temp\bin\Tools\CSCE443.pdb
-X:\Libraries\Documents\GitHub\2DSideScroller\.mono\temp\obj\Tools\CSCE443.csprojAssemblyReference.cache
-X:\Libraries\Documents\GitHub\2DSideScroller\.mono\temp\obj\Tools\CSCE443.csproj.CoreCompileInputs.cache
-X:\Libraries\Documents\GitHub\2DSideScroller\.mono\temp\obj\Tools\CSCE443.dll
-X:\Libraries\Documents\GitHub\2DSideScroller\.mono\temp\obj\Tools\CSCE443.pdb

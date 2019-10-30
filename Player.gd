@@ -9,11 +9,6 @@ const MAX_JUMPS = 2
 var velocity = Vector2()
 var jumps = MAX_JUMPS
 var on_ground = false
-var numJumps = 0;
-
-# Key mappings can be changed in Project > Project Settings > Input Map
-
-			velocity.y = JUMP_POWER
 
 func _apply_gravity(delta):
 	velocity.y += GRAVITY * delta

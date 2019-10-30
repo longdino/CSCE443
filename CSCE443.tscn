@@ -7,9 +7,6 @@
 extents = Vector2( 8, 8 )
 
 [node name="Node2D" type="Node2D"]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="GroundTest" type="Sprite" parent="."]
 editor/display_folded = true
@@ -298,4 +295,4 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 92.443, 300.65 )
+position = Vector2( 132.962, 287.249 )

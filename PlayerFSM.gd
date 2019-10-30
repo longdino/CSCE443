@@ -4,9 +4,14 @@ extends "res://StateMachine.gd"
 # handles the player input
 func _input(event):
 	if [states.idle, states.run, states.fall, states.jump].has(state):
-		if event.is_action_pressed("jump") && parent.jumps > 0:
+		if event.is_action_pressed("jump") && parent.jumps > 1:
 			parent.jumps -= 1
-			parent.velocity.y = parent.JUMP_POWER
+			parent.velocity.y = parent.max_jump_velocity
+			
+	if [states.jump].has(state):
+		if event.is_action_released("jump") && parent.velocity.y < parent.min_jump_velocity:
+			parent.velocity.y = parent.min_jump_velocity
+
 
 # initialized the states of the player
 # sets initial state to idle

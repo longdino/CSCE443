@@ -1,22 +1,34 @@
 extends KinematicBody2D
 
-const SPEED = 200
-const GRAVITY = 600
-const JUMP_POWER = -300
+const SPEED = 16 * 10
+const JUMP_MAX = -300
+const JUMP_MIN = -100
 const FLOOR = Vector2(0, -1)
-const MAX_JUMPS = 2
+
+var max_jump_height = 16 * 4.25
+var min_jump_height = 16 * 0.8
+var max_jump_velocity
+var min_jump_velocity
+var jump_duration = 0.5
+var gravity
+var max_jumps = 2
 
 var velocity = Vector2()
-var jumps = MAX_JUMPS
+var jumps = max_jumps
 var on_ground = false
 
+func _ready():
+	gravity = 2 * max_jump_height / pow(jump_duration, 2)
+	max_jump_velocity = -sqrt(2 * gravity * max_jump_height) 
+	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)
+
 func _apply_gravity(delta):
-	velocity.y += GRAVITY * delta
+	velocity.y += gravity * delta
 
 func _apply_movement():
 	if is_on_floor():
 		on_ground = true
-		jumps = MAX_JUMPS
+		jumps = max_jumps
 	else:
 		on_ground = false
 

@@ -94,6 +94,7 @@ enabled = true
 cast_to = Vector2( 2, 0 )
 
 [node name="FloorRaycasts" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="FloorRaycast1" type="RayCast2D" parent="FloorRaycasts"]
 position = Vector2( 22, 15 )
@@ -123,7 +124,11 @@ one_shot = true
 wait_time = 0.15
 one_shot = true
 
-[node name="WallJumpHWeightTimer" type="Timer" parent="."]
-wait_time = 0.1
+[node name="DashTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
 [connection signal="timeout" from="WallSlideStickTimer" to="FSM" method="_on_WallSlideStickTimer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="FSM" method="_on_GhostTimer_timeout"]

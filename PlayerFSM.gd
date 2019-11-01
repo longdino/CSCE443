@@ -15,10 +15,13 @@ func _input(event):
 	if [states.wallslide].has(state):
 		if event.is_action_pressed("jump"):
 			set_state(states.jump)
-			parent.wall_jump_timer.start()
 			parent.wall_jump_beta()
 			
-			
+	if [states.wallslide, states.idle, states.run, states.fall, states.jump].has(state):
+		if event.is_action_pressed("dash"):
+			set_state(states.dash)
+			parent.dash_timer.start()
+			parent.dash()
 			
 	if event.is_action("exit_game"):
 		get_tree().quit()
@@ -32,6 +35,7 @@ func _ready():
 	add_state("jump")
 	add_state("fall")
 	add_state("wallslide")
+	add_state("dash")
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):
@@ -39,11 +43,15 @@ func _state_logic(delta):
 	parent._update_wall_direction()
 	if state != states.wallslide:
 		parent._handle_move_input()
-	parent._apply_gravity(delta)
+	if state != states.dash:
+		parent._apply_gravity(delta)
 	if [states.wallslide].has(state):
 		parent._cap_gravity_wallslide()
 		parent._handle_wall_slide_sticking()
-	parent.get_node("Wall Label").set_text(str(parent._get_h_weight()))
+	if [states.dash].has(state):
+		parent._handle_dash_movement()
+		parent.velocity.y = 0
+	parent.get_node("Wall Label").set_text(str(parent.facing))
 	parent._apply_movement()
 	if [states.run].has(state):
 		sprite.set_speed_scale(abs(parent.velocity.x / parent.SPEED))
@@ -89,28 +97,39 @@ func _get_transition(delta):
 				return states.idle
 			elif parent.wall_direction == 0:
 				return states.fall
+		states.dash:
+			if parent.dash_timer.is_stopped():
+				if parent._is_on_ground():
+					return states.idle
+				elif parent.velocity.y < 0:
+					return states.jump
+				elif parent.velocity.y >= 0:
+					return states.fall
+				elif parent.wall_direction != 0:
+					return states.wallslide
+			elif parent.wall_direction != 0:
+				return states.wallslide
 				
 	return null
 	
 func _enter_state(new_state, old_state):
+	parent.get_node("State Label").set_text(states.keys()[new_state])
 	match new_state:
 		states.idle:
 			sprite.play("idle")
-			parent.get_node("State Label").set_text("idle")
 			parent.jumps = parent.max_jumps
 		states.run:
 			sprite.play("run")
-			parent.get_node("State Label").set_text("run")
+
 			parent.jumps = parent.max_jumps
 		states.jump:
 			sprite.play("jump")
-			parent.get_node("State Label").set_text("jump")
 		states.fall:
-			parent.get_node("State Label").set_text("fall")
+			pass
 		states.wallslide:
 			# parent.jumps = parent.max_jumps
 			sprite.play("wallslide")
-			parent.get_node("State Label").set_text("wallslide")
+			
 	
 func _exit_state(old_state, new_state):
 	match old_state:
@@ -121,3 +140,16 @@ func _exit_state(old_state, new_state):
 func _on_WallSlideStickTimer_timeout():
 	if [states.wallslide].has(state):
 		set_state(states.fall)
+
+
+func _on_GhostTimer_timeout():
+	if [states.dash].has(state):
+		var this_ghost = preload("res://ghost.tscn").instance()
+		# adds the ghost to the actual scene rather than the player
+		get_parent().get_parent().add_child(this_ghost)
+		this_ghost.position = parent.position
+		this_ghost.texture = parent.sprite.frames.get_frame(parent.sprite.animation, parent.sprite.frame)
+		if parent.facing == 1:
+			this_ghost.flip_h = false
+		else:
+			this_ghost.flip_h = true

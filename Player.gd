@@ -27,13 +27,20 @@ var wall_jump_gravity_x
 var wall_jump_gravity_y
 var max_wallslide_velocity = 16 * 2
 
+var dash_distance = 16 * 7
+var dash_duration = .25
+var dash_velocity
+
+var facing = 1
+
 # Cached nodes
 onready var left_wall_raycasts = $WallRaycasts/LeftWallRaycasts
 onready var right_wall_raycasts = $WallRaycasts/RightWallRaycasts
 onready var floor_raycasts = $FloorRaycasts
 onready var wall_slide_cooldown = $WallSlideCooldown
 onready var wall_slide_sticky_timer = $WallSlideStickTimer
-onready var wall_jump_timer = $WallJumpHWeightTimer
+onready var dash_timer = $DashTimer
+onready var sprite = $Sprite
 
 var velocity = Vector2()
 var jumps
@@ -52,6 +59,8 @@ func _ready():
 	max_wall_jump_velocity_x = -sqrt(2 * wall_jump_gravity_x * max_wall_jump_height_x) 
 	min_wall_jump_velocity_x = -sqrt(2 * wall_jump_gravity_x * min_wall_jump_height_x) 
 	
+	dash_timer.set_wait_time(dash_duration)
+	
 
 func _is_on_ground():
 	for raycast in floor_raycasts.get_children():
@@ -69,13 +78,24 @@ func wall_jump():
 	wall_jump_velocity.x *= -wall_direction
 	velocity = wall_jump_velocity
 	
+func _handle_dash_movement():
+	if !dash_timer.is_stopped():
+		velocity.x = dash_velocity
+	
+func dash():
+	# v = d/t
+	dash_velocity = (dash_distance / dash_duration) * facing
+	
+
 func wall_jump_beta():
 	var wall_jump_velocity = Vector2()
 	wall_jump_velocity.x = max_wall_jump_velocity_x
 	wall_jump_velocity.y = max_jump_velocity
 	wall_jump_velocity.x *= wall_direction
 	velocity = wall_jump_velocity
-	print(wall_jump_velocity)
+	$Sprite.scale.x = -wall_direction
+	facing = -wall_direction
+	
 
 func _cap_gravity_wallslide():
 	velocity.y = min(velocity.y, max_wallslide_velocity)
@@ -110,6 +130,8 @@ func _update_wall_direction():
 		wall_direction = move_direction
 	else:
 		wall_direction = -int(is_near_wall_left) + int(is_near_wall_right)
+		if wall_direction != 0:
+			facing = -wall_direction
 
 
 # checks raycasts to see if we are close to a wall
@@ -121,10 +143,12 @@ func _check_is_valid_wall(wall_raycasts):
 
 func _update_move_direction():
 	move_direction = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
-	
+	if Input.is_action_pressed("move_left"):
+		facing = -1
+	elif Input.is_action_pressed("move_right"):
+		facing = 1
 
 func _handle_move_input():
 	velocity.x = lerp(velocity.x, SPEED * move_direction, _get_h_weight())
 	if move_direction != 0:
 		$Sprite.scale.x = move_direction
-

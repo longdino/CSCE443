@@ -8,8 +8,8 @@
 [ext_resource path="res://sprites/animations/fox anim/fox_texture_03_04.png" type="Texture" id=6]
 [ext_resource path="res://sprites/animations/fox anim/fox_texture_03_05.png" type="Texture" id=7]
 [ext_resource path="res://sprites/animations/fox anim/fox_texture_03_06.png" type="Texture" id=8]
-[ext_resource path="res://sprites/animations/fox anim/fox_texture_03_10.png" type="Texture" id=9]
-[ext_resource path="res://sprites/animations/fox anim/fox_texture_03_07.png" type="Texture" id=10]
+[ext_resource path="res://sprites/animations/fox anim/fox_texture_03_07.png" type="Texture" id=9]
+[ext_resource path="res://sprites/animations/fox anim/fox_texture_03_10.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 14 )
@@ -26,15 +26,15 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "jump",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "wallslide",
 "speed": 0.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "jump",
+"speed": 6.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -47,7 +47,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-visible = false
+position = Vector2( 1, 1 )
 frames = SubResource( 2 )
 animation = "idle"
 playing = true
@@ -67,6 +67,7 @@ margin_bottom = -30.0
 align = 1
 
 [node name="WallRaycasts" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="LeftWallRaycasts" type="Node2D" parent="WallRaycasts"]
 
@@ -95,12 +96,22 @@ cast_to = Vector2( 2, 0 )
 [node name="FloorRaycasts" type="Node2D" parent="."]
 
 [node name="FloorRaycast1" type="RayCast2D" parent="FloorRaycasts"]
-position = Vector2( 14, 15 )
+position = Vector2( 22, 15 )
 enabled = true
 cast_to = Vector2( 0, 1 )
 
 [node name="FloorRaycast2" type="RayCast2D" parent="FloorRaycasts"]
-position = Vector2( -13, 15 )
+position = Vector2( -22, 15 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="FloorRaycast3" type="RayCast2D" parent="FloorRaycasts"]
+position = Vector2( 7, 15 )
+enabled = true
+cast_to = Vector2( 0, 1 )
+
+[node name="FloorRaycast4" type="RayCast2D" parent="FloorRaycasts"]
+position = Vector2( -8, 15 )
 enabled = true
 cast_to = Vector2( 0, 1 )
 

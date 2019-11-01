@@ -12,7 +12,7 @@ var max_jump_velocity
 var min_jump_velocity
 var jump_duration = 0.5
 var gravity
-var max_jumps = 1
+var max_jumps = 2
 
 var max_wall_jump_height_x = 16 * 7
 var max_wall_jump_height_y = 16 * 3

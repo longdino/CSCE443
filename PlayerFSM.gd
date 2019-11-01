@@ -35,7 +35,6 @@ func _ready():
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):
-	parent.get_node("Wall Label").set_text(str(parent._get_h_weight()))
 	parent._update_move_direction()
 	parent._update_wall_direction()
 	if state != states.wallslide:
@@ -44,6 +43,7 @@ func _state_logic(delta):
 	if [states.wallslide].has(state):
 		parent._cap_gravity_wallslide()
 		parent._handle_wall_slide_sticking()
+	parent.get_node("Wall Label").set_text(str(parent._get_h_weight()))
 	parent._apply_movement()
 	if [states.run].has(state):
 		sprite.set_speed_scale(abs(parent.velocity.x / parent.SPEED))

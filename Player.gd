@@ -30,6 +30,7 @@ var max_wallslide_velocity = 16 * 2
 # Cached nodes
 onready var left_wall_raycasts = $WallRaycasts/LeftWallRaycasts
 onready var right_wall_raycasts = $WallRaycasts/RightWallRaycasts
+onready var floor_raycasts = $FloorRaycasts
 onready var wall_slide_cooldown = $WallSlideCooldown
 onready var wall_slide_sticky_timer = $WallSlideStickTimer
 onready var wall_jump_timer = $WallJumpHWeightTimer
@@ -53,6 +54,11 @@ func _ready():
 	
 
 func _is_on_ground():
+	for raycast in floor_raycasts.get_children():
+		if raycast.is_colliding():
+			on_ground = true
+			return on_ground
+	on_ground = false
 	return on_ground
 	
 func _apply_gravity(delta):
@@ -89,17 +95,10 @@ func _get_h_weight():
 			return 0.0
 		elif move_direction == sign(velocity.x) && abs(velocity.x) > SPEED:
 			return 0.0
-		elif wall_jump_timer.is_stopped():
-			return 0.4
 		else:
-			return 0.0
+			return 0.8
 			
 func _apply_movement():
-	if is_on_floor():
-		on_ground = true
-	else:
-		on_ground = false
-
 	velocity = move_and_slide(velocity, FLOOR)
 
 # updates the the wall direction bases on the raycasts

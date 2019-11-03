@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="CSCE443"
-run/main_scene="res://hazardTest.tscn"
+run/main_scene="res://switchTest.tscn"
 config/icon="res://icon.png"
 
 [display]

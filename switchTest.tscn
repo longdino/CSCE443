@@ -1,14 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/simpleBlock.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Checkpoint.gd" type="Script" id=3]
-[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=4]
+[ext_resource path="res://Switch.gd" type="Script" id=4]
+[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -455,12 +461,46 @@ position = Vector2( -0.521835, 0.680511 )
 shape = SubResource( 2 )
 
 [node name="Switch" type="Area2D" parent="."]
+position = Vector2( 418.067, 286.106 )
+script = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Switch"]
+position = Vector2( -2.07373, -0.328217 )
 
 [node name="Sprite" type="Sprite" parent="Switch/StaticBody2D"]
-position = Vector2( 413.575, 270.063 )
-texture = ExtResource( 4 )
+position = Vector2( 2.49765, 0.705994 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/StaticBody2D"]
+position = Vector2( 1.76053, -3.05176e-005 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch"]
+position = Vector2( -2.40588, -1.60703 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 3 )
+
+[node name="Switch2" type="Area2D" parent="."]
+position = Vector2( 300.895, 286.106 )
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch2"]
+position = Vector2( -2.07373, -0.328217 )
+
+[node name="Sprite" type="Sprite" parent="Switch2/StaticBody2D"]
+position = Vector2( 2.49765, 0.705994 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2/StaticBody2D"]
+position = Vector2( 1.76053, -3.05176e-005 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2"]
+position = Vector2( -2.40588, -1.60703 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
+[connection signal="area_entered" from="Switch" to="Switch" method="_on_Switch_area_entered"]
+[connection signal="body_entered" from="Switch" to="Switch" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch2_body_entered"]

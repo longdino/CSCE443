@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://PlayerFSM.gd" type="Script" id=3]
+[ext_resource path="res://sprites/fox_texture.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22, 14 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 0.487671, -3.9014 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node"]
+position = Vector2( 0.487671, -3.9014 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 16, 0, 2, 0, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 7, 1, 0, 8, 16, 0, 9, 3, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 2, 0, 14, 18, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 65541, 5, 0, 65542, 5, 0, 65543, 5, 0, 65544, 5, 0, 65545, 5, 0, 65546, 5, 0, 65547, 6, 0, 65548, 6, 0, 65549, 6, 0, 65550, 8, 0, 131073, 5, 0, 131074, 5, 0, 131075, 5, 0, 131076, 5, 0, 131077, 5, 0, 131078, 5, 0, 131079, 5, 0, 131080, 5, 0, 131081, 5, 0, 131082, 5, 0, 131083, 6, 0, 131084, 6, 0, 131085, 6, 0, 131086, 8, 0, 196609, 5, 0, 196610, 5, 0, 196611, 5, 0, 196612, 5, 0, 196613, 5, 0, 196614, 5, 0, 196615, 5, 0, 196616, 5, 0, 196617, 5, 0, 196618, 5, 0, 196619, 6, 0, 196620, 6, 0, 196621, 11, 0, 196622, 12, 0, 262145, 11, 0, 262146, 10, 0, 262147, 11, 0, 262148, 10, 0, 262149, 11, 0, 262150, 11, 0, 262151, 10, 0, 262152, 11, 0, 262153, 10, 0, 262154, 11, 0, 262155, 12, 0, 262156, 14, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1114114, 11, 0, 1114115, 11, 0, 1114116, 11, 0, 1114117, 11, 0, 1114118, 11, 0, 1114119, 11, 0, 1114120, 11, 0, 1114121, 11, 0, 1114122, 11, 0, 1114123, 11, 0, 1114124, 11, 0 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 106.468, 213.933 )
+script = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="Player"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 4 )
+
+[node name="State Label" type="Label" parent="Player"]
+margin_left = -36.3684
+margin_top = -29.5411
+margin_right = 39.6316
+margin_bottom = -15.5411
+align = 1

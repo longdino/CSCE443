@@ -14,5 +14,6 @@ func _ready():
 
 
 func _on_Checkpoint_body_entered(body):
-	print(global_position)
+	#print(global_position)
+	# Set private variable in body to this checkpoints current location
 	body.set_reset_location(global_position)

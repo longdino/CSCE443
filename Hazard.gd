@@ -14,6 +14,7 @@ func _ready():
 
 
 func _on_Hazard_body_entered(body):
+	# if the player enters the Area2D of the hazard, reset the player to private variable location
 	if body.get_name() == "Player":
-		print(body.get_reset_location())
+		# print(body.get_reset_location())
 		body.position = body.get_reset_location()

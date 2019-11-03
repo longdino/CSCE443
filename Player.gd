@@ -9,6 +9,7 @@ const MAX_JUMPS = 2
 var velocity = Vector2()
 var jumps = MAX_JUMPS
 var on_ground = false
+var resetPoint = Vector2(0 , 0)
 
 func _apply_gravity(delta):
 	velocity.y += GRAVITY * delta
@@ -21,7 +22,15 @@ func _apply_movement():
 		on_ground = false
 
 	velocity = move_and_slide(velocity, FLOOR)
-
+	
+func reset_player():
+	print(resetPoint)
+	global_position = resetPoint
+	
+func set_reset_location(newPosition):
+	resetPoint = newPosition
+	print(resetPoint)
+	
 func _handle_move_input():
 	var move_direction = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 	velocity.x = lerp(velocity.x, SPEED * move_direction, 0.2)

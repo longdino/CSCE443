@@ -23,12 +23,12 @@ func _apply_movement():
 
 	velocity = move_and_slide(velocity, FLOOR)
 	
-func reset_player():
-	print(resetPoint)
-	global_position = resetPoint
-	
 func set_reset_location(newPosition):
 	resetPoint = newPosition
+	print(resetPoint)
+	
+func get_reset_location():
+	return resetPoint
 	print(resetPoint)
 	
 func _handle_move_input():
@@ -39,3 +39,7 @@ func _handle_move_input():
 
 func _is_on_ground():
 	return on_ground
+	
+func _ready():
+	resetPoint = global_position
+

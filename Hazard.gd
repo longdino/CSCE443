@@ -14,6 +14,6 @@ func _ready():
 
 
 func _on_Hazard_body_entered(body):
-	print("collision with: " + body.get_name()) # Replace with function body.
 	if body.get_name() == "Player":
-		body.position = body.resetPoint
+		print(body.get_reset_location())
+		body.position = body.get_reset_location()

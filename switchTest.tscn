@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/simpleBlock.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Checkpoint.gd" type="Script" id=3]
+[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -446,10 +447,20 @@ input_pickable = true
 collision_layer = 17
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2( -5.83978, -152.71 )
+position = Vector2( 78.4146, 287.801 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
-position = Vector2( 89.7032, 437.874 )
+position = Vector2( -0.521835, 0.680511 )
 shape = SubResource( 2 )
+
+[node name="Switch" type="Area2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch"]
+
+[node name="Sprite" type="Sprite" parent="Switch/StaticBody2D"]
+position = Vector2( 413.575, 270.063 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

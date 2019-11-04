@@ -45,6 +45,7 @@ onready var sprite = $Sprite
 var velocity = Vector2()
 var jumps
 var on_ground = false
+var resetPoint = Vector2(0 , 0)
 var wall_direction = 0
 var move_direction = 0
 
@@ -120,6 +121,15 @@ func _get_h_weight():
 			
 func _apply_movement():
 	velocity = move_and_slide(velocity, FLOOR)
+	
+func set_reset_location(newPosition):
+	resetPoint = newPosition
+	print(resetPoint)
+	
+func get_reset_location():
+	return resetPoint
+	print(resetPoint)
+	
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():
@@ -152,3 +162,10 @@ func _handle_move_input():
 	velocity.x = lerp(velocity.x, SPEED * move_direction, _get_h_weight())
 	if move_direction != 0:
 		$Sprite.scale.x = move_direction
+
+func _is_on_ground():
+	return on_ground
+	
+func _ready():
+	resetPoint = global_position
+

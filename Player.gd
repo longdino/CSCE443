@@ -60,7 +60,7 @@ func _ready():
 	max_wall_jump_velocity_x = -sqrt(2 * wall_jump_gravity_x * max_wall_jump_height_x) 
 	min_wall_jump_velocity_x = -sqrt(2 * wall_jump_gravity_x * min_wall_jump_height_x) 
 	
-	dash_timer.set_wait_time(dash_duration)
+	#dash_timer.set_wait_time(dash_duration)
 	
 
 func _is_on_ground():

@@ -163,9 +163,3 @@ func _handle_move_input():
 	if move_direction != 0:
 		$Sprite.scale.x = move_direction
 
-func _is_on_ground():
-	return on_ground
-	
-func _ready():
-	resetPoint = global_position
-

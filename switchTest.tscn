@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Sprite
 
 # Declare member variables here. Examples:
@@ -28,15 +28,15 @@ func removeDoor():
 	pass
 "
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 34 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 4, 4 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -491,12 +491,12 @@ collision_layer = 17
 editor/display_folded = true
 position = Vector2( 509.114, 266.649 )
 texture = ExtResource( 3 )
-script = SubResource( 6 )
+script = SubResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Door1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Door2" type="Sprite" parent="."]
 editor/display_folded = true
@@ -506,7 +506,7 @@ texture = ExtResource( 3 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Checkpoint" type="Area2D" parent="."]
 editor/display_folded = true
@@ -515,7 +515,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2( -0.521835, 0.680511 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Switch1" type="Area2D" parent="."]
 position = Vector2( 418.067, 286.106 )
@@ -531,12 +531,12 @@ texture = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1/StaticBody2D"]
 position = Vector2( -0.200409, 0.340973 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1"]
 position = Vector2( -0.0186768, -0.0723877 )
 scale = Vector2( 0.4, 0.4 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Switch2" type="Area2D" parent="."]
 position = Vector2( 300.895, 286.106 )
@@ -552,12 +552,12 @@ texture = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2/StaticBody2D"]
 position = Vector2( -0.114439, -0.0694885 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2"]
 position = Vector2( 0.232941, -0.148743 )
 scale = Vector2( 0.4, 0.4 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]

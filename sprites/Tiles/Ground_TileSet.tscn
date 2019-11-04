@@ -15,7 +15,6 @@ region_rect = Rect2( 112, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dirt_01"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_01/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -31,7 +30,6 @@ region_rect = Rect2( 112, 16, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dirt_02"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_02/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -47,7 +45,6 @@ region_rect = Rect2( 112, 32, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dirt_03"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_03/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -63,7 +60,6 @@ region_rect = Rect2( 112, 48, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dirt_04"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_04/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -79,7 +75,6 @@ region_rect = Rect2( 0, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dirt_05"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_05/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -95,7 +90,6 @@ region_rect = Rect2( 64, 80, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass_01"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass_01/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -111,7 +105,6 @@ region_rect = Rect2( 80, 80, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass_02"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass_02/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -127,7 +120,6 @@ region_rect = Rect2( 96, 80, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass_03"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass_03/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -143,7 +135,6 @@ region_rect = Rect2( 112, 80, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass_04"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass_04/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -159,7 +150,6 @@ region_rect = Rect2( 16, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="grass_05"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass_05/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -175,7 +165,6 @@ region_rect = Rect2( 80, 96, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_01"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_01/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -191,7 +180,6 @@ region_rect = Rect2( 96, 96, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_02"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_02/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -207,7 +195,6 @@ region_rect = Rect2( 64, 96, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_03"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_03/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -223,7 +210,6 @@ region_rect = Rect2( 112, 96, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_04"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_04/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -239,7 +225,6 @@ region_rect = Rect2( 64, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_05"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_05/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -255,7 +240,6 @@ region_rect = Rect2( 80, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_06"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_06/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -271,7 +255,6 @@ region_rect = Rect2( 96, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_07"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_07/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -287,7 +270,6 @@ region_rect = Rect2( 112, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground_08"]
 editor/display_folded = true
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground_08/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )

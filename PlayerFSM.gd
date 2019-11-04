@@ -51,7 +51,6 @@ func _state_logic(delta):
 	if [states.dash].has(state):
 		parent._handle_dash_movement()
 		parent.velocity.y = 0
-	parent.get_node("Wall Label").set_text(str(parent.facing))
 	parent._apply_movement()
 	if [states.run].has(state):
 		sprite.set_speed_scale(abs(parent.velocity.x / parent.SPEED))
@@ -120,17 +119,17 @@ func _enter_state(new_state, old_state):
 			parent.jumps = parent.max_jumps
 		states.run:
 			sprite.play("run")
-
 			parent.jumps = parent.max_jumps
 		states.jump:
 			sprite.play("jump")
 		states.fall:
-			pass
+			sprite.play("fall")
 		states.wallslide:
 			# parent.jumps = parent.max_jumps
 			sprite.play("wallslide")
+		states.dash:
+			sprite.play("dash")
 			
-	
 func _exit_state(old_state, new_state):
 	match old_state:
 		states.wallslide:
@@ -140,7 +139,6 @@ func _exit_state(old_state, new_state):
 func _on_WallSlideStickTimer_timeout():
 	if [states.wallslide].has(state):
 		set_state(states.fall)
-
 
 func _on_GhostTimer_timeout():
 	if [states.dash].has(state):

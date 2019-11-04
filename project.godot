@@ -86,6 +86,10 @@ dash={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_5="hazard objects"
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

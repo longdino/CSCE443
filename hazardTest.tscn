@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 18, 18 )
@@ -549,6 +549,11 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTest34/StaticBody2D"]
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTest34/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GroundTest34"]
+
 [node name="GroundTest39" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 424, 328 )
@@ -687,11 +692,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GroundTest34"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTest34/StaticBody2D"]
-shape = SubResource( 1 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 132.962, 287.249 )
 input_pickable = true
@@ -703,7 +703,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2( 1.0145, 3.50836 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Hazard" type="Area2D" parent="."]
 position = Vector2( 412.176, 289.391 )

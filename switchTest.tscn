@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/simpleBlock.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Checkpoint.gd" type="Script" id=4]
 [ext_resource path="res://Switch.gd" type="Script" id=5]
 [ext_resource path="res://sprites/switchBlock.png" type="Texture" id=6]
+[ext_resource path="res://FallBlock.gd" type="Script" id=7]
+[ext_resource path="res://sprites/fallBlock.png" type="Texture" id=8]
+[ext_resource path="res://BreakBlock.gd" type="Script" id=9]
+[ext_resource path="res://sprites/breakBlock.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -37,6 +41,15 @@ extents = Vector2( 10, 34 )
 extents = Vector2( 4, 4 )
 
 [sub_resource type="RectangleShape2D" id=6]
+
+[sub_resource type="RectangleShape2D" id=7]
+
+[sub_resource type="RectangleShape2D" id=8]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -518,6 +531,7 @@ position = Vector2( -0.521835, 0.680511 )
 shape = SubResource( 4 )
 
 [node name="Switch1" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 418.067, 286.106 )
 script = ExtResource( 5 )
 
@@ -539,6 +553,7 @@ scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 6 )
 
 [node name="Switch2" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 300.895, 286.106 )
 script = ExtResource( 5 )
 
@@ -558,7 +573,42 @@ shape = SubResource( 5 )
 position = Vector2( 0.232941, -0.148743 )
 scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 6 )
+
+[node name="FallBlock" type="Area2D" parent="."]
+position = Vector2( 532.555, 315.131 )
+script = ExtResource( 7 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="FallBlock"]
+mode = 3
+
+[node name="Sprite" type="Sprite" parent="FallBlock/RigidBody2D"]
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock/RigidBody2D"]
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock"]
+shape = SubResource( 8 )
+
+[node name="BreakBlock" type="Area2D" parent="."]
+position = Vector2( 617.299, 316.732 )
+script = ExtResource( 9 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock"]
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="BreakBlock/RigidBody2D"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock/RigidBody2D"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock"]
+shape = SubResource( 10 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch2_body_entered"]
+[connection signal="body_entered" from="FallBlock" to="FallBlock" method="_on_FallBlock_body_entered"]
+[connection signal="body_entered" from="BreakBlock" to="BreakBlock" method="_on_BreakBlock_body_entered"]

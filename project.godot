@@ -21,7 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="CSCE443"
-run/main_scene="res://CSCE443.tscn"
+run/main_scene="res://switchTest.tscn"
+boot_splash/fullsize=false
 
 [display]
 

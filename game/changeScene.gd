@@ -12,7 +12,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_Button_pressed():
 	get_tree().change_scene('res://title_scene/title_screen.tscn')
+	
+func _on_Level1Button_pressed():
+	get_tree().change_scene('res://sprites/Tiles/temp.tscn')
 	pass # Replace with function body.

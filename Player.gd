@@ -61,7 +61,9 @@ var move_direction = 0
 
 func _ready():
 	jumps = max_jumps
-
+	
+	resetPoint = global_position
+	
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)
 	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)

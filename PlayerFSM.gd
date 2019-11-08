@@ -42,7 +42,7 @@ func _state_logic(delta):
 	parent._update_move_direction()
 	parent._update_wall_direction()
 	if state != states.wallslide:
-		parent._handle_move_input()
+		parent._handle_move_input(delta)
 	if state != states.dash:
 		parent._apply_gravity(delta)
 	if [states.wallslide].has(state):
@@ -55,6 +55,7 @@ func _state_logic(delta):
 	parent._apply_movement()
 	if [states.run].has(state):
 		sprite.set_speed_scale(abs(parent.velocity.x / parent.SPEED))
+	parent.get_node("Wall Label").set_text(str(parent.velocity.x) + " " + str(parent.move_direction))
 	
 func _get_transition(delta):
 	# this determines the transitions of the state machine

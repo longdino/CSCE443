@@ -1,4 +1,4 @@
-extends Sprite
+extends Area2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,3 +11,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Checkpoint_body_entered(body):
+	#print(global_position)
+	# Set private variable in body to this checkpoints current location
+	body.set_reset_location(global_position)

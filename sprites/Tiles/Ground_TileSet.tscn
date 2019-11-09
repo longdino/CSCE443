@@ -298,4 +298,4 @@ region_rect = Rect2( 0, 80, 16, 16 )
 position = Vector2( 125.47, 29.3958 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 16, 96, 0, 0 )
+region_rect = Rect2( 0, 80, 16, 16 )

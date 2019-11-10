@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=10]
+[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0.487671, -3.9014 )
@@ -84,3 +88,16 @@ texture = ExtResource( 8 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 64.1493, 243.767 )
+
+[node name="teleportBlock" type="Area2D" parent="."]
+position = Vector2( 150.898, 38.0745 )
+script = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock/StaticBody2D"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]

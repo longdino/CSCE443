@@ -522,7 +522,6 @@ texture = ExtResource( 3 )
 shape = SubResource( 3 )
 
 [node name="Checkpoint" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 78.4146, 287.801 )
 script = ExtResource( 4 )
 
@@ -553,7 +552,6 @@ scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 6 )
 
 [node name="Switch2" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 300.895, 286.106 )
 script = ExtResource( 5 )
 
@@ -561,8 +559,9 @@ script = ExtResource( 5 )
 position = Vector2( 0.287323, -0.258759 )
 
 [node name="Sprite" type="Sprite" parent="Switch2/StaticBody2D"]
-position = Vector2( -0.0717165, 0.0115665 )
+position = Vector2( -203.287, -100.241 )
 texture = ExtResource( 6 )
+offset = Vector2( 203.216, 100.253 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2/StaticBody2D"]
 position = Vector2( -0.114439, -0.0694885 )
@@ -608,7 +607,7 @@ shape = SubResource( 9 )
 shape = SubResource( 10 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
-[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch2_body_entered"]
+[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="FallBlock" to="FallBlock" method="_on_FallBlock_body_entered"]
 [connection signal="body_entered" from="BreakBlock" to="BreakBlock" method="_on_BreakBlock_body_entered"]

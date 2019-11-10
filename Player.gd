@@ -144,15 +144,6 @@ func set_reset_location(newPosition):
 func get_reset_location():
 	return resetPoint
 	print(resetPoint)
-	
-
-func set_reset_location(newPosition):
-	resetPoint = newPosition
-	print(resetPoint)
-
-func get_reset_location():
-	return resetPoint
-	print(resetPoint)
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():

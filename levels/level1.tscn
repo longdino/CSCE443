@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

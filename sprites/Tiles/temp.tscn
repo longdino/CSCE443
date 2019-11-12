@@ -16,7 +16,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="temp" type="Node2D"]
 position = Vector2( 0.487671, -3.9014 )
 script = ExtResource( 1 )
 

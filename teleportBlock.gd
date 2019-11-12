@@ -1,12 +1,16 @@
 extends Area2D
-
+export(String)var scene_path_to_load
+export(String)var present_scene_path
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	present_scene_path = get_tree().get_current_scene().get_name()
+	#present_scene_path = get_tree().edited_scene_root.get_script().get_path()
+	print(present_scene_path)
+	#pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -24,5 +28,10 @@ func _on_teleportBlock_body_entered(body):
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene("res://levels/level1.tscn")
+	if present_scene_path == "temp":
+		scene_path_to_load = "res://levels/level1.tscn"
+	elif present_scene_path == "level1":
+		scene_path_to_load = "res://levels/level1.tscn"
+		
+	get_tree().change_scene(scene_path_to_load)
 	pass # Replace with function body.

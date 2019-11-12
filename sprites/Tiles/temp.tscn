@@ -105,9 +105,9 @@ texture = ExtResource( 12 )
 shape = SubResource( 1 )
 
 [node name="FadeIn" parent="teleportBlock" instance=ExtResource( 13 )]
-margin_left = -152.523
-margin_top = -33.3926
-margin_right = 487.477
-margin_bottom = 326.607
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

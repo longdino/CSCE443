@@ -126,11 +126,12 @@ func _enter_state(new_state, old_state):
 		states.jump:
 			sprite.play("jump")
 		states.fall:
-			pass
+			sprite.play("fall")
 		states.wallslide:
 			# parent.jumps = parent.max_jumps
 			sprite.play("wallslide")
-
+		states.dash:
+			sprite.play("dash")
 
 func _exit_state(old_state, new_state):
 	match old_state:
@@ -144,7 +145,6 @@ func _exit_state(old_state, new_state):
 func _on_WallSlideStickTimer_timeout():
 	if [states.wallslide].has(state):
 		set_state(states.fall)
-
 
 func _on_GhostTimer_timeout():
 	if [states.dash].has(state):

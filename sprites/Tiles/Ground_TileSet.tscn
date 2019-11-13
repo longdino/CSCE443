@@ -74,7 +74,6 @@ region_enabled = true
 region_rect = Rect2( 0, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="dirt_05"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt_05/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
@@ -152,6 +151,21 @@ region_rect = Rect2( 16, 112, 16, 16 )
 editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass_05/StaticBody2D"]
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="grass_06" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 170, 29.864 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="grass_06"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass_06/StaticBody2D"]
 scale = Vector2( 0.8, 0.8 )
 shape = SubResource( 1 )
 one_way_collision_margin = 0.0
@@ -288,11 +302,67 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 16, 96, 16, 16 )
 
+[node name="ground_11" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 20, 70 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 63, 30, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground_11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_11/StaticBody2D"]
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="ground_12" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 40, 70 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 63, 14, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground_12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_12/StaticBody2D"]
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="ground_13" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 60, 70 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 79, 14, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground_13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_13/StaticBody2D"]
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="ground_14" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 80, 70 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 63, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground_14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_14/StaticBody2D"]
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
 [node name="grass_texture_01" type="Sprite" parent="."]
 position = Vector2( 148.58, 29.3447 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 80, 16, 16 )
+region_rect = Rect2( 16, 80, 16, 16 )
 
 [node name="grass_texture_02" type="Sprite" parent="."]
 position = Vector2( 125.47, 29.3958 )

@@ -1,19 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=2]
-[ext_resource path="res://Player.gd" type="Script" id=3]
-[ext_resource path="res://PlayerFSM.gd" type="Script" id=4]
-[ext_resource path="res://sprites/fox_texture.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=8]
-[ext_resource path="res://sprites/Enviornment/landscape03.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=11]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22, 14 )
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enviornment/landscape03.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0.487671, -3.9014 )
@@ -32,78 +27,60 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 131094, -1073741824, 0, 196630, -1073741824, 0, 262159, -1610612736, 0, 262166, -1073741824, 0, 393238, -2147483645, 0, 458774, -2147483645, 0, 589846, -2147483645, 0, 983054, 3, 0, 983055, 3, 0, 983057, 3, 0, 983060, 536870915, 0, 1048599, 3, 0, 1114136, 2, 0, 1114137, 2, 0, 1114138, 2, 0 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 106.468, 213.933 )
-script = ExtResource( 3 )
-
-[node name="Node2D" type="Node2D" parent="Player"]
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 5 )
-
-[node name="State Label" type="Label" parent="Player"]
-margin_left = -36.3684
-margin_top = -29.5411
-margin_right = 39.6316
-margin_bottom = -15.5411
-align = 1
-
 [node name="log2" type="Sprite" parent="."]
 position = Vector2( 149.632, 261.915 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 
 [node name="rock_1" type="Sprite" parent="."]
 position = Vector2( 407.309, 107.118 )
-texture = ExtResource( 7 )
+texture = ExtResource( 4 )
 
 [node name="log1" type="Sprite" parent="."]
 position = Vector2( 269.349, 245.745 )
 scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="landscape03" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 206.742, 125.581 )
+position = Vector2( 206.742, 126.069 )
 z_index = -1
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 
 [node name="Tree_anim_2_03" type="Sprite" parent="landscape03"]
 position = Vector2( -180.48, 104.233 )
 rotation = -3.05645
 scale = Vector2( 1.48057, -1.4838 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_1_02" type="Sprite" parent="landscape03"]
 position = Vector2( -14.7776, 111.17 )
 scale = Vector2( -1.55269, 1.24553 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_1_03" type="Sprite" parent="landscape03"]
 position = Vector2( -14.7776, 111.17 )
 scale = Vector2( -1.55269, 1.24553 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_1_04" type="Sprite" parent="landscape03"]
 position = Vector2( 186.634, 159.502 )
 scale = Vector2( -1.53072, 1.91524 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_2_01" type="Sprite" parent="landscape03"]
 position = Vector2( -103.023, 85.8626 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_2_02" type="Sprite" parent="landscape03"]
 position = Vector2( 106.037, 106.549 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_1_01" type="Sprite" parent="landscape03"]
 position = Vector2( 28.3549, 68.9177 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 106.38, 211.741 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://PlayerFSM.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=12]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=13]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=14]
+[ext_resource path="res://Sound/Effects/dash.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 14 )
@@ -64,6 +65,7 @@ shape = SubResource( 1 )
 position = Vector2( 1, 1 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="State Label" type="Label" parent="."]
@@ -147,5 +149,10 @@ autostart = true
 
 [node name="WallJumpTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="SoundFX" type="Node" parent="."]
+
+[node name="Dash" type="AudioStreamPlayer" parent="SoundFX"]
+stream = ExtResource( 15 )
 [connection signal="timeout" from="WallSlideStickTimer" to="FSM" method="_on_WallSlideStickTimer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="FSM" method="_on_GhostTimer_timeout"]

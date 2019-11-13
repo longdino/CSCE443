@@ -1,4 +1,4 @@
-extends Area2D
+extends Control
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,9 +13,6 @@ func _ready():
 #	pass
 
 
-func _on_BreakBlock_body_entered(body):
-	if body.get_name() == "Player":
-		var pathName = "RigidBody2D"
-		if (has_node(pathName)):
-			var currentBlock = get_node(pathName)
-			currentBlock.queue_free()
+func _on_Button_pressed():
+	get_tree().change_scene('res://title_scene/title_screen.tscn')
+	pass # Replace with function body.

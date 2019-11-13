@@ -51,6 +51,7 @@ onready var wall_slide_cooldown = $WallSlideCooldown
 onready var wall_slide_sticky_timer = $WallSlideStickTimer
 onready var dash_timer = $DashTimer
 onready var sprite = $Sprite
+onready var wall_jump_timer = $WallJumpTimer
 
 var velocity = Vector2()
 var jumps
@@ -208,4 +209,4 @@ func _handle_move_input(delta):
 	velocity.x = new_velocity
 	print(velocity.x)
 	if move_direction != 0:
-		$Sprite.scale.x = move_direction
+		$Sprite.scale.x = facing

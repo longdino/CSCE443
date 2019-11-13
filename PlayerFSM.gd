@@ -7,22 +7,23 @@ func _input(event):
 		if event.is_action_pressed("jump") && parent.jumps > 0:
 			parent.jumps = parent.jumps - 1
 			parent.velocity.y = parent.max_jump_velocity
-			
+
 	if [states.jump].has(state):
 		if event.is_action_released("jump") && parent.velocity.y < parent.min_jump_velocity:
 			parent.velocity.y = parent.min_jump_velocity
-			
+
 	if [states.wallslide].has(state):
 		if event.is_action_pressed("jump"):
 			set_state(states.jump)
+			parent.wall_jump_timer.start()
 			parent.wall_jump_beta()
-			
+
 	if [states.wallslide, states.idle, states.run, states.fall, states.jump].has(state):
 		if event.is_action_pressed("dash"):
 			set_state(states.dash)
 			parent.dash_timer.start()
 			parent.dash()
-			
+
 	if event.is_action("exit_game"):
 		get_tree().quit()
 
@@ -45,18 +46,18 @@ func _state_logic(delta):
 		parent._handle_move_input(delta)
 	if state != states.dash:
 		parent._apply_gravity(delta)
-	if [states.wallslide].has(state):
-		parent._cap_gravity_wallslide()
-		parent._handle_wall_slide_sticking()
 	if [states.dash].has(state):
 		parent._handle_dash_movement()
 		parent.velocity.y = 0
 	parent.get_node("Wall Label").set_text(str(parent.facing))
+	if [states.wallslide].has(state):
+		parent._cap_gravity_wallslide()
+		parent._handle_wall_slide_sticking()
 	parent._apply_movement()
-	if [states.run].has(state):
-		sprite.set_speed_scale(abs(parent.velocity.x / parent.SPEED))
+	#if [states.run].has(state):
+	#	sprite.frames.set_animation_speed("idle",abs(parent.velocity.x / parent.SPEED))
 	parent.get_node("Wall Label").set_text(str(parent.velocity.x) + " " + str(parent.move_direction))
-	
+
 func _get_transition(delta):
 	# this determines the transitions of the state machine
 	# this is where all the logic for state transitions should happen
@@ -80,7 +81,7 @@ func _get_transition(delta):
 			elif parent.velocity.x < 0.01 && parent.velocity.x > -0.01:
 				return states.idle
 		states.jump:
-			if parent.wall_direction != 0 && parent.wall_slide_cooldown.is_stopped():
+			if parent.wall_direction != 0 && parent.wall_slide_cooldown.is_stopped() && parent.wall_jump_timer.is_stopped():
 				return states.wallslide
 			elif parent._is_on_ground():
 				return states.idle
@@ -108,11 +109,11 @@ func _get_transition(delta):
 					return states.fall
 				elif parent.wall_direction != 0:
 					return states.wallslide
-			elif parent.wall_direction != 0:
+			elif parent.wall_direction != 0 && parent.dash_timer.get_time_left() < 0.9 * parent.dash_duration:
 				return states.wallslide
-				
+
 	return null
-	
+
 func _enter_state(new_state, old_state):
 	parent.get_node("State Label").set_text(states.keys()[new_state])
 	match new_state:
@@ -130,13 +131,16 @@ func _enter_state(new_state, old_state):
 		states.wallslide:
 			# parent.jumps = parent.max_jumps
 			sprite.play("wallslide")
-			
-	
+
+
 func _exit_state(old_state, new_state):
 	match old_state:
 		states.wallslide:
-			#parent.wall_jump_timer.start()
 			parent.wall_slide_cooldown.start()
+			parent.sprite.scale.x = parent.facing
+	match new_state:
+		states.wallslide:
+			parent.sprite.scale.x = -parent.facing
 
 func _on_WallSlideStickTimer_timeout():
 	if [states.wallslide].has(state):

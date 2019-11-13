@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
-[ext_resource path="res://sprites/Tiles/Haxard_TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://PlayerFSM.gd" type="Script" id=4]
 [ext_resource path="res://sprites/fox_texture.png" type="Texture" id=5]
@@ -30,7 +30,7 @@ tile_data = PoolIntArray( -327683, 6, 0, -262148, 6, 0, -262147, 6, 0, -196612, 
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 131094, -1073741824, 0, 196630, -1073741824, 0, 262159, -1610612736, 0, 262166, -1073741824, 0, 458767, -1610612736, 0, 458768, -1610612736, 0, 524302, -1610612736, 0, 1114136, 2, 0 )
+tile_data = PoolIntArray( 131094, -1073741824, 0, 196630, -1073741824, 0, 262159, -1610612736, 0, 262166, -1073741824, 0, 393238, -2147483645, 0, 458774, -2147483645, 0, 589846, -2147483645, 0, 983054, 3, 0, 983055, 3, 0, 983057, 3, 0, 983060, 536870915, 0, 1048599, 3, 0, 1114136, 2, 0, 1114137, 2, 0, 1114138, 2, 0 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 106.468, 213.933 )

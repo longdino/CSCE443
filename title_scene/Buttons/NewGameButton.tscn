@@ -6,5 +6,4 @@
 scene_to_load = "res://game/NewGame.tscn"
 
 [node name="Label" parent="." index="0"]
-margin_bottom = 40.0
 text = "NEW GAME"

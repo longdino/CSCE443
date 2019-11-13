@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spike1.png-c4e659d6d199b9b2d26ecc870e91018a.stex"
+path="res://.import/Fire_anim_1_04.png-a71fef6bfa63484f8528175b75f0cdb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enviornment/spike1.png"
-dest_files=[ "res://.import/spike1.png-c4e659d6d199b9b2d26ecc870e91018a.stex" ]
+source_file="res://sprites/Enviornment/Fire_anim_1_04.png"
+dest_files=[ "res://.import/Fire_anim_1_04.png-a71fef6bfa63484f8528175b75f0cdb0.stex" ]
 
 [params]
 

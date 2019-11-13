@@ -122,6 +122,7 @@ func _enter_state(new_state, old_state):
 			parent.jumps = parent.max_jumps
 		states.run:
 			sprite.play("run")
+
 			parent.jumps = parent.max_jumps
 		states.jump:
 			sprite.play("jump")

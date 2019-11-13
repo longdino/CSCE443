@@ -22,10 +22,6 @@ func _on_teleportBlock_body_entered(body):
 	if body.get_name() == "Player":
 		$FadeIn.show()
 		$FadeIn.fade_in()
-		#get_tree().change_scene("res://levels/level1.tscn")
-		#body.position = body.get_reset_location()
-	#pass # Replace with function body.
-
 
 func _on_FadeIn_fade_finished():
 	if present_scene_path == "temp":
@@ -34,4 +30,3 @@ func _on_FadeIn_fade_finished():
 		scene_path_to_load = "res://levels/level1.tscn"
 		
 	get_tree().change_scene(scene_path_to_load)
-	pass # Replace with function body.

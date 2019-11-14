@@ -13,8 +13,7 @@ func _ready():
 #	pass
 
 
-func _on_Checkpoint_body_entered(body):
-	#print(global_position)
-	# Set private variable in body to this checkpoints current location
-	if(body.get_name() == "Player"):
-		body.set_reset_location(global_position)
+func _on_Shooter_body_entered(body):
+	if body.get_name() == "Player":
+		# print(body.get_reset_location())
+		body.position = body.get_reset_location()

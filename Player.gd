@@ -139,11 +139,11 @@ func _apply_movement():
 	
 func set_reset_location(newPosition):
 	resetPoint = newPosition
-	print(resetPoint)
+	#print(resetPoint)
 	
 func get_reset_location():
 	return resetPoint
-	print(resetPoint)
+	#print(resetPoint)
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():
@@ -209,7 +209,7 @@ func _handle_move_input(delta):
 
 	#velocity.x = lerp(velocity.x, new_velocity, _get_h_weight())
 	velocity.x = new_velocity
-	print(velocity.x)
+	#print(velocity.x)
 	if move_direction != 0:
 		$Sprite.scale.x = move_direction
 

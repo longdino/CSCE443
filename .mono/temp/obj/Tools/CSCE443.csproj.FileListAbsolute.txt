@@ -1,6 +1,0 @@
-C:\Users\Hayoung\Documents\TAMU 2019-2020\CSCE443\2DSideScroller\.mono\temp\bin\Tools\CSCE443.dll
-C:\Users\Hayoung\Documents\TAMU 2019-2020\CSCE443\2DSideScroller\.mono\temp\bin\Tools\CSCE443.pdb
-C:\Users\Hayoung\Documents\TAMU 2019-2020\CSCE443\2DSideScroller\.mono\temp\obj\Tools\CSCE443.csprojAssemblyReference.cache
-C:\Users\Hayoung\Documents\TAMU 2019-2020\CSCE443\2DSideScroller\.mono\temp\obj\Tools\CSCE443.csproj.CoreCompileInputs.cache
-C:\Users\Hayoung\Documents\TAMU 2019-2020\CSCE443\2DSideScroller\.mono\temp\obj\Tools\CSCE443.dll
-C:\Users\Hayoung\Documents\TAMU 2019-2020\CSCE443\2DSideScroller\.mono\temp\obj\Tools\CSCE443.pdb

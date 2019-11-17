@@ -607,7 +607,7 @@ shape = SubResource( 9 )
 shape = SubResource( 10 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
-[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch2_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch2_body_entered"]
 [connection signal="body_entered" from="FallBlock" to="FallBlock" method="_on_FallBlock_body_entered"]
 [connection signal="body_entered" from="BreakBlock" to="BreakBlock" method="_on_BreakBlock_body_entered"]

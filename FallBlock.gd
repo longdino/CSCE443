@@ -4,11 +4,15 @@ extends Area2D
 # var a = 2
 # var b = "text"
 var active = false
+var startPosition = Vector2(0, 0)
 var charPosition = Vector2(0, 0)
 var fallRate = 1;
+var resetTimer = 10
+var timeElapsed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	startPosition = global_position
 	charPosition = global_position # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +22,13 @@ func _process(delta):
 		global_position = charPosition
 	else:
 		global_position.y = global_position.y + fallRate
+		timeElapsed += delta
+		
+	if (timeElapsed > resetTimer):
+		global_position = startPosition
+		charPosition = startPosition
+		active = false
+		timeElapsed = 0
 
 
 func _on_FallBlock_body_entered(body):

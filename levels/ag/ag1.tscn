@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Hazard.gd" type="Script" id=3]
-[ext_resource path="res://sprites/hazardBlock.png" type="Texture" id=4]
-[ext_resource path="res://Checkpoint.gd" type="Script" id=5]
+[ext_resource path="res://Checkpoint.gd" type="Script" id=4]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 18 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 136, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -22,48 +25,39 @@ tile_data = PoolIntArray( 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 53.2875, 311.343 )
 
-[node name="Hazard" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 611.62, 292.318 )
+[node name="SpikeHazard2" type="Area2D" parent="."]
+position = Vector2( 622.688, 295.744 )
 collision_layer = 17
 script = ExtResource( 3 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Hazard"]
-position = Vector2( 0.827545, 0.889191 )
-
-[node name="Sprite" type="Sprite" parent="Hazard/StaticBody2D"]
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard2"]
 position = Vector2( 1.07458, 0.290253 )
 scale = Vector2( 0.6, 0.6 )
 shape = SubResource( 1 )
 
-[node name="Hazard2" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 264.579, 166.463 )
+[node name="SpikeHazard1" type="Area2D" parent="."]
+position = Vector2( 264.827, 172.153 )
 collision_layer = 17
 script = ExtResource( 3 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Hazard2"]
-position = Vector2( 0.827545, 0.889191 )
-
-[node name="Sprite" type="Sprite" parent="Hazard2/StaticBody2D"]
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard2"]
-position = Vector2( 1.07458, 0.290253 )
-scale = Vector2( 8, 0.6 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard1"]
+position = Vector2( -0.527054, 1.5811 )
+shape = SubResource( 3 )
 
 [node name="Checkpoint" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 27.7904, 309.682 )
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2( 1.0145, 3.50836 )
 shape = SubResource( 2 )
-[connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]
-[connection signal="body_entered" from="Hazard2" to="Hazard2" method="_on_Hazard_body_entered"]
+
+[node name="HazardMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 655368, 3, 0, 655369, 3, 0, 655370, 3, 0, 655371, 3, 0, 655372, 3, 0, 655373, 3, 0, 655374, 3, 0, 655375, 3, 0, 655376, 3, 0, 655377, 3, 0, 655378, 3, 0, 655379, 3, 0, 655380, 3, 0, 655381, 3, 0, 655382, 3, 0, 655383, 3, 0, 655384, 3, 0, 1179686, -1073741821, 0 )
+[connection signal="body_entered" from="SpikeHazard2" to="SpikeHazard2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="SpikeHazard1" to="SpikeHazard1" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://teleportBlock.gd" type="Script" id=3]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=4]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fade_in/fade_in.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 99.3439 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="level1" type="Node2D"]
 
@@ -21,7 +24,8 @@ tile_data = PoolIntArray( 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0
 position = Vector2( 53.2875, 311.343 )
 
 [node name="teleportBlock" type="Area2D" parent="."]
-position = Vector2( 651.059, 100.211 )
+editor/display_folded = true
+position = Vector2( 248.949, 257.111 )
 script = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
@@ -33,9 +37,35 @@ texture = ExtResource( 4 )
 shape = SubResource( 1 )
 
 [node name="FadeIn" parent="teleportBlock" instance=ExtResource( 5 )]
-margin_left = -659.0
-margin_top = -230.0
-margin_right = 391.0
-margin_bottom = 288.0
+visible = false
+margin_left = -248.949
+margin_top = -257.111
+margin_right = 391.051
+margin_bottom = 102.889
+
+[node name="teleportBlock" type="Area2D" parent="teleportBlock"]
+position = Vector2( 248.949, 257.111 )
+script = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock/teleportBlock"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock/teleportBlock/StaticBody2D"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock/teleportBlock"]
+shape = SubResource( 2 )
+
+[node name="FadeIn" type="ColorRect" parent="teleportBlock/teleportBlock" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -248.949
+margin_top = -257.111
+margin_right = 391.051
+margin_bottom = 102.889
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 6 )
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock/teleportBlock" to="teleportBlock/teleportBlock" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock/teleportBlock/FadeIn" to="teleportBlock/teleportBlock" method="_on_FadeIn_fade_finished"]

@@ -8,6 +8,7 @@
 [ext_resource path="res://fade_in/fade_in.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 99.3439 )
 
 [sub_resource type="RectangleShape2D" id=2]
 

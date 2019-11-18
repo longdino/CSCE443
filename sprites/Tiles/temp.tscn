@@ -93,24 +93,334 @@ texture = ExtResource( 9 )
 [node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 64.1493, 243.767 )
 
-[node name="teleportBlock" type="Area2D" parent="."]
-position = Vector2( 150.898, 38.0745 )
+[node name="teleportBlock1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 73.2828, -20.5882 )
 script = ExtResource( 11 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock1"]
 
-[node name="Sprite" type="Sprite" parent="teleportBlock/StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="teleportBlock1/StaticBody2D"]
 texture = ExtResource( 12 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 113.126, -20.5882 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock3"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock3/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock3"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock3" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 93.0923, -20.4863 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock2"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock2/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock2"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock2" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock4" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 133.459, -20.2814 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock4"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock4/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock4"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock4" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock5" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 153.539, -19.8716 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock5"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock5/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock5"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock5" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock6" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 173.415, -19.8716 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock6"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock6/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock6"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock6" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock7" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 193.291, -19.6667 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock7"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock7/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock7"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock7" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock8" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 213.167, -19.2569 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock8"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock8/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock8"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock8" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock9" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 232.633, -19.4618 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock9"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock9/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock9"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock9" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock10" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 252.099, -19.052 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock10"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock10/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock10"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock10" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock11" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 271.77, -18.8471 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock11"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock11/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock11"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock11" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock12" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 291.441, -19.2569 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock12"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock12/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock12"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock12" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock13" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 311.112, -19.052 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock13"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock13/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock13"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock13" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock14" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 330.782, -19.052 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock14"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock14/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock14"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock14" instance=ExtResource( 13 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="teleportBlock15" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 350.453, -19.2569 )
+script = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock15"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock15/StaticBody2D"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock15"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock15" instance=ExtResource( 13 )]
+visible = false
 margin_left = -150.898
 margin_top = -38.0745
 margin_right = 489.102
 margin_bottom = 321.926
 
 [node name="gameMenu" parent="." instance=ExtResource( 14 )]
-[connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
-[connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock3" to="teleportBlock3" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock3/FadeIn" to="teleportBlock3" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock2" to="teleportBlock2" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock2/FadeIn" to="teleportBlock2" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock4" to="teleportBlock4" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock4/FadeIn" to="teleportBlock4" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock5" to="teleportBlock5" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock5/FadeIn" to="teleportBlock5" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock6" to="teleportBlock6" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock6/FadeIn" to="teleportBlock6" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock7" to="teleportBlock7" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock7/FadeIn" to="teleportBlock7" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock8" to="teleportBlock8" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock8/FadeIn" to="teleportBlock8" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock9" to="teleportBlock9" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock9/FadeIn" to="teleportBlock9" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock10" to="teleportBlock10" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock10/FadeIn" to="teleportBlock10" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock11" to="teleportBlock11" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock11/FadeIn" to="teleportBlock11" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock12" to="teleportBlock12" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock12/FadeIn" to="teleportBlock12" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock13" to="teleportBlock13" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock13/FadeIn" to="teleportBlock13" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock14" to="teleportBlock14" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock14/FadeIn" to="teleportBlock14" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock15" to="teleportBlock15" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock15/FadeIn" to="teleportBlock15" method="_on_FadeIn_fade_finished"]

@@ -1,36 +1,31 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://sprites/Enviornment/small_spike_1.png" type="Texture" id=1]
-[ext_resource path="res://sprites/Enviornment/Fire_anim_1_01.png" type="Texture" id=2]
-[ext_resource path="res://sprites/Enviornment/Fire_anim_1_02.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Enviornment/Fire_anim_1_03.png" type="Texture" id=4]
-[ext_resource path="res://sprites/Enviornment/Fire_anim_1_04.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enviornment/spike_1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Enviornment/small_spike_1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_01.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_02.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_03.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_04.png" type="Texture" id=6]
 
-[sub_resource type="StreamTexture" id=5]
-load_path = "res://.import/spikeset_1.png.png-76e50917a4c218a403672e742e375096.stex"
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 10.8167 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
-[sub_resource type="AnimatedTexture" id=4]
+[sub_resource type="AnimatedTexture" id=2]
 frames = 4
 fps = 8.0
-frame_0/texture = ExtResource( 2 )
-frame_1/texture = ExtResource( 3 )
+frame_0/texture = ExtResource( 3 )
+frame_1/texture = ExtResource( 4 )
 frame_1/delay_sec = 0.0
-frame_2/texture = ExtResource( 4 )
+frame_2/texture = ExtResource( 5 )
 frame_2/delay_sec = 0.0
-frame_3/texture = ExtResource( 5 )
+frame_3/texture = ExtResource( 6 )
 frame_3/delay_sec = 0.0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="spikeset_01png" type="Sprite" parent="."]
-position = Vector2( 29.9434, -1.67066 )
-texture = SubResource( 5 )
-region_enabled = true
+position = Vector2( 25, 0 )
+texture = ExtResource( 1 )
 region_rect = Rect2( 48, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="spikeset_01png"]
@@ -39,11 +34,11 @@ position = Vector2( 0, 1.5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikeset_01png/StaticBody2D"]
 position = Vector2( -9.53674e-005, 4.76837e-005 )
 scale = Vector2( 0.8, 0.6 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="spikeset_01png3" type="Sprite" parent="."]
-position = Vector2( 100, -1.671 )
-texture = ExtResource( 1 )
+position = Vector2( 50, 0 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 48, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="spikeset_01png3"]
@@ -52,20 +47,7 @@ position = Vector2( 0, 1.5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikeset_01png3/StaticBody2D"]
 position = Vector2( -9.53674e-005, 4.76837e-005 )
 scale = Vector2( 0.8, 0.6 )
-shape = SubResource( 2 )
-
-[node name="spikeset_01png2" type="Sprite" parent="."]
-position = Vector2( 58.6017, -1.79918 )
-texture = SubResource( 5 )
-region_enabled = true
-region_rect = Rect2( 32, 0, 32, 16 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="spikeset_01png2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="spikeset_01png2/StaticBody2D"]
-position = Vector2( 0, 1.5 )
-scale = Vector2( 1.6, 0.65 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="fire01" type="Sprite" parent="."]
-texture = SubResource( 4 )
+texture = SubResource( 2 )

@@ -3,11 +3,11 @@
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/Enviornment/Landscape01.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=4]
-[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
@@ -29,69 +29,67 @@ format = 1
 tile_data = PoolIntArray( 262159, -1610612736, 0 )
 
 [node name="backdrop" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 252.261, 190.485 )
 z_index = -1
 texture = ExtResource( 3 )
 
-[node name="log1" type="Sprite" parent="backdrop"]
-position = Vector2( 21.5963, 111.225 )
-scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 4 )
-
-[node name="rock_2" type="Sprite" parent="backdrop"]
-position = Vector2( 54.5275, 134.012 )
-rotation = 0.570723
-scale = Vector2( 1, 1 )
-texture = ExtResource( 5 )
-
 [node name="rock_1" type="Sprite" parent="backdrop"]
 position = Vector2( 247.436, -25.934 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="log2" type="Sprite" parent="backdrop"]
 position = Vector2( -84.408, 113.503 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="Tree_anim_2_03" type="Sprite" parent="backdrop"]
 position = Vector2( -248.582, 76.8892 )
 rotation = 3.05645
 scale = Vector2( 1.48057, -1.4838 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Tree_anim_1_03" type="Sprite" parent="backdrop"]
 position = Vector2( 10.079, 54.4322 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_1_04" type="Sprite" parent="backdrop"]
 position = Vector2( 241.751, 68.7215 )
 scale = Vector2( -1.53072, 1.91524 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_2_01" type="Sprite" parent="backdrop"]
 position = Vector2( -152.361, 68.9467 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Tree_anim_2_02" type="Sprite" parent="backdrop"]
 position = Vector2( 70.7454, 67.9373 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Tree_anim_1_01" type="Sprite" parent="backdrop"]
 position = Vector2( -59.2807, 72.7667 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_1_02" type="Sprite" parent="backdrop"]
 visible = false
 position = Vector2( -21.2637, 44.9194 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
+texture = ExtResource( 7 )
+
+[node name="log1" type="Sprite" parent="backdrop"]
+position = Vector2( 73.8613, 133.385 )
+scale = Vector2( 1.83012, 1.59598 )
 texture = ExtResource( 8 )
+
+[node name="rock_2" type="Sprite" parent="backdrop"]
+position = Vector2( 54.5275, 134.012 )
+rotation = 0.570723
+texture = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 7.21384, 312.278 )

@@ -14,25 +14,24 @@ extents = Vector2( 43.2329, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 99.3439 )
 
-[node name="Hlevel1" type="Node2D"]
+[node name="Hlevel5" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 786465, 17, 0, 786466, 17, 0, 786467, 17, 0, 786468, 17, 0, 786469, 17, 0, 786470, 17, 0, 786471, 17, 0, 851997, 17, 0, 851998, 17, 0, 851999, 17, 0, 983065, 17, 0, 983066, 17, 0, 983067, 17, 0, 1179669, 17, 0, 1179670, 17, 0, 1179671, 17, 0, 1376256, 17, 0, 1376257, 17, 0, 1376258, 17, 0, 1376259, 17, 0, 1376260, 17, 0, 1376261, 17, 0, 1376262, 17, 0, 1376268, 17, 0, 1376269, 17, 0, 1376270, 17, 0, 1376271, 17, 0, 1376272, 17, 0, 1376273, 17, 0, 1441792, 11, 0, 1441793, 11, 0, 1441794, 11, 0, 1441795, 11, 0, 1441796, 11, 0, 1441797, 11, 0, 1441798, 11, 0, 1441799, 3, 0, 1441800, 3, 0, 1441801, 3, 0, 1441802, 3, 0, 1441803, 3, 0 )
+tile_data = PoolIntArray( 1376256, 17, 0, 1376257, 17, 0, 1376258, 17, 0, 1376259, 17, 0, 1376260, 17, 0, 1376261, 17, 0, 1376262, 17, 0, 1441792, 11, 0, 1441793, 11, 0, 1441794, 11, 0, 1441795, 11, 0, 1441796, 11, 0, 1441797, 11, 0, 1441798, 11, 0 )
 
 [node name="HazardMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 1376263, 3, 0, 1376264, 3, 0, 1376265, 3, 0, 1376266, 3, 0, 1376267, 3, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 53.2875, 311.343 )
 
 [node name="Hazard" type="Area2D" parent="."]
-position = Vector2( 125.432, 342.826 )
+position = Vector2( -189.128, 381.21 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]

@@ -26,6 +26,7 @@ tile_data = PoolIntArray( 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327686, 2, 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( 1114128, 3, 0, 1114129, 3, 0, 1114130, 3, 0, 1114131, 3, 0, 1114132, 3, 0, 1114133, 3, 0, 1114134, 3, 0, 1114135, 3, 0, 1114136, 3, 0, 1114137, 3, 0, 1114138, 3, 0, 1114139, 3, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 53.2875, 311.343 )

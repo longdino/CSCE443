@@ -1,0 +1,174 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Checkpoint.gd" type="Script" id=3]
+[ext_resource path="res://Hazard.gd" type="Script" id=4]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=5]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=7]
+[ext_resource path="res://Popper.gd" type="Script" id=8]
+[ext_resource path="res://sprites/hazardBlock.png" type="Texture" id=9]
+[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=10]
+[ext_resource path="res://Bullet.gd" type="Script" id=11]
+[ext_resource path="res://Shooter.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 128 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 64 )
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="CircleShape2D" id=14]
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 2, 2 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=18]
+
+[node name="ag5" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 262154, 11, 0, 327689, 11, 0, 327690, 11, 0, 327703, 11, 0, 327704, 11, 0, 327705, 11, 0, 327706, 11, 0, 327707, 11, 0, 393224, 11, 0, 393225, 11, 0, 393226, 11, 0, 393239, 11, 0, 393240, 11, 0, 393241, 11, 0, 393242, 11, 0, 393243, 11, 0, 393248, 11, 0, 393249, 11, 0, 393250, 11, 0, 393251, 11, 0, 393252, 11, 0, 393253, 11, 0, 393254, 11, 0, 393255, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0, 458762, 11, 0, 458785, 11, 0, 458786, 11, 0, 458787, 11, 0, 458788, 11, 0, 458789, 11, 0, 458790, 11, 0, 458791, 11, 0, 524294, 11, 0, 524295, 11, 0, 524296, 11, 0, 524297, 11, 0, 524298, 11, 0, 524322, 11, 0, 524323, 11, 0, 524324, 11, 0, 524325, 11, 0, 524326, 11, 0, 524327, 11, 0, 589859, 11, 0, 589860, 11, 0, 589861, 11, 0, 589862, 11, 0, 589863, 11, 0, 655360, 11, 0, 655361, 11, 0, 655396, 11, 0, 655397, 11, 0, 655398, 11, 0, 655399, 11, 0, 720896, 11, 0, 720897, 11, 0, 720898, 11, 0, 720908, 11, 0, 720909, 11, 0, 720920, 11, 0, 720921, 11, 0, 720935, 11, 0, 786432, 11, 0, 786433, 11, 0, 786434, 11, 0, 786435, 11, 0, 786443, 11, 0, 786444, 11, 0, 786456, 11, 0, 786457, 11, 0, 786458, 11, 0, 786471, 11, 0, 851968, 11, 0, 851969, 11, 0, 851970, 11, 0, 851971, 11, 0, 851972, 11, 0, 851978, 11, 0, 851979, 11, 0, 851993, 11, 0, 851994, 11, 0, 851995, 11, 0, 852007, 11, 0, 917504, 11, 0, 917505, 11, 0, 917506, 11, 0, 917507, 11, 0, 917508, 11, 0, 917509, 11, 0, 917510, 11, 0, 917511, 11, 0, 917512, 11, 0, 917513, 11, 0, 917514, 11, 0, 917530, 11, 0, 917531, 11, 0, 917532, 11, 0, 917543, 11, 0, 983067, 11, 0, 983068, 11, 0, 983069, 11, 0, 983070, 11, 0, 983071, 11, 0, 983072, 11, 0, 983073, 11, 0, 983074, 11, 0, 983079, 11, 0, 1048615, 11, 0, 1114151, 11, 0, 1179687, 11, 0, 1245223, 11, 0, 1310720, 11, 0, 1310721, 11, 0, 1310722, 11, 0, 1310723, 11, 0, 1310724, 11, 0, 1310725, 11, 0, 1310726, 11, 0, 1310727, 11, 0, 1310728, 11, 0, 1310735, 11, 0, 1310736, 11, 0, 1310737, 11, 0, 1310738, 11, 0, 1310739, 11, 0, 1310740, 11, 0, 1310741, 11, 0, 1310742, 11, 0, 1310749, 11, 0, 1310750, 11, 0, 1310751, 11, 0, 1310752, 11, 0, 1310753, 11, 0, 1310754, 11, 0, 1310755, 11, 0, 1310756, 11, 0, 1310757, 11, 0, 1310758, 11, 0, 1310759, 11, 0, 1376256, 11, 0, 1376257, 11, 0, 1376258, 11, 0, 1376259, 11, 0, 1376260, 11, 0, 1376261, 11, 0, 1376262, 11, 0, 1376263, 11, 0, 1376264, 11, 0, 1376271, 11, 0, 1376272, 11, 0, 1376273, 11, 0, 1376274, 11, 0, 1376275, 11, 0, 1376276, 11, 0, 1376277, 11, 0, 1376278, 11, 0, 1376285, 11, 0, 1376286, 11, 0, 1376287, 11, 0, 1376288, 11, 0, 1376289, 11, 0, 1376290, 11, 0, 1376291, 11, 0, 1376292, 11, 0, 1376293, 11, 0, 1376294, 11, 0, 1376295, 11, 0, 1441792, 11, 0, 1441793, 11, 0, 1441794, 11, 0, 1441795, 11, 0, 1441796, 11, 0, 1441797, 11, 0, 1441798, 11, 0, 1441799, 11, 0, 1441800, 11, 0, 1441807, 11, 0, 1441808, 11, 0, 1441809, 11, 0, 1441810, 11, 0, 1441811, 11, 0, 1441812, 11, 0, 1441813, 11, 0, 1441814, 11, 0, 1441821, 11, 0, 1441822, 11, 0, 1441823, 11, 0, 1441824, 11, 0, 1441825, 11, 0, 1441826, 11, 0, 1441827, 11, 0, 1441828, 11, 0, 1441829, 11, 0, 1441830, 11, 0, 1441831, 11, 0, 1507328, 11, 0, 1507329, 11, 0, 1507330, 11, 0, 1507331, 11, 0, 1507332, 11, 0, 1507333, 11, 0, 1507334, 11, 0, 1507335, 11, 0, 1507336, 11, 0, 1507343, 11, 0, 1507344, 11, 0, 1507345, 11, 0, 1507346, 11, 0, 1507347, 11, 0, 1507348, 11, 0, 1507349, 11, 0, 1507350, 11, 0, 1507357, 11, 0, 1507358, 11, 0, 1507359, 11, 0, 1507360, 11, 0, 1507361, 11, 0, 1507362, 11, 0, 1507363, 11, 0, 1507364, 11, 0, 1507365, 11, 0, 1507366, 11, 0, 1507367, 11, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 33.241, 292.101 )
+
+[node name="Checkpoint" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 33.165, 275.743 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2( 1.0145, 3.50836 )
+shape = SubResource( 3 )
+
+[node name="outofbounds2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 320.732, 405.9 )
+rotation = 1.5708
+scale = Vector2( 1, 6 )
+collision_layer = 17
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds2"]
+position = Vector2( 0.177635, -0.167145 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 4 )
+
+[node name="outofbounds3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( -66.5525, 173.133 )
+rotation = -0.261799
+scale = Vector2( 1, 4 )
+collision_layer = 17
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds3"]
+position = Vector2( 0.177635, -0.167145 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 4 )
+
+[node name="teleportBlock1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 645.837, 56.9963 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
+position = Vector2( 0.13385, -3.11804 )
+shape = SubResource( 5 )
+
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 6 )]
+visible = false
+margin_left = -150.898
+margin_top = -38.0745
+margin_right = 489.102
+margin_bottom = 321.926
+
+[node name="Hazards" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Popper" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 304.02, 312.212 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popper"]
+position = Vector2( 2.23767, -1.10968 )
+scale = Vector2( 1.5, 1.5 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Popper"]
+
+[node name="Sprite" type="Sprite" parent="Popper/KinematicBody2D"]
+texture = ExtResource( 9 )
+
+[node name="Hazard" type="Area2D" parent="Popper/KinematicBody2D/Sprite"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popper/KinematicBody2D/Sprite/Hazard"]
+position = Vector2( -0.225891, 0 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popper/KinematicBody2D"]
+shape = SubResource( 14 )
+
+[node name="Bullet" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 355.621, 56.3229 )
+
+[node name="Sprite" type="Sprite" parent="Bullet"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+shape = SubResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Bullet"]
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet/Area2D"]
+shape = SubResource( 16 )
+
+[node name="Shooter" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 381.565, 65.5889 )
+script = ExtResource( 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Shooter"]
+
+[node name="Sprite" type="Sprite" parent="Shooter/StaticBody2D"]
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter/StaticBody2D"]
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter"]
+shape = SubResource( 18 )
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="Popper" to="Popper" method="_on_Popper_body_entered"]
+[connection signal="body_entered" from="Popper/KinematicBody2D/Sprite/Hazard" to="Popper/KinematicBody2D/Sprite/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Bullet/Area2D" to="Bullet/Area2D" method="_on_Bullet_body_entered"]
+[connection signal="body_entered" from="Shooter" to="Shooter" method="_on_Shooter_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=5]
 [ext_resource path="res://teleportBlock.gd" type="Script" id=6]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=7]
-[ext_resource path="res://fade_in/fade_in.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 18 )
@@ -17,7 +16,7 @@ extents = Vector2( 136, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 64 )
 
 [node name="ag1" type="Node2D"]
@@ -56,8 +55,8 @@ collision_layer = 17
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds"]
-position = Vector2( -278.837, 20.6629 )
-rotation = 1.5708
+position = Vector2( -326.825, 32.868 )
+rotation = 1.309
 scale = Vector2( 1.5, 1 )
 shape = SubResource( 2 )
 
@@ -82,18 +81,14 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 position = Vector2( 0.928223, -1.52916 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
-[node name="FadeIn" type="ColorRect" parent="teleportBlock1" instance=ExtResource( 7 )]
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 7 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_left = -150.898
 margin_top = -38.0745
 margin_right = 489.102
 margin_bottom = 321.926
-color = Color( 0, 0, 0, 0 )
-script = ExtResource( 8 )
 [connection signal="body_entered" from="SpikeHazard2" to="SpikeHazard2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="SpikeHazard1" to="SpikeHazard1" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]

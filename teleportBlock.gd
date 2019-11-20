@@ -34,5 +34,9 @@ func _on_FadeIn_fade_finished():
 		scene_path_to_load = "res://levels/ag/ag3.tscn"
 	elif present_scene_path == "ag3":
 		scene_path_to_load = "res://levels/ag/ag4.tscn"
+	elif present_scene_path == "ag4":
+		scene_path_to_load = "res://levels/ag/ag5.tscn"
+	elif present_scene_path == "ag5":
+		scene_path_to_load = "res://levels/ag/ag1.tscn"
 		
 	get_tree().change_scene(scene_path_to_load)

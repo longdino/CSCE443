@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,27 +12,26 @@
 [ext_resource path="res://sprites/doorBlock.png" type="Texture" id=10]
 [ext_resource path="res://teleportBlock.gd" type="Script" id=11]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=12]
-[ext_resource path="res://fade_in/fade_in.gd" type="Script" id=13]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 128 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 128, 64 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 4, 4 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 
-[sub_resource type="GDScript" id=9]
+[sub_resource type="GDScript" id=8]
 script/source = "extends Sprite
 
 # Declare member variables here. Examples:
@@ -50,10 +49,10 @@ func removeDoor():
 	pass
 "
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 34 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 10, 64 )
 
 [node name="ag2" type="Node2D"]
@@ -74,7 +73,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard1"]
 position = Vector2( -9.82634, -3.01512 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="SpikeHazard2" type="Area2D" parent="."]
 position = Vector2( 389.943, 106.523 )
@@ -84,7 +83,7 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard2"]
 position = Vector2( 0.327072, -0.398193 )
 scale = Vector2( 1, 0.05 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="outofbounds" type="Area2D" parent="."]
 editor/display_folded = true
@@ -96,7 +95,7 @@ script = ExtResource( 3 )
 position = Vector2( -23.4488, 134.285 )
 rotation = 1.5708
 scale = Vector2( 1, 1.5 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="outofbounds2" type="Area2D" parent="."]
 editor/display_folded = true
@@ -107,7 +106,18 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds2"]
 position = Vector2( -69.335, -7.31702 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="outofbounds3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 52.218, 74.034 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds3"]
+position = Vector2( -69.335, -7.31702 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
 
 [node name="Checkpoint" type="Area2D" parent="."]
 editor/display_folded = true
@@ -116,7 +126,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2( 1.0145, 3.50836 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Chaser" type="Area2D" parent="."]
 editor/display_folded = true
@@ -124,7 +134,7 @@ position = Vector2( 331.33, 61.7802 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser"]
 position = Vector2( -0.257294, -1.39543 )
@@ -137,10 +147,10 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser/KinematicBody2D/Sprite/Hazard"]
 position = Vector2( -0.225891, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser/KinematicBody2D"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Hazards" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
@@ -163,23 +173,23 @@ texture = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1/StaticBody2D"]
 position = Vector2( -0.200409, 0.340973 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1"]
 position = Vector2( -0.0186768, -0.0723877 )
 scale = Vector2( 0.4, 0.4 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Door1" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 608.773, 313.611 )
 texture = ExtResource( 10 )
-script = SubResource( 9 )
+script = SubResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Door1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
 editor/display_folded = true
@@ -188,22 +198,19 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 position = Vector2( 0.928223, -1.52916 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
-[node name="FadeIn" type="ColorRect" parent="teleportBlock1" instance=ExtResource( 12 )]
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 12 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_left = -150.898
 margin_top = -38.0745
 margin_right = 489.102
 margin_bottom = 321.926
-color = Color( 0, 0, 0, 0 )
-script = ExtResource( 13 )
 [connection signal="body_entered" from="SpikeHazard1" to="SpikeHazard1" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="SpikeHazard2" to="SpikeHazard2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="Chaser" to="Chaser" method="_on_Chaser_body_entered"]
 [connection signal="body_exited" from="Chaser" to="Chaser" method="_on_Chaser_body_exited"]

@@ -31,7 +31,7 @@ func _process(delta):
 		if (has_node(pathName)):
 			var currentBlock = get_node(pathName)
 			originalPosition = currentBlock.global_position
-			currentBlock.move_and_collide((playerPosition - originalPosition)* delta * moveSpeed)
+			currentBlock.move_and_collide((playerPosition - originalPosition) * delta * moveSpeed)
 			
 	else:
 		# resetting hazard

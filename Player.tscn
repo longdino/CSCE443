@@ -1,19 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://PlayerFSM.gd" type="Script" id=2]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_01.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_02.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=8]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_walljump_01.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_01.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=12]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=13]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_walljump_01.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=13]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_01.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 14 )
@@ -30,25 +30,25 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "run",
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "dash",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "wallslide",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "jump",
 "speed": 6.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "dash",
-"speed": 5.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -64,6 +64,7 @@ shape = SubResource( 1 )
 position = Vector2( 1, 1 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="State Label" type="Label" parent="."]

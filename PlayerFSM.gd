@@ -49,14 +49,14 @@ func _state_logic(delta):
 	if [states.dash].has(state):
 		parent._handle_dash_movement()
 		parent.velocity.y = 0
-	parent.get_node("Wall Label").set_text(str(parent.facing))
 	if [states.wallslide].has(state):
 		parent._cap_gravity_wallslide()
 		parent._handle_wall_slide_sticking()
 	parent._apply_movement()
 	#if [states.run].has(state):
 	#	sprite.frames.set_animation_speed("idle",abs(parent.velocity.x / parent.SPEED))
-	parent.get_node("Wall Label").set_text(str(parent.velocity.x) + " " + str(parent.move_direction))
+	#parent.get_node("Wall Label").set_text(str(parent.velocity.x) + " " + str(parent.move_direction))
+	#print(states.keys()[state])
 
 func _get_transition(delta):
 	# this determines the transitions of the state machine
@@ -81,7 +81,7 @@ func _get_transition(delta):
 			elif parent.velocity.x < 0.01 && parent.velocity.x > -0.01:
 				return states.idle
 		states.jump:
-			if parent.wall_direction != 0 && parent.wall_slide_cooldown.is_stopped() && parent.wall_jump_timer.is_stopped():
+			if parent.wall_direction != 0 && parent.wall_slide_cooldown.is_stopped():
 				return states.wallslide
 			elif parent._is_on_ground():
 				return states.idle
@@ -109,7 +109,7 @@ func _get_transition(delta):
 					return states.fall
 				elif parent.wall_direction != 0:
 					return states.wallslide
-			elif parent.wall_direction != 0 && parent.dash_timer.get_time_left() < 0.9 * parent.dash_duration:
+			elif parent.wall_direction != 0 && parent.dash_timer.get_time_left() < 0.9 * parent.dash_duration && !parent._is_on_ground():
 				return states.wallslide
 
 	return null
@@ -122,15 +122,15 @@ func _enter_state(new_state, old_state):
 			parent.jumps = parent.max_jumps
 		states.run:
 			sprite.play("run")
-
 			parent.jumps = parent.max_jumps
 		states.jump:
 			sprite.play("jump")
 		states.fall:
-			pass
+			sprite.play("fall")
 		states.wallslide:
-			# parent.jumps = parent.max_jumps
 			sprite.play("wallslide")
+		states.dash:
+			sprite.play("dash")
 
 
 func _exit_state(old_state, new_state):

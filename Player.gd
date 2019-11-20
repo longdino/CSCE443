@@ -14,18 +14,16 @@ var jump_duration = 0.5
 var gravity
 var max_jumps = 2
 
-var max_wall_jump_height_x = 16 * 7
+
 var max_wall_jump_height_y = 16 * 3
-var min_wall_jump_height_x = 16 * 1
 var min_wall_jump_height_y = 16 * 1
-var max_wall_jump_velocity_x
+var wall_jump_velocity_x
 var max_wall_jump_velocity_y
-var min_wall_jump_velocity_x
 var min_wall_jump_velocity_y
 var wall_jump_duration = 1.0
-var wall_jump_gravity_x
-var wall_jump_gravity_y
+var wall_jump_gravity
 var max_wallslide_velocity = 16 * 2
+var wall_jump_distance_x = 16 * 3
 
 var dash_distance = 16 * 7
 var dash_duration = .25
@@ -56,6 +54,7 @@ onready var wall_jump_timer = $WallJumpTimer
 var velocity = Vector2()
 var jumps
 var on_ground = false
+var resetPoint = Vector2(0,0)
 var wall_direction = 0
 var move_direction = 0
 
@@ -66,9 +65,14 @@ func _ready():
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)
 	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)
 
-	wall_jump_gravity_x = 2 * max_wall_jump_height_x / pow(wall_jump_duration, 2)
-	max_wall_jump_velocity_x = -sqrt(2 * wall_jump_gravity_x * max_wall_jump_height_x)
-	min_wall_jump_velocity_x = -sqrt(2 * wall_jump_gravity_x * min_wall_jump_height_x)
+	wall_jump_timer.set_wait_time(wall_jump_duration);
+	
+	wall_jump_gravity = 2 * max_wall_jump_height_y / pow(wall_jump_duration, 2)
+	max_wall_jump_velocity_y = -sqrt(2 * wall_jump_gravity * max_wall_jump_height_y)
+	min_wall_jump_velocity_y = -sqrt(2 * wall_jump_gravity * min_wall_jump_height_y)
+	
+	wall_jump_velocity_x = wall_jump_distance_x / wall_jump_duration
+	
 
 	ground_acceleration = SPEED / ground_acceleration_time
 	air_acceleration = SPEED / air_acceleration_time
@@ -87,7 +91,10 @@ func _is_on_ground():
 	return on_ground
 
 func _apply_gravity(delta):
-	velocity.y += gravity * delta
+	if wall_jump_timer.is_stopped():
+		velocity.y += gravity * delta
+	else:
+		velocity.y += wall_jump_gravity * delta
 
 func wall_jump():
 	var wall_jump_velocity = WALL_JUMP_VELOCITY
@@ -104,7 +111,7 @@ func dash():
 
 func wall_jump_beta():
 	var wall_jump_velocity = Vector2()
-	wall_jump_velocity.x = max_wall_jump_velocity_x
+	wall_jump_velocity.x = wall_jump_velocity_x
 	wall_jump_velocity.y = max_jump_velocity
 	wall_jump_velocity.x *= wall_direction
 	velocity = wall_jump_velocity
@@ -137,11 +144,9 @@ func _apply_movement():
 
 func set_reset_location(newPosition):
 	resetPoint = newPosition
-	print(resetPoint)
 
 func get_reset_location():
 	return resetPoint
-	print(resetPoint)
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():
@@ -152,7 +157,7 @@ func _update_wall_direction():
 		wall_direction = move_direction
 	else:
 		wall_direction = -int(is_near_wall_left) + int(is_near_wall_right)
-		if wall_direction != 0:
+		if wall_direction != 0 && !_is_on_ground():
 			facing = -wall_direction
 
 # checks raycasts to see if we are close to a wall
@@ -207,6 +212,5 @@ func _handle_move_input(delta):
 
 	#velocity.x = lerp(velocity.x, new_velocity, _get_h_weight())
 	velocity.x = new_velocity
-	print(velocity.x)
 	if move_direction != 0:
 		$Sprite.scale.x = facing

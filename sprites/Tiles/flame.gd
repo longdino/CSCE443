@@ -1,4 +1,4 @@
-extends Control
+extends AnimatedSprite
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,8 +11,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_Button_pressed():
-	get_tree().change_scene('res://title_scene/title_screen.tscn')
-	pass # Replace with function body.

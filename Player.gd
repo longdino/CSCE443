@@ -66,17 +66,19 @@ var move_direction = 0
 func _ready():
 	jumps = max_jumps
 
+	resetPoint = global_position
+
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)
 	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)
 
 	wall_jump_timer.set_wait_time(wall_jump_duration);
-	
+
 	wall_jump_velocity_y = -sqrt(2 * gravity * max_wall_jump_height_y)
-	
+
 	wall_jump_velocity_x = wall_jump_distance_x / wall_jump_duration
 	wall_jump_deacceleration = wall_jump_velocity_x / wall_jump_duration
-	
+
 	ground_acceleration = SPEED / ground_acceleration_time
 	air_acceleration = SPEED / air_acceleration_time
 
@@ -146,9 +148,11 @@ func _apply_movement():
 
 func set_reset_location(newPosition):
 	resetPoint = newPosition
+	#print(resetPoint)
 
 func get_reset_location():
 	return resetPoint
+	#print(resetPoint)
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():

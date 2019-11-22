@@ -3,8 +3,10 @@ extends "res://StateMachine.gd"
 onready var sprite = parent.get_node("Sprite")
 # handles the player input
 func _input(event):
-	if [states.idle, states.run, states.fall, states.jump].has(state):
+	if [states.idle, states.run, states.fall, states.jump, states.walljump].has(state):
 		if event.is_action_pressed("jump") && parent.jumps > 0:
+			if [states.walljump].has(state):
+				set_state(states.jump)
 			parent.jumps = parent.jumps - 1
 			parent.velocity.y = parent.max_jump_velocity
 
@@ -14,8 +16,7 @@ func _input(event):
 
 	if [states.wallslide].has(state):
 		if event.is_action_pressed("jump"):
-			set_state(states.jump)
-			parent.wall_jump_timer.start()
+			set_state(states.walljump)
 			parent.wall_jump_beta()
 
 	if [states.wallslide, states.idle, states.run, states.fall, states.jump].has(state):
@@ -37,12 +38,13 @@ func _ready():
 	add_state("fall")
 	add_state("wallslide")
 	add_state("dash")
+	add_state("walljump")
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):
 	parent._update_move_direction()
 	parent._update_wall_direction()
-	if state != states.wallslide:
+	if state != states.wallslide && state != states.walljump:
 		parent._handle_move_input(delta)
 	if state != states.dash:
 		parent._apply_gravity(delta)
@@ -111,6 +113,13 @@ func _get_transition(delta):
 					return states.wallslide
 			elif parent.wall_direction != 0 && parent.dash_timer.get_time_left() < 0.9 * parent.dash_duration && !parent._is_on_ground():
 				return states.wallslide
+		states.walljump:
+			if parent.wall_direction != 0 && parent.wall_slide_cooldown.is_stopped():
+				return states.wallslide
+			elif parent._is_on_ground():
+				return states.idle
+			elif parent.velocity.y >= 0:
+				return states.fall
 
 	return null
 
@@ -131,6 +140,9 @@ func _enter_state(new_state, old_state):
 			sprite.play("wallslide")
 		states.dash:
 			sprite.play("dash")
+		states.walljump:
+			sprite.play("jump")
+			parent.air_deacceleration = parent.wall_jump_deacceleration
 
 
 func _exit_state(old_state, new_state):
@@ -138,6 +150,8 @@ func _exit_state(old_state, new_state):
 		states.wallslide:
 			parent.wall_slide_cooldown.start()
 			parent.sprite.scale.x = parent.facing
+		states.walljump:
+			parent.air_deacceleration = parent.norm_air_deacceleration
 	match new_state:
 		states.wallslide:
 			parent.sprite.scale.x = -parent.facing

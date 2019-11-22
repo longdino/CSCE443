@@ -7,6 +7,7 @@
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 99.3439 )
 
 [node name="level1" type="Node2D"]
 
@@ -20,7 +21,7 @@ tile_data = PoolIntArray( 327705, 0, 0, 327706, 0, 0, 327707, 0, 0, 327708, 0, 0
 position = Vector2( 53.2875, 311.343 )
 
 [node name="teleportBlock" type="Area2D" parent="."]
-position = Vector2( 248.949, 257.111 )
+position = Vector2( 656.774, 100.472 )
 script = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
@@ -32,10 +33,9 @@ texture = ExtResource( 4 )
 shape = SubResource( 1 )
 
 [node name="FadeIn" parent="teleportBlock" instance=ExtResource( 5 )]
-visible = false
-margin_left = -248.949
-margin_top = -257.111
-margin_right = 391.051
-margin_bottom = 102.889
+margin_left = -725.0
+margin_top = -128.0
+margin_right = 78.0
+margin_bottom = 319.0
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

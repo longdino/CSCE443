@@ -7,11 +7,11 @@
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=8]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=12]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_01.png" type="Texture" id=13]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_walljump_01.png" type="Texture" id=14]
 
@@ -30,14 +30,14 @@ animations = [ {
 "name": "dash",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -61,6 +61,11 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="WallRaycasts" type="Node2D" parent="CollisionBox"]
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1, 1 )
+frames = SubResource( 2 )
+animation = "idle"
+playing = true
 
 [node name="LeftWallRaycasts" type="Node2D" parent="CollisionBox/WallRaycasts"]
 

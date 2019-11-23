@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/Tiles/temp.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Enviornment/spike1.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Enviornment/landscape03.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=8]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=9]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://teleportBlock.gd" type="Script" id=11]
-[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=12]
-[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=13]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sprites/Enviornment/landscape03.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=10]
+[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=11]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -44,69 +43,64 @@ position = Vector2( 269.349, 245.745 )
 scale = Vector2( 1.83012, 1.59598 )
 texture = ExtResource( 5 )
 
-[node name="spike1" type="Sprite" parent="."]
-position = Vector2( 408.844, 268.019 )
-scale = Vector2( 2.94341, 2.65677 )
-texture = ExtResource( 6 )
-
 [node name="landscape03" type="Sprite" parent="."]
 position = Vector2( 206.742, 125.581 )
 z_index = -1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="Tree_anim_2_03" type="Sprite" parent="landscape03"]
 position = Vector2( -180.48, 104.233 )
 rotation = -3.05645
 scale = Vector2( 1.48057, -1.4838 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_1_02" type="Sprite" parent="landscape03"]
 position = Vector2( -14.7776, 111.17 )
 scale = Vector2( -1.55269, 1.24553 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_1_03" type="Sprite" parent="landscape03"]
 position = Vector2( -14.7776, 111.17 )
 scale = Vector2( -1.55269, 1.24553 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_1_04" type="Sprite" parent="landscape03"]
 position = Vector2( 186.634, 159.502 )
 scale = Vector2( -1.53072, 1.91524 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_2_01" type="Sprite" parent="landscape03"]
 position = Vector2( -103.023, 85.8626 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_2_02" type="Sprite" parent="landscape03"]
 position = Vector2( 106.037, 106.549 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Tree_anim_1_01" type="Sprite" parent="landscape03"]
 position = Vector2( 28.3549, 68.9177 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
-[node name="Player" parent="." instance=ExtResource( 10 )]
+[node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 64.1493, 243.767 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 73.2828, -20.5882 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock1"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock1/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -116,17 +110,17 @@ margin_bottom = 321.926
 [node name="teleportBlock3" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 113.126, -20.5882 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock3"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock3/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock3"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock3" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock3" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -136,17 +130,17 @@ margin_bottom = 321.926
 [node name="teleportBlock2" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 93.0923, -20.4863 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock2"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock2/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock2"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock2" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock2" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -156,17 +150,17 @@ margin_bottom = 321.926
 [node name="teleportBlock4" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 133.459, -20.2814 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock4"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock4/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock4"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock4" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock4" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -176,17 +170,17 @@ margin_bottom = 321.926
 [node name="teleportBlock5" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 153.539, -19.8716 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock5"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock5/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock5"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock5" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock5" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -196,17 +190,17 @@ margin_bottom = 321.926
 [node name="teleportBlock6" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 173.415, -19.8716 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock6"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock6/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock6"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock6" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock6" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -216,17 +210,17 @@ margin_bottom = 321.926
 [node name="teleportBlock7" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 193.291, -19.6667 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock7"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock7/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock7"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock7" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock7" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -236,17 +230,17 @@ margin_bottom = 321.926
 [node name="teleportBlock8" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 213.167, -19.2569 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock8"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock8/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock8"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock8" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock8" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -256,17 +250,17 @@ margin_bottom = 321.926
 [node name="teleportBlock9" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 232.633, -19.4618 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock9"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock9/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock9"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock9" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock9" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -276,17 +270,17 @@ margin_bottom = 321.926
 [node name="teleportBlock10" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 252.099, -19.052 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock10"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock10/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock10"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock10" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock10" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -296,17 +290,17 @@ margin_bottom = 321.926
 [node name="teleportBlock11" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 271.77, -18.8471 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock11"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock11/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock11"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock11" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock11" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -316,17 +310,17 @@ margin_bottom = 321.926
 [node name="teleportBlock12" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 291.441, -19.2569 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock12"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock12/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock12"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock12" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock12" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -336,17 +330,17 @@ margin_bottom = 321.926
 [node name="teleportBlock13" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 311.112, -19.052 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock13"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock13/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock13"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock13" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock13" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -356,17 +350,17 @@ margin_bottom = 321.926
 [node name="teleportBlock14" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 330.782, -19.052 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock14"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock14/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock14"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock14" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock14" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
@@ -376,24 +370,24 @@ margin_bottom = 321.926
 [node name="teleportBlock15" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 350.453, -19.2569 )
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock15"]
 
 [node name="Sprite" type="Sprite" parent="teleportBlock15/StaticBody2D"]
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock15"]
 shape = SubResource( 1 )
 
-[node name="FadeIn" parent="teleportBlock15" instance=ExtResource( 13 )]
+[node name="FadeIn" parent="teleportBlock15" instance=ExtResource( 12 )]
 visible = false
 margin_left = -150.898
 margin_top = -38.0745
 margin_right = 489.102
 margin_bottom = 321.926
 
-[node name="gameMenu" parent="." instance=ExtResource( 14 )]
+[node name="gameMenu" parent="." instance=ExtResource( 13 )]
 [connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
 [connection signal="body_entered" from="teleportBlock3" to="teleportBlock3" method="_on_teleportBlock_body_entered"]

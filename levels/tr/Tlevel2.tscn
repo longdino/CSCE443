@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/Enviornment/Landscape01.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=9]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=10]
+[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=11]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 43.6909 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 67.4875, -9.9014 )
+
+[node name="Maps" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="GroundMap" type="TileMap" parent="Maps"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131091, 20, 0, 131092, 19, 0, 131093, 20, 0, 131094, 19, 0, 131095, 20, 0, 131096, 20, 0, 131097, 19, 0, 131098, 19, 0, 131099, 19, 0, 131100, 19, 0, 131101, 19, 0, 131102, 20, 0, 131103, 19, 0, 131104, 20, 0, 131105, 20, 0, 131106, 19, 0, 131107, 19, 0, 131108, 19, 0, 131109, 19, 0, 131110, 19, 0, 131111, 19, 0, 196625, 9, 0, 196626, 10, 0, 196627, 11, 0, 196628, 10, 0, 196629, 11, 0, 196630, 10, 0, 196631, 11, 0, 196632, 10, 0, 196633, 11, 0, 196634, 10, 0, 196635, 11, 0, 196636, 10, 0, 196637, 11, 0, 196638, 10, 0, 196639, 11, 0, 196640, 10, 0, 196641, 11, 0, 196642, 10, 0, 196643, 11, 0, 196644, 10, 0, 196645, 11, 0, 196646, 10, 0, 196647, 11, 0, 393222, 9, 0, 393223, 11, 0, 393224, -1610612732, 0, 458774, 15, 0, 458775, 18, 0, 458787, 20, 0, 458788, 20, 0, 458790, 20, 0, 524310, 6, 0, 524311, 6, 0, 524321, 15, 0, 524322, 16, 0, 524323, 17, 0, 524324, 16, 0, 524325, 17, 0, 524326, 16, 0, 524327, 18, 0, 589846, 6, 0, 589847, 6, 0, 589857, 7, 0, 589858, 5, 0, 589859, 6, 0, 589860, 5, 0, 589861, 6, 0, 589862, 5, 0, 589863, 8, 0, 655382, 9, 0, 655383, 12, 0, 655393, 7, 0, 655394, 5, 0, 655395, 6, 0, 655396, 5, 0, 655397, 6, 0, 655398, 5, 0, 655399, 8, 0, 720929, 9, 0, 720930, 10, 0, 720931, 11, 0, 720932, 10, 0, 720933, 11, 0, 720934, 10, 0, 720935, 12, 0, 983040, -1073741812, 0, 983069, 20, 0, 1048576, 8, 0, 1048604, 15, 0, 1048605, 17, 0, 1048606, 18, 0, 1114112, 8, 0, 1114140, 7, 0, 1114141, 5, 0, 1114142, 8, 0, 1179648, 8, 0, 1179676, 7, 0, 1179677, 6, 0, 1179678, 8, 0, 1245184, 8, 0, 1245198, 19, 0, 1245212, 7, 0, 1245213, 5, 0, 1245214, 8, 0, 1310720, 8, 0, 1310730, -1610612727, 0, 1310731, 0, 0, 1310732, 2, 0, 1310733, 16, 0, 1310734, 17, 0, 1310735, 1, 0, 1310736, 3, 0, 1310737, 1610612746, 0, 1310738, 1610612745, 0, 1310748, 9, 0, 1310749, 10, 0, 1310750, 12, 0, 1376256, 8, 0, 1376257, 19, 0, 1376258, 19, 0, 1376259, 19, 0, 1376266, 9, 0, 1376267, 11, 0, 1376268, 10, 0, 1376269, 10, 0, 1376270, 11, 0, 1376271, 10, 0, 1376272, 11, 0, 1376273, 10, 0, 1376274, 12, 0, 1441792, -1610612730, 0, 1441793, 17, 0, 1441794, 16, 0, 1441795, 17, 0, 1441796, 18, 0 )
+
+[node name="HazardMap" type="TileMap" parent="Maps"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -25.5528, 343.762 )
+
+[node name="backdrop" type="Sprite" parent="."]
+position = Vector2( 252.261, 190.485 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="Tree_anim_2_03" type="Sprite" parent="backdrop"]
+position = Vector2( -248.582, 76.8892 )
+rotation = 3.05645
+scale = Vector2( 1.48057, -1.4838 )
+texture = ExtResource( 5 )
+
+[node name="Tree_anim_1_03" type="Sprite" parent="backdrop"]
+position = Vector2( 10.079, 54.4322 )
+rotation = -3.14159
+scale = Vector2( 1.55269, -1.24553 )
+texture = ExtResource( 6 )
+
+[node name="Tree_anim_1_04" type="Sprite" parent="backdrop"]
+position = Vector2( 241.751, 68.7215 )
+scale = Vector2( -1.53072, 1.91524 )
+texture = ExtResource( 6 )
+
+[node name="Tree_anim_2_01" type="Sprite" parent="backdrop"]
+position = Vector2( -152.361, 68.9467 )
+scale = Vector2( 1.69801, 1.61549 )
+texture = ExtResource( 5 )
+
+[node name="Tree_anim_2_02" type="Sprite" parent="backdrop"]
+position = Vector2( 70.7454, 67.9373 )
+scale = Vector2( -1.90199, 1.61549 )
+texture = ExtResource( 5 )
+
+[node name="Tree_anim_1_01" type="Sprite" parent="backdrop"]
+position = Vector2( -59.2807, 72.7667 )
+scale = Vector2( 1.69801, 1.61549 )
+texture = ExtResource( 6 )
+
+[node name="Tree_anim_1_02" type="Sprite" parent="backdrop"]
+visible = false
+position = Vector2( -21.2637, 44.9194 )
+rotation = -3.14159
+scale = Vector2( 1.55269, -1.24553 )
+texture = ExtResource( 6 )
+
+[node name="log1" type="Sprite" parent="backdrop"]
+position = Vector2( 280.429, -56.2866 )
+scale = Vector2( 1.83012, 1.59598 )
+texture = ExtResource( 7 )
+
+[node name="log2" type="Sprite" parent="backdrop"]
+position = Vector2( -100.619, 131.335 )
+scale = Vector2( 1.89398, 1.74498 )
+texture = ExtResource( 8 )
+
+[node name="rock_1" type="Sprite" parent="backdrop"]
+position = Vector2( 252.84, -142.111 )
+texture = ExtResource( 9 )
+
+[node name="rock_3" type="Sprite" parent="backdrop"]
+position = Vector2( 305.254, -145.354 )
+rotation = 0.460867
+texture = ExtResource( 9 )
+
+[node name="rock_2" type="Sprite" parent="backdrop"]
+position = Vector2( 279.858, -142.652 )
+rotation = -1.07046
+texture = ExtResource( 9 )
+
+[node name="teleportBlock" type="Area2D" parent="backdrop"]
+position = Vector2( 310.234, -81.92 )
+script = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="backdrop/teleportBlock"]
+
+[node name="Sprite" type="Sprite" parent="backdrop/teleportBlock/StaticBody2D"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backdrop/teleportBlock"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="backdrop/teleportBlock" instance=ExtResource( 12 )]
+margin_left = -73.2064
+margin_top = -117.915
+margin_right = 976.794
+margin_bottom = 400.085
+[connection signal="body_entered" from="backdrop/teleportBlock" to="backdrop/teleportBlock" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="backdrop/teleportBlock/FadeIn" to="backdrop/teleportBlock" method="_on_FadeIn_fade_finished"]

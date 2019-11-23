@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Checkpoint.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=6]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://fade_in/fade_in.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -89,7 +88,6 @@ text = "This is a tutorial level for dash"
 readonly = true
 
 [node name="teleportBlock" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 652.191, 52.6644 )
 script = ExtResource( 6 )
 
@@ -101,16 +99,11 @@ texture = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock"]
 shape = SubResource( 3 )
 
-[node name="FadeIn" type="ColorRect" parent="teleportBlock" instance=ExtResource( 8 )]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="FadeIn" parent="teleportBlock" instance=ExtResource( 8 )]
 margin_left = -650.179
 margin_top = -131.988
 margin_right = 399.821
 margin_bottom = 386.012
-color = Color( 0, 0, 0, 0 )
-script = ExtResource( 9 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="hazard" to="hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]

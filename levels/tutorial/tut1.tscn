@@ -65,11 +65,10 @@ position = Vector2( -643.631, 8.95728 )
 shape = SubResource( 3 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 5 )]
-visible = false
-margin_left = -150.898
-margin_top = -38.0745
-margin_right = 489.102
-margin_bottom = 321.926
+margin_left = -664.0
+margin_top = -91.0
+margin_right = 77.0
+margin_bottom = 378.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )

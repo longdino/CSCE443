@@ -29,6 +29,8 @@ func _on_Bullet_body_entered(body):
 		# print(body.get_reset_location())
 		body.position = body.get_reset_location()
 		resetBullet()
+	else:
+		resetBullet()
 			
 func resetBullet():
 	var secondPath = "../../Bullet"

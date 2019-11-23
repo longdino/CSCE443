@@ -71,3 +71,21 @@ func _process(delta):
 			get_node("hazard2").visible = false;
 			get_node("hazard3").visible = false;
 			get_node("hazard4").visible = false;
+	# Tutorial 5
+	if (has_node("ai1")):
+		if((player.position.x > 200) && (player.position.y < 180)):
+			get_node("ai1").visible = true;
+			get_node("ai2").visible = false;
+			get_node("ai3").visible = false;
+		elif((player.position.x < 300) && (player.position.y > 180)):
+			get_node("ai1").visible = false;
+			get_node("ai2").visible = true;
+			get_node("ai3").visible = false;
+		elif((player.position.x > 300) && (player.position.y > 180)):
+			get_node("ai1").visible = false;
+			get_node("ai2").visible = false;
+			get_node("ai3").visible = true;
+		else:
+			get_node("ai1").visible = false;
+			get_node("ai2").visible = false;
+			get_node("ai3").visible = false;

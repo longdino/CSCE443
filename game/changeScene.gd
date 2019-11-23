@@ -17,7 +17,7 @@ func _on_Button_pressed():
 	get_tree().change_scene('res://title_scene/title_screen.tscn')
 	
 func _on_Level1Button_pressed():
-	scene_path_to_load = 'res://sprites/Tiles/temp.tscn'
+	scene_path_to_load = 'res://levels/hj/Hlevel1.tscn'#'res://sprites/Tiles/temp.tscn'
 	$FadeIn.show()
 	$FadeIn.fade_in()
 	pass # Replace with function body.

@@ -7,7 +7,7 @@ func _input(event):
 		if event.is_action_pressed("jump") && parent.jumps > 0:
 			if [states.walljump].has(state):
 				set_state(states.jump)
-			parent.jumps = parent.jumps - 1
+			parent.jumps -= 1
 			parent.velocity.y = parent.max_jump_velocity
 
 	if [states.jump].has(state):
@@ -19,9 +19,10 @@ func _input(event):
 			set_state(states.walljump)
 			parent.wall_jump_beta()
 
-	if [states.wallslide, states.idle, states.run, states.fall, states.jump].has(state):
-		if event.is_action_pressed("dash"):
+	if [states.wallslide, states.idle, states.run, states.fall, states.jump, states.walljump].has(state):
+		if event.is_action_pressed("dash") && parent.dashes > 0:
 			set_state(states.dash)
+			parent.dashes -= 1
 			parent.dash_timer.start()
 			parent.dash()
 
@@ -39,6 +40,7 @@ func _ready():
 	add_state("wallslide")
 	add_state("dash")
 	add_state("walljump")
+	add_state("dead")
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):
@@ -120,29 +122,40 @@ func _get_transition(delta):
 				return states.idle
 			elif parent.velocity.y >= 0:
 				return states.fall
+		states.dead:
+			if parent._is_on_ground():
+				return states.idle
+			elif parent.velocity.y >= 0:
+				return states.fall
 
 	return null
 
 func _enter_state(new_state, old_state):
 	parent.get_node("State Label").set_text(states.keys()[new_state])
+	print(new_state)
 	match new_state:
 		states.idle:
 			sprite.play("idle")
 			parent.jumps = parent.max_jumps
+			parent.dashes = parent.max_dashes
 		states.run:
 			sprite.play("run")
 			parent.jumps = parent.max_jumps
+			parent.dashes = parent.max_dashes
 		states.jump:
 			sprite.play("jump")
 		states.fall:
 			sprite.play("fall")
 		states.wallslide:
 			sprite.play("wallslide")
+			parent.dashes = parent.max_dashes
 		states.dash:
 			sprite.play("dash")
 		states.walljump:
 			sprite.play("jump")
 			parent.air_deacceleration = parent.wall_jump_deacceleration
+		states.dead:
+			pass
 
 
 func _exit_state(old_state, new_state):
@@ -162,7 +175,7 @@ func _on_WallSlideStickTimer_timeout():
 
 
 func _on_GhostTimer_timeout():
-	if [states.dash].has(state):
+	if [states.dash, states.walljump].has(state):
 		var this_ghost = preload("res://ghost.tscn").instance()
 		# adds the ghost to the actual scene rather than the player
 		get_parent().get_parent().add_child(this_ghost)

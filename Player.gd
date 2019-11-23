@@ -10,16 +10,19 @@ var max_jump_height = 16 * 4.25
 var min_jump_height = 16 * 0.8
 var max_jump_velocity
 var min_jump_velocity
-var jump_duration = 0.5
+var jump_duration = 0.4
 var gravity
 var max_jumps = 2
+var jumps
+var max_dashes = 1
+var dashes
 
 
 var max_wall_jump_height_y = 16 * 3
 var wall_jump_distance_x = 16 * 4
 var wall_jump_velocity_x
 var wall_jump_velocity_y
-var wall_jump_duration = .3
+var wall_jump_duration = .27
 var wall_jump_deacceleration
 
 
@@ -47,9 +50,9 @@ var ground_deacceleration_weight = 0.4
 var facing = 1
 
 # Cached nodes
-onready var left_wall_raycasts = $WallRaycasts/LeftWallRaycasts
-onready var right_wall_raycasts = $WallRaycasts/RightWallRaycasts
-onready var floor_raycasts = $FloorRaycasts
+onready var left_wall_raycasts = $CollisionBox/WallRaycasts/LeftWallRaycasts
+onready var right_wall_raycasts = $CollisionBox/WallRaycasts/RightWallRaycasts
+onready var floor_raycasts = $CollisionBox/FloorRaycasts
 onready var wall_slide_cooldown = $WallSlideCooldown
 onready var wall_slide_sticky_timer = $WallSlideStickTimer
 onready var dash_timer = $DashTimer
@@ -57,7 +60,6 @@ onready var sprite = $Sprite
 onready var wall_jump_timer = $WallJumpTimer
 
 var velocity = Vector2()
-var jumps
 var on_ground = false
 var resetPoint = Vector2(0,0)
 var wall_direction = 0
@@ -151,6 +153,7 @@ func set_reset_location(newPosition):
 	#print(resetPoint)
 
 func get_reset_location():
+	get_node("FSM").set_state(get_node("FSM").states.dead)
 	return resetPoint
 	#print(resetPoint)
 

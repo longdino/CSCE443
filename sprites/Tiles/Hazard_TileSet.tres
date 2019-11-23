@@ -7,7 +7,7 @@
 [ext_resource path="res://sprites/Enviornment/Fire_anim_1_04.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Enviornment/small_spike_1.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 10.8167 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -25,7 +25,7 @@ frame_2/delay_sec = 0.0
 frame_3/texture = ExtResource( 5 )
 frame_3/delay_sec = 0.0
 
-[sub_resource type="AnimatedTexture" id=6]
+[sub_resource type="AnimatedTexture" id=5]
 frames = 4
 fps = 8.0
 frame_0/texture = ExtResource( 2 )
@@ -49,7 +49,7 @@ frame_3/delay_sec = 0.0
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 0.8, 0, 0, 0.6, 7.9999, 9.50005 )
 } ]
 0/z_index = 0
@@ -91,12 +91,12 @@ frame_3/delay_sec = 0.0
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 0.8, 0, 0, 0.6, 7.9999, 9.50005 )
 } ]
 3/z_index = 0
 4/name = "fire01"
-4/texture = SubResource( 6 )
+4/texture = SubResource( 5 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 16, 16 )

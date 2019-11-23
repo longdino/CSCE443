@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://BreakBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FallBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Switch.tscn" type="PackedScene" id=6]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BreakBlock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 383.856, 328.036 )
+
+[node name="FallBlock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 247.13, 328.873 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 161.653, 298.681 )
+input_pickable = true
+collision_layer = 17
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 720896, 0, 0, 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0, 1048576, 0, 0, 1114112, 0, 0, 1179648, 0, 0, 1245184, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310746, 0, 0, 1310747, 0, 0, 1310748, 0, 0, 1310749, 0, 0, 1310750, 0, 0, 1310751, 0, 0, 1310752, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, 1310756, 0, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 5 )]
+position = Vector2( 608.805, 281.207 )
+
+[node name="Switch" parent="." instance=ExtResource( 6 )]
+position = Vector2( 473.752, 283.716 )

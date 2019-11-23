@@ -14,6 +14,7 @@ func _ready():
 
 
 func _on_ResumeButton_pressed():
+	self.hide()
 	pass # Replace with function body.
 
 

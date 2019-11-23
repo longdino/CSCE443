@@ -61,11 +61,6 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="WallRaycasts" type="Node2D" parent="CollisionBox"]
-[node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1, 1 )
-frames = SubResource( 2 )
-animation = "idle"
-playing = true
 
 [node name="LeftWallRaycasts" type="Node2D" parent="CollisionBox/WallRaycasts"]
 

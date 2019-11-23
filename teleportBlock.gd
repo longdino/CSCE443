@@ -50,6 +50,8 @@ func _on_FadeIn_fade_finished():
 		scene_path_to_load = "res://levels/hj/Hlevel1.tscn"
 	elif present_scene_path == "tut1":
 		scene_path_to_load = "res://levels/tutorial/tut2.tscn" 
+	elif present_scene_path == "tut2":
+		scene_path_to_load = "res://levels/tutorial/tut3.tscn" 
 	else:
 		scene_path_to_load = "res://levels/tut/tut1.tscn"
 		

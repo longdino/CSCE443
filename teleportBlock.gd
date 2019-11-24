@@ -61,7 +61,13 @@ func _on_FadeIn_fade_finished():
 	elif present_scene_path == "tut1":
 		scene_path_to_load = "res://levels/tutorial/tut2.tscn" 
 	elif present_scene_path == "tut2":
-		scene_path_to_load = "res://levels/tutorial/tut3.tscn" 
+		scene_path_to_load = "res://levels/tutorial/tut3.tscn"
+	elif present_scene_path == "tut3":
+		scene_path_to_load = "res://levels/tutorial/tut4.tscn" 
+	elif present_scene_path == "tut4":
+		scene_path_to_load = "res://levels/tutorial/tut5.tscn"
+	elif present_scene_path == "tut5":
+		scene_path_to_load = "res://levels/level1.tscn" 
 	else:
 		scene_path_to_load = "res://levels/tut/tut1.tscn"
 		

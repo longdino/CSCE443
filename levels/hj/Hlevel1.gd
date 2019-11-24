@@ -1,5 +1,6 @@
 extends Node2D
 var gamePopUpMenu
+onready var menu = $GamePopupMenu/PopupMenu
 onready var anim_player = get_node("AnimationPlayer")
 onready var player = $Player
 # Declare member variables here. Examples:
@@ -9,6 +10,7 @@ onready var player = $Player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#player.
+	
 	gamePopUpMenu = get_node("GamePopupMenu")
 	#anim_player.connect("animation_finished", self, "on_finished")
 	get_tree().get_root().set_disable_input(true)
@@ -23,7 +25,8 @@ func on_finished():
 	$AnimationPlayer/RichTextLabel.hide()
 
 func _on_MenuButton_pressed():
-	gamePopUpMenu.show()
+	#gamePopUpMenu.show()
+	menu.show()
 	
 	#pass # Replace with function body.
 

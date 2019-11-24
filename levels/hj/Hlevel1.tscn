@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/hj/Hlevel1.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://title_scene/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://GamePopupMenu.gd" type="Script" id=10]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "dialogue"
@@ -35,9 +35,6 @@ extents = Vector2( 43.2329, 10 )
 extents = Vector2( 10, 99.3439 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 9 )
 
 [node name="Hlevel1" type="Node2D"]
@@ -100,47 +97,15 @@ margin_bottom = 386.012
 [node name="MenuButton" type="Button" parent="."]
 margin_left = 0.936203
 margin_top = 0.936203
-margin_right = 59.9362
+margin_right = 22.9362
 margin_bottom = 27.9362
 custom_fonts/font = SubResource( 4 )
-text = "Menu"
+text = "||"
 
-[node name="GamePopupMenu" type="PopupMenu" parent="."]
-margin_left = 3.74478
-margin_top = -0.936188
-margin_right = 23.7448
-margin_bottom = 19.0638
-script = ExtResource( 10 )
-
-[node name="ResumeButton" type="Button" parent="GamePopupMenu"]
-margin_left = 280.858
-margin_top = 134.812
-margin_right = 361.858
-margin_bottom = 161.812
-custom_fonts/font = SubResource( 5 )
-text = "Resume"
-
-[node name="GameMenuButton" type="Button" parent="GamePopupMenu"]
-margin_left = 280.858
-margin_top = 168.515
-margin_right = 393.858
-margin_bottom = 195.515
-rect_scale = Vector2( 0.722202, 1.10323 )
-custom_fonts/font = SubResource( 5 )
-text = "Game Menu"
-
-[node name="ExitButton" type="Button" parent="GamePopupMenu"]
-margin_left = 281.794
-margin_top = 202.218
-margin_right = 362.794
-margin_bottom = 229.218
-custom_fonts/font = SubResource( 5 )
-text = "Exit"
+[node name="GamePopupMenu" parent="." instance=ExtResource( 10 )]
+visible = false
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
-[connection signal="pressed" from="GamePopupMenu/ResumeButton" to="GamePopupMenu" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="GamePopupMenu/GameMenuButton" to="GamePopupMenu" method="_on_GameMenuButton_pressed"]
-[connection signal="pressed" from="GamePopupMenu/ExitButton" to="GamePopupMenu" method="_on_ExitButton_pressed"]

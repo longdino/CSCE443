@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/hj/Hlevel1.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=6]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://title_scene/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "dialogue"
@@ -34,9 +33,6 @@ extents = Vector2( 43.2329, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 99.3439 )
 
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 9 )
-
 [node name="Hlevel1" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -44,6 +40,7 @@ script = ExtResource( 1 )
 anims/dialogue = SubResource( 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="AnimationPlayer"]
+visible = false
 margin_left = 237.0
 margin_top = 142.0
 margin_right = 432.0
@@ -94,18 +91,8 @@ margin_top = -131.988
 margin_right = 399.821
 margin_bottom = 386.012
 
-[node name="MenuButton" type="Button" parent="."]
-margin_left = 0.936203
-margin_top = 0.936203
-margin_right = 22.9362
-margin_bottom = 27.9362
-custom_fonts/font = SubResource( 4 )
-text = "||"
-
-[node name="GamePopupMenu" parent="." instance=ExtResource( 10 )]
-visible = false
+[node name="GamePopupMenu" parent="." instance=ExtResource( 9 )]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

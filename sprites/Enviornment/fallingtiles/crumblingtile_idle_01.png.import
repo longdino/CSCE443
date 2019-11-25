@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chaser_idle_02.png-76635484f296c39cc47654187476fb9c.stex"
+path="res://.import/crumblingtile_idle_01.png-18c5f12d69ea85f510e048874ecbd500.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Characters/Chaser/chaser_idle_02.png"
-dest_files=[ "res://.import/chaser_idle_02.png-76635484f296c39cc47654187476fb9c.stex" ]
+source_file="res://sprites/Enviornment/fallingtiles/crumblingtile_idle_01.png"
+dest_files=[ "res://.import/crumblingtile_idle_01.png-18c5f12d69ea85f510e048874ecbd500.stex" ]
 
 [params]
 

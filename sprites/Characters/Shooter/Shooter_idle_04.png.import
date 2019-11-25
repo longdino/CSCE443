@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chaser_idle_01.png-672d47d72e615245ca718b583222cec9.stex"
+path="res://.import/Shooter_idle_04.png-782249a3e136b65619f409563e7584d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Characters/Chaser/chaser_idle_01.png"
-dest_files=[ "res://.import/chaser_idle_01.png-672d47d72e615245ca718b583222cec9.stex" ]
+source_file="res://sprites/Characters/Shooter/Shooter_idle_04.png"
+dest_files=[ "res://.import/Shooter_idle_04.png-782249a3e136b65619f409563e7584d7.stex" ]
 
 [params]
 

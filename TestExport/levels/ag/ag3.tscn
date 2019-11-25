@@ -1,0 +1,324 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hazard.gd" type="Script" id=3]
+[ext_resource path="res://Checkpoint.gd" type="Script" id=4]
+[ext_resource path="res://Switch.gd" type="Script" id=5]
+[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=6]
+[ext_resource path="res://sprites/doorBlock.png" type="Texture" id=7]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=8]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://BreakBlock.gd" type="Script" id=10]
+[ext_resource path="res://sprites/breakBlock.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=12]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 128 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 7 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Sprite
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+func removeDoor():
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 34 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 64 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+[node name="ag3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -65521, 3, 0, -65520, 3, 0, -65519, 3, 0, -65518, 3, 0, -65517, 3, 0, -65516, 3, 0, -65515, 3, 0, -65514, 3, 0, -65513, 3, 0, -65512, 3, 0, -65511, 3, 0, -65510, 3, 0, -65509, 3, 0, -65508, 3, 0, -65507, 3, 0, -65506, 3, 0, -65505, 3, 0, -65504, 3, 0, -65503, 3, 0, -65502, 3, 0, -65501, 3, 0, -65500, 3, 0, -65499, 3, 0, -65498, 3, 0, -65497, 3, 0, 0, 3, 0, 65536, 3, 0, 131072, 3, 0, 196608, 3, 0, 262144, 3, 0, 327680, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 3, 0, 327695, 3, 0, 327696, 3, 0, 327697, 3, 0, 327698, 3, 0, 327699, 3, 0, 327700, 3, 0, 327701, 3, 0, 327702, 3, 0, 327703, 3, 0, 327704, 3, 0, 327705, 3, 0, 327706, 3, 0, 327707, 3, 0, 327708, 3, 0, 327709, 3, 0, 327710, 3, 0, 327711, 3, 0, 327712, 3, 0, 327713, 3, 0, 327714, 3, 0, 327715, 3, 0, 327716, 3, 0, 327717, 3, 0, 327718, 3, 0, 327719, 3, 0, 393216, 3, 0, 393223, 3, 0, 393255, 3, 0, 458752, 3, 0, 458759, 3, 0, 458791, 3, 0, 524288, 3, 0, 524295, 3, 0, 524327, 3, 0, 589824, 3, 0, 589831, 3, 0, 589863, 3, 0, 655360, 3, 0, 655367, 3, 0, 655399, 3, 0, 720896, 3, 0, 720903, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 3, 0, 720917, 3, 0, 720918, 3, 0, 720919, 3, 0, 720920, 3, 0, 720921, 3, 0, 720922, 3, 0, 720923, 3, 0, 720924, 3, 0, 720925, 3, 0, 720926, 3, 0, 720927, 3, 0, 720928, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 720932, 3, 0, 720933, 3, 0, 720934, 3, 0, 720935, 3, 0, 786432, 3, 0, 786439, 3, 0, 786471, 3, 0, 851968, 3, 0, 851975, 3, 0, 852007, 3, 0, 917504, 3, 0, 917511, 3, 0, 917543, 3, 0, 983040, 3, 0, 983047, 3, 0, 983079, 3, 0, 1048576, 3, 0, 1048583, 3, 0, 1048615, 3, 0, 1114112, 3, 0, 1114119, 3, 0, 1114127, 3, 0, 1114128, 3, 0, 1114129, 3, 0, 1114130, 3, 0, 1114131, 3, 0, 1114132, 3, 0, 1114133, 3, 0, 1114134, 3, 0, 1114135, 3, 0, 1114136, 3, 0, 1114137, 3, 0, 1114138, 3, 0, 1114139, 3, 0, 1114140, 3, 0, 1114141, 3, 0, 1114142, 3, 0, 1114143, 3, 0, 1114144, 3, 0, 1114145, 3, 0, 1114146, 3, 0, 1114147, 3, 0, 1114148, 3, 0, 1114149, 3, 0, 1114150, 3, 0, 1114151, 3, 0, 1179687, 3, 0, 1245223, 3, 0, 1310759, 3, 0, 1376295, 3, 0, 1441792, 3, 0, 1441793, 3, 0, 1441794, 3, 0, 1441795, 3, 0, 1441796, 3, 0, 1441797, 3, 0, 1441798, 3, 0, 1441799, 3, 0, 1441800, 3, 0, 1441801, 3, 0, 1441802, 3, 0, 1441803, 3, 0, 1441804, 3, 0, 1441805, 3, 0, 1441806, 3, 0, 1441807, 3, 0, 1441824, 3, 0, 1441825, 3, 0, 1441826, 3, 0, 1441827, 3, 0, 1441828, 3, 0, 1441829, 3, 0, 1441830, 3, 0, 1441831, 3, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 55.0875, 329.042 )
+
+[node name="outofbounds" type="Area2D" parent="."]
+position = Vector2( -4.15247, 325.991 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds"]
+position = Vector2( -65.3667, 28.9502 )
+rotation = -0.785398
+shape = SubResource( 1 )
+
+[node name="outofbounds2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 380.711, 403.517 )
+rotation = 1.5708
+scale = Vector2( 1, 2.5 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds2"]
+position = Vector2( 0.177635, -0.167145 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="fireHazard1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 303.883, 268.424 )
+rotation = 1.5708
+scale = Vector2( 1, 2.5 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fireHazard1"]
+position = Vector2( -1.10446, -0.0631104 )
+shape = SubResource( 2 )
+
+[node name="fireHazard2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 399.727, 268.662 )
+rotation = 1.5708
+scale = Vector2( 1, 2.5 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fireHazard2"]
+position = Vector2( -1.10446, -0.0631104 )
+shape = SubResource( 2 )
+
+[node name="fireHazard3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 495.572, 268.424 )
+rotation = 1.5708
+scale = Vector2( 1, 2.5 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fireHazard3"]
+position = Vector2( -1.10446, -0.0631104 )
+shape = SubResource( 2 )
+
+[node name="Checkpoint" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 29.5904, 327.381 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2( 1.0145, 3.50836 )
+shape = SubResource( 3 )
+
+[node name="Switch1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 575.262, 139.226 )
+script = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch1"]
+position = Vector2( 0.0577092, -0.242981 )
+
+[node name="Sprite" type="Sprite" parent="Switch1/StaticBody2D"]
+position = Vector2( 0.025177, 0.109222 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1/StaticBody2D"]
+position = Vector2( -0.200409, 0.340973 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1"]
+position = Vector2( -0.0186768, -0.0723877 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 5 )
+
+[node name="Switch2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 575.861, 229.636 )
+script = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch2"]
+position = Vector2( 0.0577092, -0.242981 )
+
+[node name="Sprite" type="Sprite" parent="Switch2/StaticBody2D"]
+position = Vector2( 0.025177, 0.109222 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2/StaticBody2D"]
+position = Vector2( -0.200409, 0.340973 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2"]
+position = Vector2( -0.0186768, -0.0723877 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 5 )
+
+[node name="Switch3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 576.46, 326.033 )
+script = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch3"]
+position = Vector2( 0.0577092, -0.242981 )
+
+[node name="Sprite" type="Sprite" parent="Switch3/StaticBody2D"]
+position = Vector2( 0.025177, 0.109222 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch3/StaticBody2D"]
+position = Vector2( -0.200409, 0.340973 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch3"]
+position = Vector2( -0.0186768, -0.0723877 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 5 )
+
+[node name="Door1" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 394.133, 40.7935 )
+texture = ExtResource( 7 )
+script = SubResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D"]
+shape = SubResource( 7 )
+
+[node name="Door2" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 462.987, 38.9973 )
+texture = ExtResource( 7 )
+script = SubResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
+shape = SubResource( 7 )
+
+[node name="Door3" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 535.435, 37.7998 )
+texture = ExtResource( 7 )
+script = SubResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/StaticBody2D"]
+shape = SubResource( 7 )
+
+[node name="teleportBlock1" type="Area2D" parent="."]
+position = Vector2( 638.688, 29.5885 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
+position = Vector2( 0.13385, -3.11804 )
+shape = SubResource( 8 )
+
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 9 )]
+margin_left = -746.0
+margin_top = -82.0
+margin_right = 489.0
+margin_bottom = 440.0
+
+[node name="BreakBlock" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 281.669, 360.429 )
+script = ExtResource( 10 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock"]
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="BreakBlock/RigidBody2D"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock/RigidBody2D"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock"]
+shape = SubResource( 10 )
+
+[node name="BreakBlock2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 372.199, 358.842 )
+script = ExtResource( 10 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock2"]
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="BreakBlock2/RigidBody2D"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock2/RigidBody2D"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock2"]
+shape = SubResource( 10 )
+
+[node name="BreakBlock3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 467.706, 359.823 )
+script = ExtResource( 10 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock3"]
+mode = 1
+
+[node name="Sprite" type="Sprite" parent="BreakBlock3/RigidBody2D"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock3/RigidBody2D"]
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock3"]
+shape = SubResource( 10 )
+
+[node name="Hazards" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1048594, 4, 0, 1048595, 4, 0, 1048600, 4, 0, 1048601, 4, 0, 1048606, 4, 0, 1048607, 4, 0 )
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
+margin_left = 0.611389
+margin_right = 0.61142
+[connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="fireHazard1" to="fireHazard1" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="fireHazard2" to="fireHazard2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="fireHazard3" to="fireHazard3" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="Switch3" to="Switch3" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="BreakBlock" to="BreakBlock" method="_on_BreakBlock_body_entered"]
+[connection signal="body_entered" from="BreakBlock2" to="BreakBlock2" method="_on_BreakBlock_body_entered"]
+[connection signal="body_entered" from="BreakBlock3" to="BreakBlock3" method="_on_BreakBlock_body_entered"]

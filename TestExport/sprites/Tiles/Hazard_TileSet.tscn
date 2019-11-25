@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/Enviornment/spike1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_01.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_02.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_03.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Enviornment/Fire_anim_1_04.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Enviornment/small_spike_1.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 10.8167 )
+
+[sub_resource type="AnimatedTexture" id=6]
+frames = 4
+fps = 8.0
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 3 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 4 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 5 )
+frame_3/delay_sec = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="spikeset_01png" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 25, 0 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 48, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="spikeset_01png"]
+position = Vector2( 0, 1.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikeset_01png/StaticBody2D"]
+position = Vector2( -9.53674e-005, 4.76837e-005 )
+scale = Vector2( 0.8, 0.6 )
+shape = SubResource( 5 )
+
+[node name="fire01" type="Sprite" parent="."]
+texture = SubResource( 6 )
+
+[node name="spikeset_01png3" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 50, 0 )
+texture = ExtResource( 6 )
+region_rect = Rect2( 48, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="spikeset_01png3"]
+position = Vector2( 0, 1.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikeset_01png3/StaticBody2D"]
+position = Vector2( -9.53674e-005, 4.76837e-005 )
+scale = Vector2( 0.8, 0.6 )
+shape = SubResource( 5 )

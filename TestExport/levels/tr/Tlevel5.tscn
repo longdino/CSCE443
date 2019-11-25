@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=5]
+[ext_resource path="res://sprites/Enviornment/Landscape01.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=8]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=9]
+[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=10]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 28.7285 )
+
+[node name="Tlevel5" type="Node2D"]
+position = Vector2( 67.4875, -9.9014 )
+
+[node name="Checkpoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( -48.4446, 315.181 )
+
+[node name="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -66.0179, 6.85901 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -46.7886, 312.855 )
+
+[node name="Maps" type="Node" parent="."]
+
+[node name="GroundMap" type="TileMap" parent="Maps"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131105, 10, 0, 131106, 10, 0, 131107, 10, 0, 131108, 10, 0, 131109, 10, 0, 131110, 10, 0, 131111, 10, 0, 524304, 6, 0, 524305, 6, 0, 524306, 6, 0, 589840, 9, 0, 589841, 6, 0, 589842, 12, 0, 589850, 27, 0, 589851, 27, 0, 589852, 27, 0, 589853, 27, 0, 1048584, 28, 0, 1048585, 28, 0, 1048586, 28, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0 )
+
+[node name="HazardMap" type="TileMap" parent="Maps"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="backdrop" type="Sprite" parent="."]
+position = Vector2( 252.261, 190.485 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="Tree_anim_2_03" type="Sprite" parent="backdrop"]
+position = Vector2( -248.582, 76.8892 )
+rotation = 3.05645
+scale = Vector2( 1.48057, -1.4838 )
+texture = ExtResource( 7 )
+
+[node name="Tree_anim_1_03" type="Sprite" parent="backdrop"]
+position = Vector2( 10.079, 54.4322 )
+rotation = -3.14159
+scale = Vector2( 1.55269, -1.24553 )
+texture = ExtResource( 8 )
+
+[node name="Tree_anim_1_04" type="Sprite" parent="backdrop"]
+position = Vector2( 241.751, 68.7215 )
+scale = Vector2( -1.53072, 1.91524 )
+texture = ExtResource( 8 )
+
+[node name="Tree_anim_2_01" type="Sprite" parent="backdrop"]
+position = Vector2( -152.361, 68.9467 )
+scale = Vector2( 1.69801, 1.61549 )
+texture = ExtResource( 7 )
+
+[node name="Tree_anim_2_02" type="Sprite" parent="backdrop"]
+position = Vector2( 70.7454, 67.9373 )
+scale = Vector2( -1.90199, 1.61549 )
+texture = ExtResource( 7 )
+
+[node name="Tree_anim_2_04" type="Sprite" parent="backdrop"]
+position = Vector2( 167.279, 76.8909 )
+scale = Vector2( -1.90199, 1.61549 )
+texture = ExtResource( 7 )
+
+[node name="Tree_anim_1_01" type="Sprite" parent="backdrop"]
+position = Vector2( -78.3931, 42.6279 )
+scale = Vector2( 1.69801, 1.61549 )
+texture = ExtResource( 8 )
+
+[node name="Tree_anim_1_02" type="Sprite" parent="backdrop"]
+visible = false
+position = Vector2( -21.2637, 44.9194 )
+rotation = -3.14159
+scale = Vector2( 1.55269, -1.24553 )
+texture = ExtResource( 8 )
+
+[node name="teleportBlock" type="Area2D" parent="backdrop"]
+position = Vector2( 308.677, -174.581 )
+script = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="backdrop/teleportBlock"]
+
+[node name="Sprite" type="Sprite" parent="backdrop/teleportBlock/StaticBody2D"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backdrop/teleportBlock"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="backdrop/teleportBlock" instance=ExtResource( 11 )]
+margin_left = -650.179
+margin_top = -131.988
+margin_right = 399.821
+margin_bottom = 386.012
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
+show_behind_parent = true
+margin_left = -66.8188
+margin_top = 13.5375
+margin_right = -66.8188
+margin_bottom = 13.5375
+[connection signal="body_entered" from="backdrop/teleportBlock" to="backdrop/teleportBlock" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="backdrop/teleportBlock/FadeIn" to="backdrop/teleportBlock" method="_on_FadeIn_fade_finished"]

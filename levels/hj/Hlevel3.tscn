@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
@@ -8,19 +8,14 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=6]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://FallBlock.gd" type="Script" id=9]
-[ext_resource path="res://sprites/fallBlock.png" type="Texture" id=10]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://BreakBlock.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.1659, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 43.6909 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-[sub_resource type="RectangleShape2D" id=4]
 
 [node name="Hlevel3" type="Node2D"]
 position = Vector2( -0.836182, 0 )
@@ -70,25 +65,11 @@ margin_top = -117.915
 margin_right = 976.794
 margin_bottom = 400.085
 
-[node name="FallBlock" type="Area2D" parent="."]
-position = Vector2( 238.39, 220.297 )
-script = ExtResource( 9 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="FallBlock"]
-mode = 3
-
-[node name="Sprite" type="Sprite" parent="FallBlock/RigidBody2D"]
-texture = ExtResource( 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock/RigidBody2D"]
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock"]
-shape = SubResource( 4 )
-
-[node name="GamePopupMenu" parent="." instance=ExtResource( 11 )]
+[node name="GamePopupMenu" parent="." instance=ExtResource( 9 )]
 show_behind_parent = true
+
+[node name="BreakBlock" parent="." instance=ExtResource( 10 )]
+position = Vector2( 241.189, 216.044 )
 [connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]
-[connection signal="body_entered" from="FallBlock" to="FallBlock" method="_on_FallBlock_body_entered"]

@@ -4,15 +4,15 @@
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sprites/Enviornment/Landscape01.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=8]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=10]
-[ext_resource path="res://teleportBlock.gd" type="Script" id=11]
-[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=12]
-[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=13]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=5]
+[ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=6]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/Enviornment/Landscape01.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=13]
 [ext_resource path="res://gameMenu.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -40,92 +40,93 @@ format = 1
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( -32.5362, 42.0805 )
 
+[node name="teleportBlock" type="Area2D" parent="."]
+position = Vector2( 563.119, 185.529 )
+script = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
+
+[node name="Sprite" type="Sprite" parent="teleportBlock/StaticBody2D"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock"]
+shape = SubResource( 1 )
+
+[node name="FadeIn" parent="teleportBlock" instance=ExtResource( 7 )]
+margin_left = -73.2064
+margin_top = -117.915
+margin_right = 976.794
+margin_bottom = 400.085
+
 [node name="backdrop" type="Sprite" parent="."]
+visible = false
 position = Vector2( 252.261, 190.485 )
 z_index = -1
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_2_03" type="Sprite" parent="backdrop"]
 position = Vector2( -248.582, 76.8892 )
 rotation = 3.05645
 scale = Vector2( 1.48057, -1.4838 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_1_03" type="Sprite" parent="backdrop"]
 position = Vector2( 10.079, 54.4322 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
 [node name="Tree_anim_1_04" type="Sprite" parent="backdrop"]
 position = Vector2( 241.751, 68.7215 )
 scale = Vector2( -1.53072, 1.91524 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
 [node name="Tree_anim_2_01" type="Sprite" parent="backdrop"]
 position = Vector2( -152.361, 68.9467 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_2_02" type="Sprite" parent="backdrop"]
 position = Vector2( 70.7454, 67.9373 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_2_04" type="Sprite" parent="backdrop"]
 position = Vector2( 315.862, -101.759 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_1_01" type="Sprite" parent="backdrop"]
 position = Vector2( -59.2807, 72.7667 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
 [node name="Tree_anim_1_02" type="Sprite" parent="backdrop"]
 visible = false
 position = Vector2( -21.2637, 44.9194 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
 [node name="log1" type="Sprite" parent="backdrop"]
 position = Vector2( 280.429, -56.2866 )
 scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="log2" type="Sprite" parent="backdrop"]
 position = Vector2( -100.619, 131.335 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 9 )
+texture = ExtResource( 12 )
 
 [node name="rock_3" type="Sprite" parent="backdrop"]
 position = Vector2( 222.152, 100.461 )
 rotation = 0.460867
-texture = ExtResource( 10 )
+texture = ExtResource( 13 )
 
 [node name="rock_2" type="Sprite" parent="backdrop"]
 position = Vector2( 284.048, 105.258 )
 rotation = -1.07046
-texture = ExtResource( 10 )
-
-[node name="teleportBlock" type="Area2D" parent="backdrop"]
-position = Vector2( 310.858, -4.95591 )
-script = ExtResource( 11 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="backdrop/teleportBlock"]
-
-[node name="Sprite" type="Sprite" parent="backdrop/teleportBlock/StaticBody2D"]
-texture = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="backdrop/teleportBlock"]
-shape = SubResource( 1 )
-
-[node name="FadeIn" parent="backdrop/teleportBlock" instance=ExtResource( 13 )]
-margin_left = -73.2064
-margin_top = -117.915
-margin_right = 976.794
-margin_bottom = 400.085
+texture = ExtResource( 13 )
 
 [node name="GamePopupMenu" parent="." instance=ExtResource( 14 )]
 show_behind_parent = true
@@ -133,5 +134,5 @@ margin_left = -67.2785
 margin_top = 10.6148
 margin_right = -67.2784
 margin_bottom = 10.6148
-[connection signal="body_entered" from="backdrop/teleportBlock" to="backdrop/teleportBlock" method="_on_teleportBlock_body_entered"]
-[connection signal="fade_finished" from="backdrop/teleportBlock/FadeIn" to="backdrop/teleportBlock" method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

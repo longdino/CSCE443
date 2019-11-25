@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -10,9 +10,8 @@
 [ext_resource path="res://sprites/doorBlock.png" type="Texture" id=8]
 [ext_resource path="res://Switch.gd" type="Script" id=9]
 [ext_resource path="res://sprites/switchBlock.png" type="Texture" id=10]
-[ext_resource path="res://FallBlock.gd" type="Script" id=11]
-[ext_resource path="res://sprites/fallBlock.png" type="Texture" id=12]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://FallBlock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -47,10 +46,6 @@ extents = Vector2( 10, 34 )
 extents = Vector2( 4, 4 )
 
 [sub_resource type="RectangleShape2D" id=7]
-
-[sub_resource type="RectangleShape2D" id=8]
-
-[sub_resource type="RectangleShape2D" id=9]
 
 [node name="ag4" type="Node2D"]
 
@@ -171,48 +166,16 @@ position = Vector2( -0.0186768, -0.0723877 )
 scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 7 )
 
-[node name="FallBlock" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 368.108, 72.0358 )
-script = ExtResource( 11 )
+[node name="FallBlock3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 368.126, 73.5159 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="FallBlock"]
-mode = 3
+[node name="FallBlock4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 223.456, 201.461 )
 
-[node name="Sprite" type="Sprite" parent="FallBlock/RigidBody2D"]
-texture = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock/RigidBody2D"]
-scale = Vector2( 0.8, 0.8 )
-shape = SubResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock"]
-shape = SubResource( 9 )
-
-[node name="FallBlock2" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 223.522, 200.733 )
-script = ExtResource( 11 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="FallBlock2"]
-mode = 3
-
-[node name="Sprite" type="Sprite" parent="FallBlock2/RigidBody2D"]
-texture = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock2/RigidBody2D"]
-scale = Vector2( 0.8, 0.8 )
-shape = SubResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock2"]
-shape = SubResource( 9 )
-
-[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
+[node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
 [connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
-[connection signal="body_entered" from="FallBlock" to="FallBlock" method="_on_FallBlock_body_entered"]
-[connection signal="body_entered" from="FallBlock2" to="FallBlock2" method="_on_FallBlock_body_entered"]

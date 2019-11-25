@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://BreakBlock.gd" type="Script" id=10]
 [ext_resource path="res://sprites/breakBlock.png" type="Texture" id=11]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=12]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 128 )
@@ -234,7 +235,6 @@ script = SubResource( 6 )
 shape = SubResource( 7 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 638.688, 29.5885 )
 script = ExtResource( 8 )
 
@@ -243,11 +243,10 @@ position = Vector2( 0.13385, -3.11804 )
 shape = SubResource( 8 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 9 )]
-visible = false
-margin_left = -150.898
-margin_top = -38.0745
-margin_right = 489.102
-margin_bottom = 321.926
+margin_left = -746.0
+margin_top = -82.0
+margin_right = 489.0
+margin_bottom = 440.0
 
 [node name="BreakBlock" type="Area2D" parent="."]
 editor/display_folded = true
@@ -305,6 +304,10 @@ tile_set = ExtResource( 12 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 1048594, 4, 0, 1048595, 4, 0, 1048600, 4, 0, 1048601, 4, 0, 1048606, 4, 0, 1048607, 4, 0 )
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
+margin_left = 0.611389
+margin_right = 0.61142
 [connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="fireHazard1" to="fireHazard1" method="_on_Hazard_body_entered"]

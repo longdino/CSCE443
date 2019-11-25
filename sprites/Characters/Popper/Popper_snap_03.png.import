@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spike_1.png-da4e2fee4a0ba008f22ab8947e7b637c.stex"
+path="res://.import/Popper_snap_03.png-cf85f79cebcb44e5da7f5ef45b9eeb86.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enviornment/spike_1.png"
-dest_files=[ "res://.import/spike_1.png-da4e2fee4a0ba008f22ab8947e7b637c.stex" ]
+source_file="res://sprites/Characters/Popper/Popper_snap_03.png"
+dest_files=[ "res://.import/Popper_snap_03.png-cf85f79cebcb44e5da7f5ef45b9eeb86.stex" ]
 
 [params]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Switch.gd" type="Script" id=1]
+[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Switch" type="Area2D"]
+position = Vector2( -0.406746, 0.197849 )
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0.0577092, -0.242981 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 0.025177, 0.109222 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -0.200409, 0.340973 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0186768, -0.0723877 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Switch_body_entered"]

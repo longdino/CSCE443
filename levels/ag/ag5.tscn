@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,33 +12,34 @@
 [ext_resource path="res://sprites/switchBlock.png" type="Texture" id=10]
 [ext_resource path="res://Bullet.gd" type="Script" id=11]
 [ext_resource path="res://Shooter.gd" type="Script" id=12]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 128 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 64 )
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=4]
 radius = 100.0
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=6]
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 2, 2 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 4, 4 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=10]
 
 [node name="ag5" type="Node2D"]
 
@@ -58,7 +59,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2( 1.0145, 3.50836 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="outofbounds2" type="Area2D" parent="."]
 editor/display_folded = true
@@ -71,7 +72,7 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds2"]
 position = Vector2( 0.177635, -0.167145 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="outofbounds3" type="Area2D" parent="."]
 editor/display_folded = true
@@ -84,23 +85,21 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds3"]
 position = Vector2( 0.177635, -0.167145 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 645.837, 56.9963 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 position = Vector2( 0.13385, -3.11804 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 6 )]
-visible = false
-margin_left = -150.898
-margin_top = -38.0745
-margin_right = 489.102
-margin_bottom = 321.926
+margin_left = -786.0
+margin_top = -120.0
+margin_right = 489.0
+margin_bottom = 427.0
 
 [node name="Hazards" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
@@ -115,7 +114,7 @@ script = ExtResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Popper"]
 position = Vector2( 2.23767, -1.10968 )
 scale = Vector2( 1.5, 1.5 )
-shape = SubResource( 12 )
+shape = SubResource( 4 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Popper"]
 
@@ -127,10 +126,10 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Popper/KinematicBody2D/Sprite/Hazard"]
 position = Vector2( -0.225891, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Popper/KinematicBody2D"]
-shape = SubResource( 14 )
+shape = SubResource( 6 )
 
 [node name="Bullet" type="KinematicBody2D" parent="."]
 editor/display_folded = true
@@ -140,13 +139,13 @@ position = Vector2( 355.621, 56.3229 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
-shape = SubResource( 15 )
+shape = SubResource( 7 )
 
 [node name="Area2D" type="Area2D" parent="Bullet"]
 script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet/Area2D"]
-shape = SubResource( 16 )
+shape = SubResource( 8 )
 
 [node name="Shooter" type="Area2D" parent="."]
 editor/display_folded = true
@@ -159,10 +158,12 @@ script = ExtResource( 12 )
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter/StaticBody2D"]
-shape = SubResource( 17 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter"]
-shape = SubResource( 18 )
+shape = SubResource( 10 )
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]

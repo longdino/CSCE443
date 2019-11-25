@@ -37,7 +37,7 @@ func _on_FadeIn_fade_finished():
 	elif present_scene_path == "ag4":
 		scene_path_to_load = "res://levels/ag/ag5.tscn"
 	elif present_scene_path == "ag5":
-		scene_path_to_load = "res://levels/ag/ag1.tscn"
+		scene_path_to_load = "res://levels/tr/Tlevel1.tscn"
 	elif present_scene_path == "Hlevel1":
 		scene_path_to_load = "res://levels/hj/Hlevel2.tscn"
 	elif present_scene_path == "Hlevel2":
@@ -47,11 +47,27 @@ func _on_FadeIn_fade_finished():
 	elif present_scene_path == "Hlevel4":
 		scene_path_to_load = "res://levels/hj/Hlevel5.tscn"
 	elif present_scene_path == "Hlevel5":
+		scene_path_to_load = "res://levels/ag/ag1.tscn"
+	elif present_scene_path == "Tlevel1":
+		scene_path_to_load = "res://levels/tr/Tlevel2.tscn"
+	elif present_scene_path == "Tlevel2":
+		scene_path_to_load = "res://levels/tr/Tlevel3.tscn"
+	elif present_scene_path == "Tlevel3":
+		scene_path_to_load = "res://levels/tr/Tlevel4.tscn"
+	elif present_scene_path == "Tlevel4":
+		scene_path_to_load = "res://levels/tr/Tlevel5.tscn"
+	elif present_scene_path == "Tlevel5":
 		scene_path_to_load = "res://levels/hj/Hlevel1.tscn"
 	elif present_scene_path == "tut1":
 		scene_path_to_load = "res://levels/tutorial/tut2.tscn" 
 	elif present_scene_path == "tut2":
-		scene_path_to_load = "res://levels/tutorial/tut3.tscn" 
+		scene_path_to_load = "res://levels/tutorial/tut3.tscn"
+	elif present_scene_path == "tut3":
+		scene_path_to_load = "res://levels/tutorial/tut4.tscn" 
+	elif present_scene_path == "tut4":
+		scene_path_to_load = "res://levels/tutorial/tut5.tscn"
+	elif present_scene_path == "tut5":
+		scene_path_to_load = "res://levels/level1.tscn" 
 	else:
 		scene_path_to_load = "res://levels/tut/tut1.tscn"
 		

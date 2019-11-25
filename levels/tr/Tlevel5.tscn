@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=2]
@@ -9,11 +9,12 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=7]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=8]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 28.7285 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Tlevel5" type="Node2D"]
 position = Vector2( 67.4875, -9.9014 )
 
 [node name="Maps" type="Node" parent="."]
@@ -98,5 +99,12 @@ margin_left = -650.179
 margin_top = -131.988
 margin_right = 399.821
 margin_bottom = 386.012
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 10 )]
+show_behind_parent = true
+margin_left = -66.8188
+margin_top = 13.5375
+margin_right = -66.8188
+margin_bottom = 13.5375
 [connection signal="body_entered" from="backdrop/teleportBlock" to="backdrop/teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="backdrop/teleportBlock/FadeIn" to="backdrop/teleportBlock" method="_on_FadeIn_fade_finished"]

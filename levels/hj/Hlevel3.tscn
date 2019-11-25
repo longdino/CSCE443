@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=2]
@@ -9,11 +9,12 @@
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://FallBlock.gd" type="Script" id=8]
 [ext_resource path="res://sprites/fallBlock.png" type="Texture" id=9]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 25.1659, 10 )
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.1659, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 43.6909 )
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -43,7 +44,7 @@ position = Vector2( 493.712, 188.967 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="teleportBlock" type="Area2D" parent="."]
 editor/display_folded = true
@@ -56,7 +57,7 @@ script = ExtResource( 5 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="FadeIn" parent="teleportBlock" instance=ExtResource( 7 )]
 visible = false
@@ -80,6 +81,9 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallBlock"]
 shape = SubResource( 4 )
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 10 )]
+show_behind_parent = true
 [connection signal="body_entered" from="Hazard" to="Hazard" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

@@ -9,6 +9,7 @@ onready var menu = $GamePopupMenu/PopupMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	#player.
 	
 	#gamePopUpMenu = get_node("GamePopupMenu")

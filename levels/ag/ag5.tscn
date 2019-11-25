@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/switchBlock.png" type="Texture" id=10]
 [ext_resource path="res://Bullet.gd" type="Script" id=11]
 [ext_resource path="res://Shooter.gd" type="Script" id=12]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -87,7 +88,6 @@ scale = Vector2( 1, 0.5 )
 shape = SubResource( 2 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 645.837, 56.9963 )
 script = ExtResource( 5 )
 
@@ -96,11 +96,10 @@ position = Vector2( 0.13385, -3.11804 )
 shape = SubResource( 3 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 6 )]
-visible = false
-margin_left = -150.898
-margin_top = -38.0745
-margin_right = 489.102
-margin_bottom = 321.926
+margin_left = -786.0
+margin_top = -120.0
+margin_right = 489.0
+margin_bottom = 427.0
 
 [node name="Hazards" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
@@ -163,6 +162,8 @@ shape = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shooter"]
 shape = SubResource( 10 )
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]

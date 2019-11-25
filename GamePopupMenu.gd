@@ -7,6 +7,7 @@ var gamePopUpMenu
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	gamePopUpMenu = get_node(".")
+	#gamePopUpMenu.set_custom_viewport(1)
 	#pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

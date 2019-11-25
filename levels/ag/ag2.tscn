@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/doorBlock.png" type="Texture" id=10]
 [ext_resource path="res://teleportBlock.gd" type="Script" id=11]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 128 )
@@ -192,7 +193,6 @@ script = SubResource( 8 )
 shape = SubResource( 9 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 641.47, 311.37 )
 script = ExtResource( 11 )
 
@@ -201,11 +201,12 @@ position = Vector2( 0.928223, -1.52916 )
 shape = SubResource( 10 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 12 )]
-visible = false
-margin_left = -150.898
-margin_top = -38.0745
-margin_right = 489.102
-margin_bottom = 321.926
+margin_left = -675.0
+margin_top = -356.0
+margin_right = 108.0
+margin_bottom = 119.0
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
 [connection signal="body_entered" from="SpikeHazard1" to="SpikeHazard1" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="SpikeHazard2" to="SpikeHazard2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]

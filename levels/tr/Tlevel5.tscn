@@ -17,16 +17,16 @@
 extents = Vector2( 10, 28.7285 )
 
 [node name="Tlevel5" type="Node2D"]
-position = Vector2( 67.4875, -9.9014 )
+position = Vector2( 0.188141, -1.12322 )
 
 [node name="Checkpoint" parent="." instance=ExtResource( 1 )]
-position = Vector2( -48.4446, 315.181 )
+position = Vector2( 15.441, 304.452 )
 
 [node name="Area2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( -66.0179, 6.85901 )
+position = Vector2( 0.793762, -2.89451 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -46.7886, 312.855 )
+position = Vector2( 20.0231, 303.102 )
 
 [node name="Maps" type="Node" parent="."]
 
@@ -42,7 +42,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="teleportBlock" type="Area2D" parent="."]
-position = Vector2( 560.938, 15.904 )
+position = Vector2( 627.75, 6.15048 )
 script = ExtResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
@@ -111,9 +111,9 @@ texture = ExtResource( 11 )
 
 [node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
 show_behind_parent = true
-margin_left = -66.8188
-margin_top = 13.5375
-margin_right = -66.8188
-margin_bottom = 13.5375
+margin_left = -0.00714111
+margin_top = 3.78398
+margin_right = -0.00714111
+margin_bottom = 3.78398
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

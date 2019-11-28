@@ -19,10 +19,10 @@
 extents = Vector2( 10, 43.6909 )
 
 [node name="Tlevel2" type="Node2D"]
-position = Vector2( 67.4875, -9.9014 )
+position = Vector2( 0.188484, 3.2658 )
 
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( -72, 8 )
+position = Vector2( -1.77494, -0.290459 )
 
 [node name="Maps" type="Node" parent="."]
 editor/display_folded = true
@@ -39,10 +39,10 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( -25.5528, 343.762 )
+position = Vector2( 44.6723, 335.472 )
 
 [node name="teleportBlock" type="Area2D" parent="."]
-position = Vector2( 562.495, 108.565 )
+position = Vector2( 632.72, 100.275 )
 script = ExtResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="teleportBlock"]
@@ -129,9 +129,9 @@ rotation = -1.07046
 texture = ExtResource( 13 )
 
 [node name="GamePopupMenu" parent="." instance=ExtResource( 14 )]
-margin_left = -67.5766
-margin_top = 11.1067
-margin_right = -67.5765
-margin_bottom = 11.1067
+margin_left = 2.64846
+margin_top = 2.81624
+margin_right = 2.64856
+margin_bottom = 2.81624
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

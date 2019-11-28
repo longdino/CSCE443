@@ -34,7 +34,6 @@ position = Vector2( 0.190247, -2.35022 )
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Hazard" type="Area2D" parent="KinematicBody2D/Sprite"]

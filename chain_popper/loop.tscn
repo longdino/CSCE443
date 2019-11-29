@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/Characters/Popper/Popper_chain_01.png" type="Texture" id=1]
+
+[node name="loop" type="RigidBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.341034, 0.511543 )
+rotation = 1.5708
+texture = ExtResource( 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://title_scene/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://GamePopupMenu.gd" type="Script" id=2]
@@ -6,8 +6,20 @@
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
+[sub_resource type="InputEventKey" id=3]
+scancode = 16777217
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventKey" id=5]
+scancode = 16777217
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
@@ -17,9 +29,11 @@ margin_left = -0.936188
 margin_right = -0.936157
 
 [node name="Button" type="Button" parent="."]
+margin_top = 0.936188
 margin_right = 22.0
-margin_bottom = 27.0
+margin_bottom = 27.9362
 custom_fonts/font = SubResource( 1 )
+shortcut = SubResource( 4 )
 text = "||"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
@@ -33,6 +47,7 @@ margin_top = 120.0
 margin_right = 361.0
 margin_bottom = 147.0
 custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 6 )
 text = "Resume"
 
 [node name="ResetButton" type="Button" parent="PopupMenu"]

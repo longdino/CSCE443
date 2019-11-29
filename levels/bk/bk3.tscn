@@ -1,58 +1,97 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
-[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Chaser.gd" type="Script" id=5]
-[ext_resource path="res://sprites/Characters/Follower/follower_idle_01.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Characters/Follower/follower_idle_02.png" type="Texture" id=7]
-[ext_resource path="res://sprites/Characters/Follower/follower_idle_03.png" type="Texture" id=8]
-[ext_resource path="res://Hazard.gd" type="Script" id=9]
+[ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Chaser.gd" type="Script" id=6]
+[ext_resource path="res://sprites/Characters/Follower/follower_idle_01.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Characters/Follower/follower_idle_02.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Characters/Follower/follower_idle_03.png" type="Texture" id=9]
+[ext_resource path="res://Hazard.gd" type="Script" id=10]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Switch.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Hazard.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 73, 119 )
+extents = Vector2( 89, 119 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 0.8
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15, 16 )
+extents = Vector2( 10.0453, 9.2355 )
 
 [sub_resource type="CircleShape2D" id=4]
+radius = 5.0
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 73, 120 )
+extents = Vector2( 89, 120 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 99, 63 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.8
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 9.23557, 10.5857 )
+
+[sub_resource type="CircleShape2D" id=10]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 105, 178 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.8
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10.0453, 9.2355 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Bounds" parent="." instance=ExtResource( 1 )]
 
+[node name="teleportBlock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 648, 322 )
+
 [node name="NormalMap" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 131072, 0, 0, 131082, 0, 0, 131083, 0, 0, 196608, 0, 0, 196618, 0, 0, 196619, 0, 0, 262144, 0, 0, 262154, 0, 0, 262155, 0, 0, 327680, 0, 0, 327690, 0, 0, 327691, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393226, 0, 0, 393227, 0, 0, 524287, 0, 0, 458752, 0, 0, 458762, 0, 0, 458763, 0, 0, 589823, 0, 0, 524288, 0, 0, 524298, 0, 0, 524299, 0, 0, 655359, 0, 0, 589824, 0, 0, 589834, 0, 0, 589835, 0, 0, 720895, 0, 0, 655360, 0, 0, 655370, 0, 0, 655371, 0, 0, 786431, 0, 0, 720896, 0, 0, 851967, 0, 0, 786432, 0, 0, 917503, 0, 0, 851968, 0, 0, 983039, 0, 0, 917504, 0, 0, 1048575, 0, 0, 983040, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1376255, 0, 0, 1310720, 0, 0, 1441791, 0, 0, 1376256, 0, 0, 1507327, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0 )
+tile_data = PoolIntArray( -262116, 2, 0, -262115, 2, 0, -262114, 2, 0, -262113, 2, 0, -262112, 2, 0, -262111, 2, 0, -262110, 2, 0, -262109, 2, 0, -196583, 2, 0, -196582, 2, 0, -196581, 2, 0, -196580, 2, 0, -196572, 2, 0, -196571, 2, 0, -196570, 2, 0, -131048, 2, 0, -131047, 2, 0, -131034, 2, 0, -131033, 2, 0, -65513, 2, 0, -65512, 2, 0, -65497, 2, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 2, 0, 24, 0, 0, 39, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65575, 0, 0, 131072, 0, 0, 131082, 0, 0, 131083, 0, 0, 131111, 0, 0, 196608, 0, 0, 196618, 0, 0, 196619, 0, 0, 196647, 0, 0, 262144, 0, 0, 262154, 0, 0, 262155, 0, 0, 262167, 2, 0, 262168, 2, 0, 262169, 2, 0, 262183, 0, 0, 327680, 0, 0, 327690, 0, 0, 327691, 0, 0, 327705, 0, 0, 327710, 3, 0, 327711, 3, 0, 327712, 3, 0, 327713, 3, 0, 327714, 3, 0, 327715, 3, 0, 327716, 3, 0, 327717, 3, 0, 327718, 3, 0, 327719, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393226, 0, 0, 393227, 0, 0, 393241, 0, 0, 393255, 0, 0, 524287, 0, 0, 458752, 0, 0, 458762, 0, 0, 458763, 0, 0, 458777, 0, 0, 458791, 2, 0, 589823, 0, 0, 524288, 0, 0, 524298, 0, 0, 524299, 0, 0, 524313, 0, 0, 524327, 2, 0, 655359, 0, 0, 589824, 0, 0, 589834, 0, 0, 589835, 0, 0, 589849, 0, 0, 589863, 0, 0, 720895, 0, 0, 655360, 0, 0, 655370, 0, 0, 655371, 0, 0, 655385, 0, 0, 655399, 0, 0, 786431, 0, 0, 720896, 0, 0, 720906, 0, 0, 720907, 0, 0, 720921, 0, 0, 720935, 0, 0, 851967, 0, 0, 786432, 0, 0, 786442, 0, 0, 786443, 0, 0, 786457, 2, 0, 786458, 2, 0, 786459, 2, 0, 786460, 2, 0, 786461, 2, 0, 786462, 2, 0, 786463, 2, 0, 786464, 2, 0, 786465, 2, 0, 786466, 2, 0, 786467, 2, 0, 786471, 0, 0, 917503, 0, 0, 851968, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851993, 0, 0, 852007, 0, 0, 983039, 0, 0, 917504, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 2, 0, 917524, 0, 0, 917525, 0, 0, 917529, 0, 0, 917543, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983061, 0, 0, 983065, 0, 0, 983079, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048601, 0, 0, 1048615, 0, 0, 1048616, 2, 0, 1179647, 0, 0, 1114112, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114137, 0, 0, 1114151, 0, 0, 1114152, 2, 0, 1114153, 2, 0, 1114154, 2, 0, 1245183, 0, 0, 1179648, 0, 0, 1179673, 0, 0, 1179677, 2, 0, 1179678, 2, 0, 1179679, 2, 0, 1179680, 2, 0, 1179681, 2, 0, 1179682, 2, 0, 1179683, 2, 0, 1179684, 2, 0, 1179685, 2, 0, 1179686, 2, 0, 1179687, 0, 0, 1179690, 2, 0, 1179691, 2, 0, 1310719, 0, 0, 1245184, 0, 0, 1245209, 0, 0, 1245227, 2, 0, 1245228, 2, 0, 1376255, 0, 0, 1310720, 0, 0, 1310745, 0, 0, 1310763, 2, 0, 1441791, 0, 0, 1376256, 0, 0, 1376281, 0, 0, 1376298, 2, 0, 1507327, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1441813, 0, 0, 1441814, 0, 0, 1441815, 0, 0, 1441816, 0, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441830, 0, 0, 1441831, 0, 0, 1441832, 2, 0, 1441833, 2, 0 )
 
 [node name="HazardMap" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
 format = 1
+tile_data = PoolIntArray( 393246, 1610612739, 0, 393247, 1610612739, 0, 393248, 1610612739, 0, 393249, 1610612739, 0, 393250, 1610612739, 0, 393251, 1610612739, 0, 393252, 1610612739, 0, 393253, 1610612739, 0, 393254, 1610612739, 0, 720925, 3, 0, 720926, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 851994, 1610612739, 0, 851995, 1610612739, 0, 851996, 1610612739, 0, 851997, 1610612739, 0, 851998, 1610612739, 0, 851999, 1610612739, 0, 852000, 1610612739, 0, 852001, 1610612739, 0, 852002, 1610612739, 0, 852003, 1610612739, 0, 1114141, 3, 0, 1114142, 3, 0, 1114143, 3, 0, 1114146, 3, 0, 1114147, 3, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 44, 81 )
 
 [node name="Chaser" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 36, 141 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser"]
 position = Vector2( 52, 91 )
@@ -67,7 +106,7 @@ frame = 2
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser/KinematicBody2D/Sprite"]
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser/KinematicBody2D/Sprite/Hazard"]
 position = Vector2( 2.76442, -4.41428 )
@@ -77,15 +116,16 @@ shape = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Chaser2" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 33, 334 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser2"]
 position = Vector2( 55, -100 )
 shape = SubResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser2"]
-position = Vector2( 0.190247, -2.35022 )
+position = Vector2( -1, -31 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser2/KinematicBody2D"]
 frames = SubResource( 2 )
@@ -93,7 +133,7 @@ frame = 1
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser2/KinematicBody2D/Sprite"]
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser2/KinematicBody2D/Sprite/Hazard"]
 position = Vector2( 2.76442, -4.41428 )
@@ -101,6 +141,90 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser2/KinematicBody2D"]
 shape = SubResource( 4 )
+
+[node name="Chaser3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 379, 325 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3"]
+position = Vector2( -75, -23 )
+shape = SubResource( 7 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser3"]
+editor/display_folded = true
+position = Vector2( -36, 6 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Chaser3/KinematicBody2D"]
+frames = SubResource( 8 )
+playing = true
+
+[node name="Hazard" type="Area2D" parent="Chaser3/KinematicBody2D/Sprite"]
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3/KinematicBody2D/Sprite/Hazard"]
+position = Vector2( -1.00001, -1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3/KinematicBody2D"]
+shape = SubResource( 10 )
+
+[node name="Chaser4" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 516, -29 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser4"]
+position = Vector2( 5.00003, 208 )
+shape = SubResource( 11 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser4"]
+position = Vector2( 0.190247, -2.35022 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Chaser4/KinematicBody2D"]
+frames = SubResource( 12 )
+playing = true
+
+[node name="Hazard" type="Area2D" parent="Chaser4/KinematicBody2D/Sprite"]
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser4/KinematicBody2D/Sprite/Hazard"]
+position = Vector2( -0.190247, -0.64978 )
+shape = SubResource( 13 )
+
+[node name="Door" parent="." instance=ExtResource( 11 )]
+position = Vector2( 169, 320 )
+
+[node name="Switch" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17, 337 )
+
+[node name="Hazard" parent="." instance=ExtResource( 13 )]
+position = Vector2( 227, 209 )
+scale = Vector2( 3.8, 1 )
+
+[node name="Hazard2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 486, 207 )
+scale = Vector2( 7.56, 1 )
+
+[node name="Hazard3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 555, 95 )
+scale = Vector2( 7.56, 1 )
+
+[node name="Hazard4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 478, 193 )
+scale = Vector2( 1.4, 1 )
+
+[node name="Hazard5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 558, 289 )
+scale = Vector2( 1.4, 1 )
+
+[node name="Hazard6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 485, 289 )
+scale = Vector2( 2.08, 1 )
+
+[node name="Hazard7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 549, 193 )
+scale = Vector2( 2.08, 1 )
 [connection signal="body_entered" from="Chaser" to="Chaser" method="_on_Chaser_body_entered"]
 [connection signal="body_exited" from="Chaser" to="Chaser" method="_on_Chaser_body_exited"]
 [connection signal="body_shape_entered" from="Chaser" to="Chaser" method="_on_Chaser_body_shape_entered"]
@@ -109,3 +233,11 @@ shape = SubResource( 4 )
 [connection signal="body_exited" from="Chaser2" to="Chaser2" method="_on_Chaser_body_exited"]
 [connection signal="body_shape_entered" from="Chaser2" to="Chaser2" method="_on_Chaser_body_shape_entered"]
 [connection signal="body_entered" from="Chaser2/KinematicBody2D/Sprite/Hazard" to="Chaser2/KinematicBody2D/Sprite/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Chaser3" to="Chaser3" method="_on_Chaser_body_entered"]
+[connection signal="body_exited" from="Chaser3" to="Chaser3" method="_on_Chaser_body_exited"]
+[connection signal="body_shape_entered" from="Chaser3" to="Chaser3" method="_on_Chaser_body_shape_entered"]
+[connection signal="body_entered" from="Chaser3/KinematicBody2D/Sprite/Hazard" to="Chaser3/KinematicBody2D/Sprite/Hazard" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Chaser4" to="Chaser4" method="_on_Chaser_body_entered"]
+[connection signal="body_exited" from="Chaser4" to="Chaser4" method="_on_Chaser_body_exited"]
+[connection signal="body_shape_entered" from="Chaser4" to="Chaser4" method="_on_Chaser_body_shape_entered"]
+[connection signal="body_entered" from="Chaser4/KinematicBody2D/Sprite/Hazard" to="Chaser4/KinematicBody2D/Sprite/Hazard" method="_on_Hazard_body_entered"]

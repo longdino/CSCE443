@@ -90,7 +90,7 @@ format = 1
 position = Vector2( 384.516, 66.2279 )
 
 [node name="Popper2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 311.085, 302.742 )
+position = Vector2( 302.723, 318.631 )
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]

@@ -14,6 +14,7 @@ position = Vector2( 383.856, 328.036 )
 
 [node name="FallBlock" parent="." instance=ExtResource( 2 )]
 position = Vector2( 247.13, 328.873 )
+resetTimer = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 161.653, 298.681 )

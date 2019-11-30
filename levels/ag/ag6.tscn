@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=5]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=6]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://BreakBlock.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="ag6" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 61.5076, 299.253 )
+
+[node name="Checkpoint" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 61.4316, 282.895 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2( 1.0145, 3.50836 )
+shape = SubResource( 1 )
+
+[node name="teleportBlock" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.0688171, 90.1945 )
+
+[node name="Bounds" parent="." instance=ExtResource( 4 )]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 39, 2, 0, 65575, 2, 0, 131111, 2, 0, 196647, 2, 0, 262183, 2, 0, 327704, 2, 0, 327705, 2, 0, 327706, 2, 0, 327707, 2, 0, 327708, 2, 0, 327709, 2, 0, 327710, 2, 0, 327711, 2, 0, 327719, 2, 0, 393241, 2, 0, 393242, 2, 0, 393243, 2, 0, 393244, 2, 0, 393245, 2, 0, 393246, 2, 0, 393247, 2, 0, 393255, 2, 0, 458778, 2, 0, 458779, 2, 0, 458780, 2, 0, 458781, 2, 0, 458782, 2, 0, 458783, 2, 0, 458791, 2, 0, 524315, 2, 0, 524316, 2, 0, 524317, 2, 0, 524318, 2, 0, 524319, 2, 0, 524327, 2, 0, 589852, 2, 0, 589853, 2, 0, 589854, 2, 0, 589855, 2, 0, 589863, 2, 0, 655389, 2, 0, 655390, 2, 0, 655391, 2, 0, 655399, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720926, 2, 0, 720927, 2, 0, 720935, 2, 0, 786463, 2, 0, 786471, 2, 0, 852007, 2, 0, 917543, 2, 0, 983079, 2, 0, 1048611, 2, 0, 1048612, 2, 0, 1048613, 2, 0, 1048614, 2, 0, 1048615, 2, 0, 1114139, 2, 0, 1114140, 2, 0, 1114141, 2, 0, 1114142, 2, 0, 1114143, 2, 0, 1114148, 2, 0, 1114149, 2, 0, 1114150, 2, 0, 1114151, 2, 0, 1179667, 2, 0, 1179668, 2, 0, 1179669, 2, 0, 1179670, 2, 0, 1179671, 2, 0, 1179676, 2, 0, 1179677, 2, 0, 1179678, 2, 0, 1179685, 2, 0, 1179686, 2, 0, 1179687, 2, 0, 1245195, 2, 0, 1245196, 2, 0, 1245197, 2, 0, 1245198, 2, 0, 1245199, 2, 0, 1245204, 2, 0, 1245205, 2, 0, 1245206, 2, 0, 1245213, 2, 0, 1245222, 2, 0, 1245223, 2, 0, 1310720, 2, 0, 1310721, 2, 0, 1310722, 2, 0, 1310723, 2, 0, 1310724, 2, 0, 1310725, 2, 0, 1310726, 2, 0, 1310727, 2, 0, 1310732, 2, 0, 1310733, 2, 0, 1310734, 2, 0, 1310741, 2, 0, 1310759, 2, 0, 1376256, 2, 0, 1376257, 2, 0, 1376258, 2, 0, 1376259, 2, 0, 1376260, 2, 0, 1376261, 2, 0, 1376262, 2, 0, 1376269, 2, 0, 1376295, 2, 0, 1441792, 2, 0, 1441793, 2, 0, 1441794, 2, 0, 1441795, 2, 0, 1441796, 2, 0, 1441797, 2, 0 )
+
+[node name="Hazards" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 7 )]
+margin_left = 1.78831
+margin_top = 1.70281
+margin_right = 1.78834
+margin_bottom = 1.70281
+
+[node name="BreakBlock" parent="." instance=ExtResource( 8 )]
+position = Vector2( 268.094, 140.559 )
+
+[node name="BreakBlock2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 144.811, 160.652 )
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]

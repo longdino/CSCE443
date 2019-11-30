@@ -4,10 +4,10 @@
 [ext_resource path="res://sprites/Characters/Shooter/Shooter_shoot_01.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Characters/Shooter/Shooter_shoot_02.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Characters/Shooter/Shooter_shoot_03.png" type="Texture" id=4]
-[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Characters/Shooter/Shooter_projectile.png" type="Texture" id=5]
 [ext_resource path="res://Bullet.gd" type="Script" id=6]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
@@ -29,7 +29,8 @@ position = Vector2( -0.155869, -0.671555 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 5 )
+frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

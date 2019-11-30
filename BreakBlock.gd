@@ -3,7 +3,8 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var resetTimer = 10
+export (float) var resetTimer = 10
+export (float) var disappearTimer = 1
 var timeElapsed = 0
 var startPosition = Vector2(0, 0)
 
@@ -22,7 +23,7 @@ func _process(delta):
 func _on_BreakBlock_body_entered(body):
 	if body.get_name() == "Player":
 		var t = Timer.new()
-		t.set_wait_time(1)
+		t.set_wait_time(disappearTimer)
 		t.set_one_shot(true)
 		self.add_child(t)
 		t.start()

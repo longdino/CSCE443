@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,10 +9,9 @@
 [ext_resource path="res://sprites/doorBlock.png" type="Texture" id=7]
 [ext_resource path="res://teleportBlock.gd" type="Script" id=8]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=9]
-[ext_resource path="res://BreakBlock.gd" type="Script" id=10]
-[ext_resource path="res://sprites/breakBlock.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=12]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://BreakBlock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 128 )
@@ -50,11 +49,6 @@ extents = Vector2( 10, 34 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 64 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 8, 8 )
-
-[sub_resource type="RectangleShape2D" id=10]
 
 [node name="ag3" type="Node2D"]
 
@@ -248,64 +242,22 @@ margin_top = -82.0
 margin_right = 489.0
 margin_bottom = 440.0
 
-[node name="BreakBlock" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 281.669, 360.429 )
-script = ExtResource( 10 )
+[node name="BreakBlock4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 281.288, 360.276 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock"]
-mode = 1
+[node name="BreakBlock5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 372.344, 360.797 )
 
-[node name="Sprite" type="Sprite" parent="BreakBlock/RigidBody2D"]
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock/RigidBody2D"]
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock"]
-shape = SubResource( 10 )
-
-[node name="BreakBlock2" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 372.199, 358.842 )
-script = ExtResource( 10 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock2"]
-mode = 1
-
-[node name="Sprite" type="Sprite" parent="BreakBlock2/RigidBody2D"]
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock2/RigidBody2D"]
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock2"]
-shape = SubResource( 10 )
-
-[node name="BreakBlock3" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 467.706, 359.823 )
-script = ExtResource( 10 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="BreakBlock3"]
-mode = 1
-
-[node name="Sprite" type="Sprite" parent="BreakBlock3/RigidBody2D"]
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock3/RigidBody2D"]
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakBlock3"]
-shape = SubResource( 10 )
+[node name="BreakBlock6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 470.211, 361.71 )
 
 [node name="Hazards" type="TileMap" parent="."]
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 1048594, 4, 0, 1048595, 4, 0, 1048600, 4, 0, 1048601, 4, 0, 1048606, 4, 0, 1048607, 4, 0 )
 
-[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
+[node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
 margin_left = 0.611389
 margin_right = 0.61142
 [connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]
@@ -319,6 +271,3 @@ margin_right = 0.61142
 [connection signal="body_entered" from="Switch3" to="Switch3" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
-[connection signal="body_entered" from="BreakBlock" to="BreakBlock" method="_on_BreakBlock_body_entered"]
-[connection signal="body_entered" from="BreakBlock2" to="BreakBlock2" method="_on_BreakBlock_body_entered"]
-[connection signal="body_entered" from="BreakBlock3" to="BreakBlock3" method="_on_BreakBlock_body_entered"]

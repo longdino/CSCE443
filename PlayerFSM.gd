@@ -132,7 +132,7 @@ func _get_transition(delta):
 
 func _enter_state(new_state, old_state):
 	#parent.get_node("State Label").set_text(states.keys()[new_state])
-	print(new_state)
+	#print(new_state)
 	match new_state:
 		states.idle:
 			sprite.play("idle")

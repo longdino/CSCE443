@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Checkpoint.gd" type="Script" id=4]
 [ext_resource path="res://Switch.gd" type="Script" id=5]
 [ext_resource path="res://sprites/switchBlock.png" type="Texture" id=6]
-[ext_resource path="res://sprites/doorBlock.png" type="Texture" id=7]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://teleportBlock.gd" type="Script" id=8]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=9]
 [ext_resource path="res://BreakBlock.tscn" type="PackedScene" id=10]
@@ -25,27 +25,6 @@ extents = Vector2( 7, 7 )
 extents = Vector2( 4, 4 )
 
 [sub_resource type="RectangleShape2D" id=5]
-
-[sub_resource type="GDScript" id=6]
-script/source = "extends Sprite
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func removeDoor():
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 10, 34 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 64 )
@@ -129,24 +108,24 @@ script = ExtResource( 4 )
 position = Vector2( 1.0145, 3.50836 )
 shape = SubResource( 3 )
 
-[node name="Switch1" type="Area2D" parent="."]
+[node name="Switch" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 575.262, 139.226 )
 script = ExtResource( 5 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Switch1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch"]
 position = Vector2( 0.0577092, -0.242981 )
 
-[node name="Sprite" type="Sprite" parent="Switch1/StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="Switch/StaticBody2D"]
 position = Vector2( 0.025177, 0.109222 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/StaticBody2D"]
 position = Vector2( -0.200409, 0.340973 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch"]
 position = Vector2( -0.0186768, -0.0723877 )
 scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 5 )
@@ -195,40 +174,17 @@ position = Vector2( -0.0186768, -0.0723877 )
 scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 5 )
 
-[node name="Door1" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 394.133, 40.7935 )
-texture = ExtResource( 7 )
-script = SubResource( 6 )
+[node name="Door" parent="." instance=ExtResource( 7 )]
+position = Vector2( 395.344, 40.3867 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Door1"]
+[node name="Door2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 464.198, 38.5905 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D"]
-shape = SubResource( 7 )
-
-[node name="Door2" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 462.987, 38.9973 )
-texture = ExtResource( 7 )
-script = SubResource( 6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
-shape = SubResource( 7 )
-
-[node name="Door3" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 535.435, 37.7998 )
-texture = ExtResource( 7 )
-script = SubResource( 6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/StaticBody2D"]
-shape = SubResource( 7 )
+[node name="Door3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 536.646, 37.393 )
 
 [node name="teleportBlock1" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 638.688, 29.5885 )
 script = ExtResource( 8 )
 
@@ -266,7 +222,7 @@ margin_right = 0.61142
 [connection signal="body_entered" from="fireHazard2" to="fireHazard2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="fireHazard3" to="fireHazard3" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
-[connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="Switch" to="Switch" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="Switch3" to="Switch3" method="_on_Switch_body_entered"]
 [connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]

@@ -71,7 +71,6 @@ margin_right = 78.0
 margin_bottom = 150.0
 
 [node name="VersionLabel" type="Label" parent="Menu"]
-visible = false
 margin_top = 308.0
 margin_right = 520.0
 margin_bottom = 373.0
@@ -81,5 +80,4 @@ text = "Version 1.2.4
 Team 8"
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
-visible = false
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

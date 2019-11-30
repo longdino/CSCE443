@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Chaser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Shooter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Popper.tscn" type="PackedScene" id=5]
+[ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 161.653, 298.681 )
+position = Vector2( 83.4, 65.382 )
 input_pickable = true
 collision_layer = 17
 
@@ -21,9 +22,13 @@ tile_data = PoolIntArray( 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0
 
 [node name="Chaser" parent="." instance=ExtResource( 3 )]
 position = Vector2( 334.455, 71.6688 )
+moveSpeed = 1.5
 
 [node name="Shooter" parent="." instance=ExtResource( 4 )]
 position = Vector2( 574.901, 305.912 )
 
 [node name="Popper" parent="." instance=ExtResource( 5 )]
-position = Vector2( 324.938, 303.46 )
+position = Vector2( 312.09, 317.183 )
+moveSpeed = 2.55
+
+[node name="Bounds" parent="." instance=ExtResource( 6 )]

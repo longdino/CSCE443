@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Popper.gd" type="Script" id=1]
-[ext_resource path="res://sprites/Characters/Popper/Popper_chain_02.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Characters/Popper/Popper_chain_01.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Characters/Popper/Popper_snap_01.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Characters/Popper/Popper_snap_02.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Characters/Popper/Popper_snap_03.png" type="Texture" id=5]
@@ -26,24 +26,28 @@ extents = Vector2( 10, 18 )
 [sub_resource type="CircleShape2D" id=4]
 
 [node name="Popper" type="Area2D"]
-position = Vector2( -0.415482, 0.858322 )
+position = Vector2( -0.555862, 0.465778 )
 script = ExtResource( 1 )
-
-[node name="Chain" type="Sprite" parent="."]
-visible = false
-position = Vector2( 6.60654, -0.657276 )
-scale = Vector2( 3, 1 )
-texture = ExtResource( 2 )
-offset = Vector2( -18, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.23767, -1.10968 )
 shape = SubResource( 1 )
 
+[node name="anchor" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -0.303421, 0.689592 )
+
+[node name="anch" type="Sprite" parent="anchor"]
+position = Vector2( 1.20254, -0.445496 )
+texture = ExtResource( 2 )
+
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -6.19343, -0.0345039 )
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 2 )
+frame = 4
 playing = true
 
 [node name="Hazard" type="Area2D" parent="KinematicBody2D/Sprite"]

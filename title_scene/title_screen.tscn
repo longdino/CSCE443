@@ -5,11 +5,11 @@
 [ext_resource path="res://title_scene/Buttons/ContinueButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://title_scene/Buttons/OptionButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://title_scene/Buttons/ExitButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://title_scene/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://sprites/aesymatt.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 50
 font_data = ExtResource( 6 )
 
 [node name="title_screen" type="Control"]
@@ -73,11 +73,15 @@ margin_bottom = 150.0
 [node name="VersionLabel" type="Label" parent="Menu"]
 margin_top = 308.0
 margin_right = 520.0
-margin_bottom = 373.0
+margin_bottom = 417.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "Version 1.2.4
 Team 8"
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 1.0
+margin_bottom = -1.0
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

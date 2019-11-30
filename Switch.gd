@@ -49,6 +49,8 @@ func toggleSwitch(normalReset):
 		else:
 			currentDoor.position = startPosition
 			hiddenDoor = false
+			if(currentDoor.get_class() == "AnimatedSprite"): #here incase the door is an old without updated sprites
+				currentDoor.play("idle")
 
 func _on_Switch_body_entered(body):
 	# print(global_position)

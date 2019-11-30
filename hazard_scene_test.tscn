@@ -30,6 +30,7 @@ tile_data = PoolIntArray( 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 2621
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 608.805, 281.207 )
+frame = 9
 
 [node name="Switch" parent="." instance=ExtResource( 6 )]
 position = Vector2( 473.752, 283.716 )

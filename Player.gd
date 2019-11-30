@@ -163,6 +163,7 @@ func get_reset_location():
 			var switchVar = get_node(switchName)
 			switchVar.toggleSwitch(false)
 			iteration += 1
+			switchName = "../Switch"
 			switchName = switchName + String(iteration)
 			print(switchName)
 		else:

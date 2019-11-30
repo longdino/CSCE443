@@ -6,9 +6,9 @@ extends Area2D
 var active = false
 var startPosition = Vector2(0, 0)
 var charPosition = Vector2(0, 0)
-var fallRate = 1;
-var resetTimer = 10
+var fallRate = 1
 var timeElapsed = 0
+export (float) var resetTimer = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -33,177 +33,17 @@ script = ExtResource( 1 )
 position = Vector2( 2.23767, -1.10968 )
 shape = SubResource( 1 )
 
-[node name="link1" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link1"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link2" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link2"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link3" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link3"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link4" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link4"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link5" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link5"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link6" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link6"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link7" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link7"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link8" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link8"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link9" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link9"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link10" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link10"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link11" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link11"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="link12" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( -4.26004, 13.2534 )
-
-[node name="chainlink" type="Sprite" parent="link12"]
-position = Vector2( 4.67369, -13.2256 )
-texture = ExtResource( 2 )
-
-[node name="pin1" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../KinematicBody2D")
-node_b = NodePath("../link1")
-
-[node name="pin2" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link1")
-node_b = NodePath("../link2")
-
-[node name="pin3" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link2")
-node_b = NodePath("../link3")
-
-[node name="pin4" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link3")
-node_b = NodePath("../link4")
-
-[node name="pin5" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link4")
-node_b = NodePath("../link5")
-
-[node name="pin6" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link5")
-node_b = NodePath("../link6")
-
-[node name="pin7" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link6")
-node_b = NodePath("../link7")
-
-[node name="pin8" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link7")
-node_b = NodePath("../link8")
-
-[node name="pin9" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link8")
-node_b = NodePath("../link9")
-
-[node name="pin10" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link9")
-node_b = NodePath("../link10")
-
-[node name="pin11" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link10")
-node_b = NodePath("../link11")
-
-[node name="pin12" type="PinJoint2D" parent="."]
-position = Vector2( 1.10446, -0.473343 )
-node_a = NodePath("../link11")
-node_b = NodePath("../link12")
-
 [node name="anchor" type="StaticBody2D" parent="."]
 editor/display_folded = true
+position = Vector2( -0.303421, 0.689592 )
 
 [node name="anch" type="Sprite" parent="anchor"]
 position = Vector2( 1.20254, -0.445496 )
 texture = ExtResource( 2 )
 
-[node name="anchpin" type="PinJoint2D" parent="."]
-position = Vector2( -1.5778, -0.946701 )
-node_a = NodePath("../link12")
-node_b = NodePath("../anchor")
-
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( -7.71635, 0.196331 )
+position = Vector2( -6.19343, -0.0345039 )
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 2 )

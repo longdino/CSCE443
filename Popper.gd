@@ -7,16 +7,14 @@ var startPosition = Vector2(0,0)
 var originalPosition = Vector2(0,0)
 var playerPosition = Vector2(0,0)
 var checkReached = false
-var moveSpeed = 2
 var timeElapsed = 0
 var funcAdjusted = false
 	
 const LOOP = preload("res://chain_popper/loop.tscn")
 const LINK = preload("res://chain_popper/link.tscn")
 
-export (int) var loops = 8
-export (int) var dist = 8
-export (int) var attackRadius = 1
+export (float) var attackRadius = 1
+export (float) var moveSpeed = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
@@ -34,7 +32,7 @@ func _ready():
 		playerPosition = currentBlock.global_position
 		
 		var parent = currentBlock
-		for i in range (loops):
+		for i in range (attackRadius * 20):
 			var child = addLoop(parent)
 			addLink(parent, child)
 			parent = child
@@ -51,7 +49,8 @@ func _process(delta):
 		if (startPosition != originalPosition):
 			timeElapsed = timeElapsed + delta
 			if ((timeElapsed) > 2):
-				currentBlock.move_and_collide((startPosition - originalPosition) * delta * moveSpeed)
+				adjustAngle(currentBlock, 0)
+				currentBlock.move_and_collide((startPosition - (originalPosition + Vector2(0, 1))) * delta * moveSpeed)
 				originalPosition = startPosition
 				playerPosition = startPosition
 				timeElapsed = 0
@@ -72,7 +71,8 @@ func adjustAngle(body, angle):
 		
 func addLoop(parent):
 	var loop = LOOP.instance()
-	loop.position = parent.position
+	loop.z_index = -1
+	loop.position = get_node("anchor").position
 	add_child(loop)
 	return loop
 	

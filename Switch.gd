@@ -30,8 +30,14 @@ func toggleSwitch(normalReset):
 			if(!hiddenDoor):
 				startPosition = currentDoor.position
 				if(currentDoor.get_class() == "AnimatedSprite"): #here incase the door is an old without updated sprites
+					var t = Timer.new()
+					t.set_wait_time(1.5)
+					#t.set_one_shot(true)
+					self.add_child(t)
 					currentDoor.play("crumble")
-					yield(get_tree().create_timer(1.5), "timeout")
+					t.start()
+					yield(t, "timeout")
+					t.queue_free()
 				currentDoor.position = Vector2(-100, -100)
 				hiddenDoor = true
 				

@@ -26,8 +26,8 @@ var wall_jump_duration = .27
 var wall_jump_deacceleration
 
 
-var max_wallslide_velocity = 16 * 4
-var norm_wallslide_velocity = 16 * 2
+var max_wallslide_velocity = 16 * 6
+var norm_wallslide_velocity = 16 * 4
 
 
 
@@ -159,8 +159,8 @@ func get_reset_location():
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():
-	var is_near_wall_left = _check_is_valid_wall(left_wall_raycasts)
-	var is_near_wall_right = _check_is_valid_wall(right_wall_raycasts)
+	var is_near_wall_left = _check_is_valid_wall_beta(left_wall_raycasts)
+	var is_near_wall_right = _check_is_valid_wall_beta(right_wall_raycasts)
 
 	if is_near_wall_left && is_near_wall_right:
 		wall_direction = move_direction
@@ -175,6 +175,17 @@ func _check_is_valid_wall(wall_raycasts):
 		if raycast.is_colliding():
 			return true
 	return false
+
+func _check_is_valid_wall_beta(wall_raycasts):
+	var numRaycasts = wall_raycasts.get_children().size()
+	var trueRC = 0
+	for raycast in wall_raycasts.get_children():
+		if raycast.is_colliding():
+			trueRC += 1
+	if trueRC == numRaycasts:
+		return true
+	else:
+		return false
 
 func _update_move_direction():
 	move_direction = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))

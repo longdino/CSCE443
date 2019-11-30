@@ -35,6 +35,7 @@ func _on_ResetButton_pressed():
 
 func _on_SaveButton_pressed():
 	get_tree().paused = false
+	get_tree().quit()
 	pass # Replace with function body.
 
 
@@ -48,3 +49,4 @@ func _on_Button_pressed():
 	gamePopUpMenu.show()
 	get_tree().paused = true
 	pass # Replace with function body.
+	

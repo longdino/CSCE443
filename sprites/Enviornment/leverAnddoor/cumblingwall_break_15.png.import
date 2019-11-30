@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/forest01.png-5c23190f5dabc02cbbc83f03c2c2d2af.stex"
+path="res://.import/cumblingwall_break_15.png-f12f571d0d1b45287fa1b809c7d80269.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enviornment/forest01.png"
-dest_files=[ "res://.import/forest01.png-5c23190f5dabc02cbbc83f03c2c2d2af.stex" ]
+source_file="res://sprites/Enviornment/leverAnddoor/cumblingwall_break_15.png"
+dest_files=[ "res://.import/cumblingwall_break_15.png-f12f571d0d1b45287fa1b809c7d80269.stex" ]
 
 [params]
 

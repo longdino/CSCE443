@@ -11,7 +11,7 @@
 [ext_resource path="res://sprites/Enviornment/leverAnddoor/lever_08.png" type="Texture" id=9]
 [ext_resource path="res://sprites/Enviornment/leverAnddoor/lever_09.png" type="Texture" id=10]
 
-[sub_resource type="AnimatedTexture" id=3]
+[sub_resource type="AnimatedTexture" id=1]
 frames = 16
 fps = 8.0
 frame_0/texture = ExtResource( 2 )
@@ -46,10 +46,10 @@ frame_14/delay_sec = 0.0
 frame_15/texture = ExtResource( 2 )
 frame_15/delay_sec = 0.0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 4 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 24.781, 10 )
 
 [node name="Switch" type="Area2D"]
@@ -60,15 +60,15 @@ script = ExtResource( 1 )
 position = Vector2( 0.0577092, -0.242981 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, 2 )
 scale = Vector2( 1, 4.5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 scale = Vector2( 0.4, 1.8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_Switch_body_entered"]

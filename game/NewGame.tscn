@@ -4,15 +4,15 @@
 [ext_resource path="res://title_scene/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 18
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 2 )
 
@@ -28,7 +28,7 @@ margin_left = 45.0
 margin_top = 60.0
 margin_right = 75.0
 margin_bottom = 90.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "1"
 
 [node name="Level2Button" type="Button" parent="."]
@@ -36,7 +36,7 @@ margin_left = 175.0
 margin_top = 60.0
 margin_right = 205.0
 margin_bottom = 90.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "2"
 
 [node name="Level3Button" type="Button" parent="."]
@@ -44,7 +44,7 @@ margin_left = 305.0
 margin_top = 60.0
 margin_right = 335.0
 margin_bottom = 90.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "3"
 
 [node name="Level4Button" type="Button" parent="."]
@@ -52,7 +52,7 @@ margin_left = 435.0
 margin_top = 57.667
 margin_right = 465.0
 margin_bottom = 87.667
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "4"
 
 [node name="Level5Button" type="Button" parent="."]
@@ -60,7 +60,7 @@ margin_left = 565.0
 margin_top = 57.667
 margin_right = 595.0
 margin_bottom = 87.667
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "5"
 
 [node name="Level6Button" type="Button" parent="."]
@@ -68,7 +68,7 @@ margin_left = 45.0
 margin_top = 120.0
 margin_right = 75.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "6"
 
 [node name="Level7Button" type="Button" parent="."]
@@ -76,7 +76,7 @@ margin_left = 175.0
 margin_top = 120.0
 margin_right = 205.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "7"
 
 [node name="Level8Button" type="Button" parent="."]
@@ -84,7 +84,7 @@ margin_left = 305.0
 margin_top = 120.0
 margin_right = 335.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "8"
 
 [node name="Level9Button" type="Button" parent="."]
@@ -92,7 +92,7 @@ margin_left = 435.0
 margin_top = 120.0
 margin_right = 465.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "9"
 
 [node name="Level10Button" type="Button" parent="."]
@@ -100,7 +100,7 @@ margin_left = 565.0
 margin_top = 120.0
 margin_right = 596.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "10"
 
 [node name="Level11Button" type="Button" parent="."]
@@ -108,7 +108,7 @@ margin_left = 45.0
 margin_top = 180.0
 margin_right = 75.0
 margin_bottom = 210.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "11"
 
 [node name="Level12Button" type="Button" parent="."]
@@ -116,7 +116,7 @@ margin_left = 175.0
 margin_top = 180.0
 margin_right = 205.0
 margin_bottom = 210.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "12"
 
 [node name="Level13Button" type="Button" parent="."]
@@ -124,7 +124,7 @@ margin_left = 305.0
 margin_top = 180.0
 margin_right = 335.0
 margin_bottom = 210.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "13"
 
 [node name="Level14Button" type="Button" parent="."]
@@ -132,7 +132,7 @@ margin_left = 435.0
 margin_top = 180.0
 margin_right = 467.0
 margin_bottom = 210.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "14"
 
 [node name="Level15Button" type="Button" parent="."]
@@ -140,7 +140,7 @@ margin_left = 565.0
 margin_top = 180.0
 margin_right = 595.0
 margin_bottom = 210.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "15"
 
 [node name="Level16Button" type="Button" parent="."]
@@ -148,7 +148,7 @@ margin_left = 45.0
 margin_top = 240.0
 margin_right = 76.0
 margin_bottom = 270.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "16"
 
 [node name="Level17Button" type="Button" parent="."]
@@ -156,7 +156,7 @@ margin_left = 175.0
 margin_top = 240.0
 margin_right = 205.0
 margin_bottom = 270.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "17"
 
 [node name="Level18Button" type="Button" parent="."]
@@ -164,7 +164,7 @@ margin_left = 305.0
 margin_top = 240.0
 margin_right = 336.0
 margin_bottom = 270.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "18"
 
 [node name="Level19Button" type="Button" parent="."]
@@ -172,7 +172,7 @@ margin_left = 435.0
 margin_top = 240.0
 margin_right = 466.0
 margin_bottom = 270.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "19"
 
 [node name="Level20Button" type="Button" parent="."]
@@ -180,7 +180,7 @@ margin_left = 563.0
 margin_top = 240.0
 margin_right = 598.0
 margin_bottom = 270.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "20"
 
 [node name="LoadButton" type="Button" parent="."]
@@ -188,7 +188,7 @@ margin_left = 45.0
 margin_top = 300.0
 margin_right = 315.0
 margin_bottom = 337.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Load Game"
 
 [node name="BackButton" type="Button" parent="."]
@@ -196,7 +196,7 @@ margin_left = 325.0
 margin_top = 300.0
 margin_right = 595.0
 margin_bottom = 337.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Back"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -208,7 +208,7 @@ rect_scale = Vector2( 0.663662, 0.663662 )
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 334.0
 margin_bottom = 60.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
@@ -236,6 +236,6 @@ visible = false
 [connection signal="pressed" from="Level18Button" to="." method="_on_Level4Button_pressed"]
 [connection signal="pressed" from="Level19Button" to="." method="_on_Level4Button_pressed"]
 [connection signal="pressed" from="Level20Button" to="." method="_on_Level4Button_pressed"]
-[connection signal="pressed" from="LoadButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_Button_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

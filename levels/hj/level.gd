@@ -27,7 +27,6 @@ func _ready():
 #	$AnimationPlayer/RichTextLabel.hide()
 
 func _on_MenuButton_pressed():
-	#gamePopUpMenu.show()
 	get_tree().paused = true
 	menu.show()
 	

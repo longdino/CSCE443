@@ -249,3 +249,13 @@ func _handle_move_input(delta):
 	velocity.x = new_velocity
 	if move_direction != 0:
 		$Sprite.scale.x = facing
+
+func save():
+	var save_dict = {
+		path = get_parent().get_path(),
+		pos = {
+			x = resetPoint.x,
+			y = resetPoint.y
+		}
+	}
+	return save_dict

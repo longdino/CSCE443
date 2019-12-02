@@ -154,6 +154,21 @@ func set_reset_location(newPosition):
 
 func get_reset_location():
 	get_node("FSM").set_state(get_node("FSM").states.dead)
+	
+	#resetting all switches #########################################
+	var switchName = "../Switch"
+	var iteration = 1
+	while (true):
+		if (has_node(switchName)):
+			var switchVar = get_node(switchName)
+			switchVar.toggleSwitch(false)
+			iteration += 1
+			switchName = "../Switch"
+			switchName = switchName + String(iteration)
+			print(switchName)
+		else:
+			break
+	##################################################################
 	return resetPoint
 	#print(resetPoint)
 
@@ -234,3 +249,13 @@ func _handle_move_input(delta):
 	velocity.x = new_velocity
 	if move_direction != 0:
 		$Sprite.scale.x = facing
+
+func save():
+	var save_dict = {
+		path = get_parent().get_path(),
+		pos = {
+			x = resetPoint.x,
+			y = resetPoint.y
+		}
+	}
+	return save_dict

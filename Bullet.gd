@@ -8,6 +8,8 @@ var bulletInitial = Vector2(0,0)
 var bulletStart = global_position
 var bulletEnd = Vector2(global_position.x - 100, global_position.y)
 
+export (float) var bulletSpeed = 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bulletInitial = global_position
@@ -20,7 +22,7 @@ func _process(delta):
 	var newPath = "../../Bullet"
 	if (has_node(newPath)):
 		var bulletBody = get_node(newPath)
-		bulletBody.move_and_collide((bulletEnd - bulletStart) * delta * 2)
+		bulletBody.move_and_collide((bulletEnd - bulletStart) * delta * bulletSpeed)
 		if (bulletInitial.y - bulletBody.global_position.x > 0):
 			resetBullet()
 		
@@ -36,3 +38,11 @@ func resetBullet():
 	var secondPath = "../../Bullet"
 	if (has_node(secondPath)):
 		get_node(secondPath).global_position = bulletInitial
+		
+func setSpeed(newSpeed):
+	bulletSpeed = newSpeed
+
+
+
+	
+

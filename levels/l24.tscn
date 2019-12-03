@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://levels/tutorial/tutorials.gd" type="Script" id=1]
+[ext_resource path="res://levels/tutorials.gd" type="Script" id=1]
 [ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
@@ -90,10 +90,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="GamePopupMenu" parent="." instance=ExtResource( 11 )]
-
-[node name="sign_01" type="Sprite" parent="."]
-position = Vector2( 615.444, 288.132 )
-texture = ExtResource( 12 )
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="outofbounds4" to="outofbounds4" method="_on_Hazard_body_entered"]

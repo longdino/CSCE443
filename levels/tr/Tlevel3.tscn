@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
@@ -8,13 +8,12 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=6]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sprites/Enviornment/Landscape01.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=12]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=13]
-[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=14]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=15]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=13]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 43.6909 )
@@ -66,73 +65,72 @@ margin_bottom = 400.085
 visible = false
 position = Vector2( 252.261, 190.485 )
 z_index = -1
-texture = ExtResource( 9 )
 
 [node name="Tree_anim_2_03" type="Sprite" parent="backdrop"]
 position = Vector2( -248.582, 76.8892 )
 rotation = 3.05645
 scale = Vector2( 1.48057, -1.4838 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_1_03" type="Sprite" parent="backdrop"]
 position = Vector2( 10.079, 54.4322 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="Tree_anim_1_04" type="Sprite" parent="backdrop"]
 position = Vector2( 241.751, 68.7215 )
 scale = Vector2( -1.53072, 1.91524 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="Tree_anim_2_01" type="Sprite" parent="backdrop"]
 position = Vector2( -152.361, 68.9467 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_2_02" type="Sprite" parent="backdrop"]
 position = Vector2( 70.7454, 67.9373 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_2_04" type="Sprite" parent="backdrop"]
 position = Vector2( 315.862, -101.759 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_1_01" type="Sprite" parent="backdrop"]
 position = Vector2( -59.2807, 72.7667 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="Tree_anim_1_02" type="Sprite" parent="backdrop"]
 visible = false
 position = Vector2( -21.2637, 44.9194 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="log1" type="Sprite" parent="backdrop"]
 position = Vector2( 280.429, -56.2866 )
 scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="log2" type="Sprite" parent="backdrop"]
 position = Vector2( -100.619, 131.335 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="rock_3" type="Sprite" parent="backdrop"]
 position = Vector2( 222.152, 100.461 )
 rotation = 0.460867
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
 [node name="rock_2" type="Sprite" parent="backdrop"]
 position = Vector2( 284.048, 105.258 )
 rotation = -1.07046
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
-[node name="GamePopupMenu" parent="." instance=ExtResource( 15 )]
+[node name="GamePopupMenu" parent="." instance=ExtResource( 14 )]
 show_behind_parent = true
 margin_left = 1.34723
 margin_top = 0.88833

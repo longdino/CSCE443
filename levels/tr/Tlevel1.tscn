@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://levels/hj/level.gd" type="Script" id=1]
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=2]
@@ -9,11 +9,9 @@
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=7]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sprites/Enviornment/forest01.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=12]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=13]
-[ext_resource path="res://TestExport/OutOfBounds.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 43.6909 )
@@ -68,35 +66,30 @@ margin_right = 293.0
 margin_bottom = 177.0
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
-position = Vector2( 252.261, 190.485 )
+position = Vector2( 13.0965, 300.032 )
 
 [node name="backdrop" type="Sprite" parent="."]
 visible = false
 position = Vector2( 252.261, 190.485 )
 z_index = -1
-texture = ExtResource( 10 )
 
 [node name="log2" type="Sprite" parent="backdrop"]
 position = Vector2( -84.408, 113.503 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="rock_1" type="Sprite" parent="backdrop"]
 position = Vector2( 247.436, -25.934 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="rock_2" type="Sprite" parent="backdrop"]
 position = Vector2( 54.5275, 134.012 )
 rotation = 0.570723
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="log1" type="Sprite" parent="backdrop"]
 position = Vector2( -11.924, -104.562 )
 scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 13 )
-
-[node name="Area2D2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 566.712, 378.787 )
-rotation = 3.15527
+texture = ExtResource( 12 )
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

@@ -50,7 +50,7 @@ frame_15/delay_sec = 0.0
 extents = Vector2( 4, 4 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24.781, 10 )
+extents = Vector2( 25, 11 )
 
 [node name="Switch" type="Area2D"]
 position = Vector2( -0.406746, 0.197849 )

@@ -98,7 +98,7 @@ position = Vector2( 611.886, 81.9325 )
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 627.795, 319.497 )
-frame = 15
+frame = 8
 
 [node name="teleportBlock1" type="Area2D" parent="."]
 position = Vector2( 641.47, 311.37 )

@@ -152,6 +152,7 @@ position = Vector2( 596.399, 139.925 )
 
 [node name="Door" parent="." instance=ExtResource( 11 )]
 position = Vector2( 8.38059, 319.212 )
+frame = 10
 
 [node name="Switch" parent="." instance=ExtResource( 12 )]
 position = Vector2( 129.403, 299.062 )

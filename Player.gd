@@ -58,6 +58,8 @@ onready var wall_slide_sticky_timer = $WallSlideStickTimer
 onready var dash_timer = $DashTimer
 onready var sprite = $Sprite
 onready var wall_jump_timer = $WallJumpTimer
+onready var soundFX = $soundFX
+onready var musicPlayer = $musicPlayer
 
 var velocity = Vector2()
 var on_ground = false

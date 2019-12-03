@@ -9,13 +9,13 @@
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=8]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_walljump_01.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=12]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=13]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=14]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=15]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_01.png" type="Texture" id=16]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_01.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_walljump_01.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=13]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 14 )
@@ -33,24 +33,24 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "jump",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "wallslide",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": false,
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": false,
-"name": "jump",
-"speed": 1.0
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
 } ]
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -62,6 +62,7 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
+editor/display_folded = true
 shape = SubResource( 1 )
 
 [node name="WallRaycasts" type="Node2D" parent="CollisionBox"]
@@ -117,6 +118,7 @@ cast_to = Vector2( 0, 1 )
 position = Vector2( 1, 1 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="State Label" type="Label" parent="."]
@@ -150,5 +152,9 @@ autostart = true
 
 [node name="WallJumpTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="soundFX" type="AudioStreamPlayer" parent="."]
 [connection signal="timeout" from="WallSlideStickTimer" to="FSM" method="_on_WallSlideStickTimer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="FSM" method="_on_GhostTimer_timeout"]

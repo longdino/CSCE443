@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://levels/hj/level.gd" type="Script" id=1]
+[ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=4]
@@ -13,6 +13,7 @@
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=11]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 43.6909 )

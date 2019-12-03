@@ -12,7 +12,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="ag6" type="Node2D"]
+[node name="l15" type="Node2D"]
 
 [node name="sign_01" type="Sprite" parent="."]
 position = Vector2( 40.4383, 160.456 )

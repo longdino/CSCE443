@@ -13,9 +13,9 @@ func _ready():
 
 func _process(delta):
 	if(lapsed < 7):
-		lapsed = lapsed + delta
+		lapsed = lapsed + delta * 2
 	else:
-		lapsed = lapsed + delta + delta
+		lapsed = lapsed + delta * 3
 	charNum = set_visible_characters(lapsed)
 	
 	if(lapsed > 19.5):
@@ -24,5 +24,5 @@ func _process(delta):
 		if(!playerExists):
 			var player = PLAYER.instance()
 			player.position = Vector2(50, 260)
-			get_node("../../intro").add_child(player)
+			get_node("../../l1").add_child(player)
 			playerExists = true

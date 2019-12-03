@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/Enviornment/sign_01.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
@@ -18,10 +18,10 @@ extents = Vector2( 10, 128 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 64 )
 
-[node name="ag2" type="Node2D"]
+[node name="l28" type="Node2D"]
 
 [node name="sign_01" type="Sprite" parent="."]
 position = Vector2( 546.592, 336.446 )
@@ -103,7 +103,7 @@ position = Vector2( 611.886, 81.9325 )
 
 [node name="Door" parent="." instance=ExtResource( 9 )]
 position = Vector2( 627.795, 319.497 )
-frame = 10
+frame = 0
 
 [node name="teleportBlock1" type="Area2D" parent="."]
 position = Vector2( 641.47, 311.37 )
@@ -111,7 +111,7 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 position = Vector2( 0.928223, -1.52916 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 11 )]
 margin_left = -675.0

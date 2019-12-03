@@ -47,7 +47,7 @@ position = Vector2( -6.19343, -0.0345039 )
 
 [node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 2 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Hazard" type="Area2D" parent="KinematicBody2D/Sprite"]
@@ -60,4 +60,5 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_Popper_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Popper_body_exited"]
 [connection signal="body_entered" from="KinematicBody2D/Sprite/Hazard" to="KinematicBody2D/Sprite/Hazard" method="_on_Hazard_body_entered"]

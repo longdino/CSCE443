@@ -10,7 +10,7 @@
 [ext_resource path="res://gameMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/Enviornment/sign_01.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 128 )
 
 [node name="l2" type="Node2D"]
@@ -50,12 +50,11 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds2"]
 position = Vector2( 0.177635, -0.167145 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="outofbounds3" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( -66.5525, 173.133 )
-rotation = -0.261799
 scale = Vector2( 1, 4 )
 collision_layer = 17
 script = ExtResource( 5 )
@@ -63,12 +62,11 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds3"]
 position = Vector2( 0.177635, -0.167145 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="outofbounds4" type="Area2D" parent="."]
 editor/display_folded = true
 position = Vector2( 707.401, 173.133 )
-rotation = 0.261799
 scale = Vector2( 1, 4 )
 collision_layer = 17
 script = ExtResource( 5 )
@@ -76,7 +74,7 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds4"]
 position = Vector2( 0.177635, -0.167145 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )

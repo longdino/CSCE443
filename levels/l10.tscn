@@ -15,7 +15,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.9903, 8 )
 
-[node name="Tlevel4" type="Node2D"]
+[node name="l10" type="Node2D"]
 position = Vector2( 0.170013, 0.551626 )
 
 [node name="Maps" type="Node" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://levels/hj/level.gd" type="Script" id=1]
+[ext_resource path="res://levels/level.gd" type="Script" id=1]
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=4]
@@ -16,7 +16,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 43.6909 )
 
-[node name="Tlevel1" type="Node2D"]
+[node name="l5" type="Node2D"]
 position = Vector2( 67.4875, -9.9014 )
 script = ExtResource( 1 )
 

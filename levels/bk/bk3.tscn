@@ -136,7 +136,7 @@ position = Vector2( -37.8098, -89.3502 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser/KinematicBody2D"]
 frames = SubResource( 2 )
-animation = "idle"
+frame = 1
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser/KinematicBody2D/Sprite"]
@@ -166,7 +166,6 @@ position = Vector2( 83.1902, 36.6498 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser2/KinematicBody2D"]
 frames = SubResource( 2 )
-animation = "idle"
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser2/KinematicBody2D/Sprite"]
@@ -179,6 +178,93 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser2/KinematicBody2D"]
 position = Vector2( 0, 2 )
 shape = SubResource( 4 )
+
+[node name="Chaser3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 379, 325 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3"]
+position = Vector2( -75, -23 )
+shape = SubResource( 6 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser3"]
+editor/display_folded = true
+position = Vector2( -36, 6 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Chaser3/KinematicBody2D"]
+frames = SubResource( 7 )
+frame = 2
+playing = true
+
+[node name="Hazard" type="Area2D" parent="Chaser3/KinematicBody2D/Sprite"]
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3/KinematicBody2D/Sprite/Hazard"]
+position = Vector2( -1.00001, -1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3/KinematicBody2D"]
+shape = SubResource( 9 )
+
+[node name="Chaser4" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 516, -29 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser4"]
+position = Vector2( 5.00003, 208 )
+shape = SubResource( 10 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser4"]
+position = Vector2( 0.190247, -2.35022 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Chaser4/KinematicBody2D"]
+frames = SubResource( 11 )
+frame = 2
+playing = true
+
+[node name="Hazard" type="Area2D" parent="Chaser4/KinematicBody2D/Sprite"]
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser4/KinematicBody2D/Sprite/Hazard"]
+position = Vector2( -0.190247, -0.64978 )
+shape = SubResource( 12 )
+
+[node name="Door" parent="." instance=ExtResource( 11 )]
+position = Vector2( 169, 320 )
+frame = 15
+
+[node name="Switch" parent="." instance=ExtResource( 12 )]
+position = Vector2( 17, 337 )
+
+[node name="Hazard" parent="." instance=ExtResource( 13 )]
+position = Vector2( 227, 209 )
+scale = Vector2( 3.8, 1 )
+
+[node name="Hazard2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 486, 207 )
+scale = Vector2( 7.56, 1 )
+
+[node name="Hazard3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 555, 95 )
+scale = Vector2( 7.56, 1 )
+
+[node name="Hazard4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 478, 193 )
+scale = Vector2( 1.4, 1 )
+
+[node name="Hazard5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 558, 305 )
+scale = Vector2( 1.4, 1 )
+
+[node name="Hazard6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 485, 304 )
+scale = Vector2( 2.08, 1 )
+
+[node name="Hazard7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 549, 193 )
+scale = Vector2( 2.08, 1 )
 [connection signal="body_entered" from="Chaser" to="Chaser" method="_on_Chaser_body_entered"]
 [connection signal="body_exited" from="Chaser" to="Chaser" method="_on_Chaser_body_exited"]
 [connection signal="body_shape_entered" from="Chaser" to="Chaser" method="_on_Chaser_body_shape_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/The_Long_Way_Back.ogg-9a8f6fdbc891abdbde60f11d9f247968.oggstr"
+
+[deps]
+
+source_file="res://Audio/The_Long_Way_Back.ogg"
+dest_files=[ "res://.import/The_Long_Way_Back.ogg-9a8f6fdbc891abdbde60f11d9f247968.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

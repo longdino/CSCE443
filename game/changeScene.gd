@@ -42,21 +42,21 @@ func _on_Level4Button_pressed():
 
 
 func _on_LoadButton_pressed():
-#	var save_game = File.new()
-#	if not save_game.file_exists(SAVE_PATH):
-#		return
-#
-#	save_game.open(SAVE_PATH, File.READ)
-#	var data = {}
-#	data = parse_json(save_game.get_as_text())
-#	print(data)
-#	for node_path in data.keys():
-#		print(data[node_path])
-#		for attribute in data[node_path]:
-#			if attribute == "path":
-#				print(data[node_path][attribute].replace('/root/', ''))
-#				var scene = data[node_path][attribute].replace('/root/', '') + '.tscn'
-#				get_tree().change_scene("res://levels/tutorial/" + scene)
-#
-#	save_game.close()
+	var save_game = File.new()
+	if not save_game.file_exists(SAVE_PATH):
+		return
+
+	save_game.open(SAVE_PATH, File.READ)
+	var data = {}
+	data = parse_json(save_game.get_as_text())
+	print(data)
+	for node_path in data.keys():
+		print(data[node_path])
+		for attribute in data[node_path]:
+			if attribute == "path":
+				print(data[node_path][attribute].replace('/root/', ''))
+				var scene = data[node_path][attribute].replace('/root/', '') + '.tscn'
+				get_tree().change_scene("res://levels/" + scene)
+
+	save_game.close()
 	pass

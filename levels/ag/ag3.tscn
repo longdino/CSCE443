@@ -20,7 +20,7 @@ extents = Vector2( 7, 7 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 64 )
 
 [node name="ag3" type="Node2D"]
@@ -113,15 +113,15 @@ position = Vector2( 576.053, 326.231 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 395.344, 40.3867 )
-frame = 7
+frame = 3
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 464.198, 38.5905 )
-frame = 7
+frame = 3
 
 [node name="Door3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 536.646, 37.393 )
-frame = 7
+frame = 3
 
 [node name="teleportBlock1" type="Area2D" parent="."]
 editor/display_folded = true
@@ -130,7 +130,7 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
 position = Vector2( 0.13385, -3.11804 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 8 )]
 margin_left = -746.0

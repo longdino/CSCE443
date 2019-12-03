@@ -6,7 +6,7 @@ extends Area2D
 var startPosition = Vector2(0,0)
 var originalPosition = Vector2(0,0)
 var playerPosition = Vector2(0,0)
-var checkReached = false
+var inBody = false
 var timeElapsed = 0
 var funcAdjusted = false
 	
@@ -52,7 +52,10 @@ func _process(delta):
 				adjustAngle(currentBlock, 0)
 				currentBlock.move_and_collide((startPosition - (originalPosition + Vector2(0, 1))) * delta * moveSpeed)
 				originalPosition = startPosition
-				playerPosition = startPosition
+				if (has_node("../Player") && inBody):
+					playerPosition = get_node("../Player").position
+				else:
+					playerPosition = startPosition
 				timeElapsed = 0
 		
 		#print(sqrt(pow(startPosition.x - originalPosition.x, 2) + pow(startPosition.y - originalPosition.y, 2)))
@@ -86,5 +89,10 @@ func _on_Popper_body_entered(body):
 	#pass # Replace with function body.
 	if body.get_name() == "Player":
 		playerPosition = body.global_position
-		checkReached = true
+		inBody = true
 		
+
+func _on_Popper_body_exited(body):
+	if body.get_name() == "Player":
+		playerPosition = startPosition
+		inBody = false

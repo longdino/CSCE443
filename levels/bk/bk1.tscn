@@ -39,11 +39,11 @@ position = Vector2( 27, 72.098 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 616, 224 )
-frame = 8
+frame = 0
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 634, 224 )
-frame = 8
+frame = 0
 
 [node name="Hazard" parent="." instance=ExtResource( 7 )]
 position = Vector2( 255, 223 )

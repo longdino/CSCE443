@@ -50,13 +50,13 @@ alignment = 1
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_bottom = 50.0
 rect_min_size = Vector2( 360, 50 )
-scene_to_load = "res://levels/tutorial/tut1.tscn"
+scene_to_load = "res://levels/l1.tscn"
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 70.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 360, 50 )
-scene_to_load = "res://game/NewGame.tscn"
+scene_to_load = ""
 
 [node name="OptionButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 visible = false
@@ -96,4 +96,5 @@ margin_left = 1.0
 margin_top = -1.0
 margin_right = 1.0
 margin_bottom = -1.0
+[connection signal="pressed" from="Menu/CenterRow/Buttons/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

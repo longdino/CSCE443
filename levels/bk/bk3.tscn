@@ -14,7 +14,7 @@
 [ext_resource path="res://Switch.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Hazard.tscn" type="PackedScene" id=13]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89, 119 )
 
 [sub_resource type="SpriteFrames" id=2]
@@ -31,13 +31,13 @@ extents = Vector2( 10.0453, 9.2355 )
 [sub_resource type="CircleShape2D" id=4]
 radius = 5.0
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 89, 120 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 99, 63 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
@@ -45,15 +45,15 @@ animations = [ {
 "speed": 0.8
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 9.23557, 10.5857 )
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=9]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 105, 178 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
@@ -61,7 +61,7 @@ animations = [ {
 "speed": 0.8
 } ]
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 10.0453, 9.2355 )
 
 [node name="Node2D" type="Node2D"]
@@ -95,14 +95,13 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser"]
 position = Vector2( 52, 91 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser"]
 position = Vector2( 0.190247, -2.35022 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser/KinematicBody2D"]
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser/KinematicBody2D/Sprite"]
@@ -122,14 +121,14 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser2"]
 position = Vector2( 55, -100 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser2"]
 position = Vector2( -1, -31 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser2/KinematicBody2D"]
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser2/KinematicBody2D/Sprite"]
@@ -149,14 +148,15 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3"]
 position = Vector2( -75, -23 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser3"]
 editor/display_folded = true
 position = Vector2( -36, 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser3/KinematicBody2D"]
-frames = SubResource( 8 )
+frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser3/KinematicBody2D/Sprite"]
@@ -164,10 +164,10 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3/KinematicBody2D/Sprite/Hazard"]
 position = Vector2( -1.00001, -1 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser3/KinematicBody2D"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Chaser4" type="Area2D" parent="."]
 editor/display_folded = true
@@ -176,13 +176,14 @@ script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser4"]
 position = Vector2( 5.00003, 208 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser4"]
 position = Vector2( 0.190247, -2.35022 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser4/KinematicBody2D"]
-frames = SubResource( 12 )
+frames = SubResource( 11 )
+frame = 1
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser4/KinematicBody2D/Sprite"]
@@ -190,10 +191,11 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser4/KinematicBody2D/Sprite/Hazard"]
 position = Vector2( -0.190247, -0.64978 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="Door" parent="." instance=ExtResource( 11 )]
 position = Vector2( 169, 320 )
+frame = 13
 
 [node name="Switch" parent="." instance=ExtResource( 12 )]
 position = Vector2( 17, 337 )

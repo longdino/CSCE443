@@ -102,7 +102,10 @@ position = Vector2( 0.190247, -2.35022 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser/KinematicBody2D"]
 frames = SubResource( 2 )
+<<<<<<< HEAD
+=======
 frame = 1
+>>>>>>> e063fe09af8cb63983895562032c5c533bfb8142
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser/KinematicBody2D/Sprite"]
@@ -129,6 +132,10 @@ position = Vector2( -1, -31 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser2/KinematicBody2D"]
 frames = SubResource( 2 )
+<<<<<<< HEAD
+frame = 2
+=======
+>>>>>>> e063fe09af8cb63983895562032c5c533bfb8142
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser2/KinematicBody2D/Sprite"]
@@ -156,7 +163,11 @@ position = Vector2( -36, 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser3/KinematicBody2D"]
 frames = SubResource( 7 )
+<<<<<<< HEAD
+frame = 1
+=======
 frame = 2
+>>>>>>> e063fe09af8cb63983895562032c5c533bfb8142
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser3/KinematicBody2D/Sprite"]
@@ -183,7 +194,11 @@ position = Vector2( 0.190247, -2.35022 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Chaser4/KinematicBody2D"]
 frames = SubResource( 11 )
+<<<<<<< HEAD
+frame = 1
+=======
 frame = 2
+>>>>>>> e063fe09af8cb63983895562032c5c533bfb8142
 playing = true
 
 [node name="Hazard" type="Area2D" parent="Chaser4/KinematicBody2D/Sprite"]
@@ -195,7 +210,11 @@ shape = SubResource( 12 )
 
 [node name="Door" parent="." instance=ExtResource( 11 )]
 position = Vector2( 169, 320 )
+<<<<<<< HEAD
+frame = 13
+=======
 frame = 15
+>>>>>>> e063fe09af8cb63983895562032c5c533bfb8142
 
 [node name="Switch" parent="." instance=ExtResource( 12 )]
 position = Vector2( 17, 337 )

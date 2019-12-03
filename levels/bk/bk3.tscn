@@ -13,7 +13,7 @@
 [ext_resource path="res://sprites/Characters/Follower/follower_idle_02.png" type="Texture" id=11]
 [ext_resource path="res://Hazard.gd" type="Script" id=12]
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 78.5525, 117.045 )
 
 [sub_resource type="SpriteFrames" id=2]
@@ -35,7 +35,7 @@ extents = Vector2( 10.0453, 9.2355 )
 [sub_resource type="CircleShape2D" id=4]
 radius = 5.0
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 107.552, 57.0452 )
 
 [node name="Node2D" type="Node2D"]
@@ -87,49 +87,41 @@ tile_data = PoolIntArray( 393246, 1610612739, 0, 393247, 1610612739, 0, 393248, 
 position = Vector2( 44, 81 )
 
 [node name="Hazard" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 227, 209 )
 scale = Vector2( 3.8, 1 )
 
 [node name="Hazard2" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 486, 207 )
 scale = Vector2( 7.56, 1 )
 
 [node name="Hazard3" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 555, 95 )
 scale = Vector2( 7.56, 1 )
 
 [node name="Hazard4" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 478, 193 )
 scale = Vector2( 1.4, 1 )
 
 [node name="Hazard5" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 558, 305 )
 scale = Vector2( 1.4, 1 )
 
 [node name="Hazard6" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 485, 304 )
 scale = Vector2( 2.08, 1 )
 
 [node name="Hazard7" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 549, 193 )
 scale = Vector2( 2.08, 1 )
 
 [node name="Chaser" type="Area2D" parent="."]
 editor/display_folded = true
-visible = false
 position = Vector2( 81, 232 )
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser"]
 position = Vector2( 7.44754, -0.954788 )
-shape = SubResource( 13 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser"]
 position = Vector2( -37.8098, -89.3502 )
@@ -152,14 +144,13 @@ shape = SubResource( 4 )
 
 [node name="Chaser2" type="Area2D" parent="."]
 editor/display_folded = true
-visible = false
 position = Vector2( 290, 293 )
 script = ExtResource( 8 )
 moveSpeed = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chaser2"]
 position = Vector2( 10.4475, 2.04521 )
-shape = SubResource( 14 )
+shape = SubResource( 5 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Chaser2"]
 position = Vector2( 83.1902, 36.6498 )

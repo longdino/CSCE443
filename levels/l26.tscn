@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/Enviornment/sign_01.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://Hazard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Chaser.tscn" type="PackedScene" id=10]
 
-[node name="ag7" type="Node2D"]
+[node name="l26" type="Node2D"]
 
 [node name="sign_01" type="Sprite" parent="."]
 position = Vector2( 43.1903, 176.408 )

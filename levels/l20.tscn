@@ -24,7 +24,7 @@ extents = Vector2( 7, 7 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 64 )
 
-[node name="ag3" type="Node2D"]
+[node name="l20" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -118,15 +118,15 @@ position = Vector2( 576.053, 326.231 )
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 position = Vector2( 395.344, 40.3867 )
-frame = 13
+frame = 16
 
 [node name="Door2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 464.198, 38.5905 )
-frame = 13
+frame = 16
 
 [node name="Door3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 536.646, 37.393 )
-frame = 13
+frame = 16
 
 [node name="teleportBlock1" type="Area2D" parent="."]
 editor/display_folded = true

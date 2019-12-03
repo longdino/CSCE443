@@ -9,7 +9,6 @@ extents = Vector2( 10, 128 )
 
 [node name="outofbounds3" type="Area2D" parent="."]
 position = Vector2( 715.091, 155.597 )
-rotation = 0.261799
 scale = Vector2( 1, 4 )
 collision_layer = 17
 script = ExtResource( 1 )
@@ -21,7 +20,6 @@ shape = SubResource( 1 )
 
 [node name="outofbounds4" type="Area2D" parent="."]
 position = Vector2( -62.4374, 178.153 )
-rotation = -0.261799
 scale = Vector2( 1, 4 )
 collision_layer = 17
 script = ExtResource( 1 )

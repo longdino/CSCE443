@@ -17,7 +17,7 @@ extents = Vector2( 10, 99.3439 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 67.7868 )
 
-[node name="Hlevel2" type="Node2D"]
+[node name="l11" type="Node2D"]
 
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
 

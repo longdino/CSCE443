@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/By_The_Winds.ogg-e12c6288c3c8e5bbe53a3df171fa53f9.oggstr"
+
+[deps]
+
+source_file="res://Audio/By_The_Winds.ogg"
+dest_files=[ "res://.import/By_The_Winds.ogg-e12c6288c3c8e5bbe53a3df171fa53f9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

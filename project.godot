@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="CSCE443"
 run/main_scene="res://title_scene/title_screen.tscn"
 
+[autoload]
+
+MusicController="*res://MusicController.tscn"
+
 [display]
 
 window/size/width=640

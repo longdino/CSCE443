@@ -42,7 +42,7 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
-scene_to_load = "res://levels/tutorial/tut1.tscn"
+scene_to_load = "res://levels/ag2.tscn"
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_top = 80.0

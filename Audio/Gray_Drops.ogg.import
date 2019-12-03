@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gray_Drops.ogg-e6105497af74bf058a8bdcf4ec1356a7.oggstr"
+
+[deps]
+
+source_file="res://Audio/Gray_Drops.ogg"
+dest_files=[ "res://.import/Gray_Drops.ogg-e6105497af74bf058a8bdcf4ec1356a7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

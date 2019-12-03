@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/Enviornment/sign_03.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=2]
@@ -8,11 +8,10 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=6]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=8]
-[ext_resource path="res://sprites/doorBlock.png" type="Texture" id=9]
-[ext_resource path="res://Switch.gd" type="Script" id=10]
-[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=11]
-[ext_resource path="res://FallBlock.tscn" type="PackedScene" id=12]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://FallBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Switch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,32 +20,6 @@ extents = Vector2( 10, 128 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 64 )
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends Sprite
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func removeDoor():
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 10, 34 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 4, 4 )
-
-[sub_resource type="RectangleShape2D" id=7]
 
 [node name="ag4" type="Node2D"]
 
@@ -105,82 +78,28 @@ tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="Door1" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 319.457, 161.149 )
-texture = ExtResource( 9 )
-script = SubResource( 4 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D"]
-shape = SubResource( 5 )
-
-[node name="Door2" type="Sprite" parent="."]
-editor/display_folded = true
-position = Vector2( 412.405, 161.547 )
-texture = ExtResource( 9 )
-script = SubResource( 4 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
-shape = SubResource( 5 )
-
-[node name="Switch1" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 605.848, 150.745 )
-script = ExtResource( 10 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Switch1"]
-position = Vector2( 0.0577092, -0.242981 )
-
-[node name="Sprite" type="Sprite" parent="Switch1/StaticBody2D"]
-position = Vector2( 0.025177, 0.109222 )
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1/StaticBody2D"]
-position = Vector2( -0.200409, 0.340973 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1"]
-position = Vector2( -0.0186768, -0.0723877 )
-scale = Vector2( 0.4, 0.4 )
-shape = SubResource( 7 )
-
-[node name="Switch2" type="Area2D" parent="."]
-editor/display_folded = true
-position = Vector2( 609.423, 341.408 )
-script = ExtResource( 10 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Switch2"]
-position = Vector2( 0.0577092, -0.242981 )
-
-[node name="Sprite" type="Sprite" parent="Switch2/StaticBody2D"]
-position = Vector2( 0.025177, 0.109222 )
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2/StaticBody2D"]
-position = Vector2( -0.200409, 0.340973 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch2"]
-position = Vector2( -0.0186768, -0.0723877 )
-scale = Vector2( 0.4, 0.4 )
-shape = SubResource( 7 )
-
-[node name="FallBlock3" parent="." instance=ExtResource( 12 )]
+[node name="FallBlock3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 368.126, 73.5159 )
 
-[node name="FallBlock4" parent="." instance=ExtResource( 12 )]
+[node name="FallBlock4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 223.456, 201.461 )
 
-[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
+[node name="Switch" parent="." instance=ExtResource( 10 )]
+position = Vector2( 610.469, 322.151 )
+
+[node name="Switch2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 607.124, 154.485 )
+
+[node name="Door2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 307.276, 159.316 )
+frame = 3
+
+[node name="Door" parent="." instance=ExtResource( 11 )]
+position = Vector2( 435.221, 160.57 )
+frame = 2
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
 [connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
-[connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
-[connection signal="body_entered" from="Switch2" to="Switch2" method="_on_Switch_body_entered"]

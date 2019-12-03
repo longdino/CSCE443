@@ -38,7 +38,7 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 107.552, 57.0452 )
 
-[node name="Node2D" type="Node2D"]
+[node name="l31" type="Node2D"]
 
 [node name="Bounds" parent="." instance=ExtResource( 1 )]
 

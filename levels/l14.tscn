@@ -10,7 +10,7 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gameMenu.tscn" type="PackedScene" id=9]
 
-[node name="ag8" type="Node2D"]
+[node name="l14" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 33.1882, 84.6096 )
@@ -42,10 +42,11 @@ position = Vector2( 349.834, 255.798 )
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 608.127, 178.477 )
-frame = 10
+frame = 4
 
 [node name="Door2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 560.448, 178.477 )
+frame = 3
 
 [node name="GamePopupMenu" parent="." instance=ExtResource( 9 )]
 margin_left = 1.78831

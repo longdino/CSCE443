@@ -9,7 +9,7 @@
 [ext_resource path="res://Hazard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D"]
+[node name="l30" type="Node2D"]
 
 [node name="Bounds" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 24 )
@@ -40,11 +40,11 @@ position = Vector2( 379, 332.459 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 592, 224 )
-frame = 3
+frame = 12
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 624, 224 )
-frame = 3
+frame = 12
 
 [node name="Hazard" parent="." instance=ExtResource( 7 )]
 position = Vector2( 255, 223 )

@@ -9,7 +9,7 @@ export(String)var present_scene_path
 func _ready():
 	present_scene_path = get_tree().get_current_scene().get_name()
 	#present_scene_path = get_tree().edited_scene_root.get_script().get_path()
-	print(present_scene_path)
+	#print(present_scene_path)
 	#pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,92 +24,13 @@ func _on_teleportBlock_body_entered(body):
 		$FadeIn.fade_in()
 
 func _on_FadeIn_fade_finished():
-#	if present_scene_path == "temp":
-#		scene_path_to_load = "res://levels/level1.tscn"
-#	elif present_scene_path == "level1":
-#		scene_path_to_load = "res://levels/level1.tscn"
-#	elif present_scene_path == "ag1":
-#		scene_path_to_load = "res://levels/ag/ag2.tscn"
-#	elif present_scene_path == "ag2":
-#		scene_path_to_load = "res://levels/ag/ag3.tscn"
-#	elif present_scene_path == "ag3":
-#		scene_path_to_load = "res://levels/ag/ag4.tscn"
-#	elif present_scene_path == "ag4":
-#		scene_path_to_load = "res://levels/ag/ag5.tscn"
-#	elif present_scene_path == "ag5":
-#		scene_path_to_load = "res://levels/tr/Tlevel1.tscn"
-#	elif present_scene_path == "Hlevel1":
-#		scene_path_to_load = "res://levels/hj/Hlevel2.tscn"
-#	elif present_scene_path == "Hlevel2":
-#		scene_path_to_load = "res://levels/hj/Hlevel3.tscn"
-#	elif present_scene_path == "Hlevel3":
-#		scene_path_to_load = "res://levels/hj/Hlevel4.tscn"
-#	elif present_scene_path == "Hlevel4":
-#		scene_path_to_load = "res://levels/hj/Hlevel5.tscn"
-#	elif present_scene_path == "Hlevel5":
-#		scene_path_to_load = "res://levels/ag/ag1.tscn"
-#	elif present_scene_path == "Tlevel1":
-#		scene_path_to_load = "res://levels/tr/Tlevel2.tscn"
-#	elif present_scene_path == "Tlevel2":
-#		scene_path_to_load = "res://levels/tr/Tlevel3.tscn"
-#	elif present_scene_path == "Tlevel3":
-#		scene_path_to_load = "res://levels/tr/Tlevel4.tscn"
-#	elif present_scene_path == "Tlevel4":
-#		scene_path_to_load = "res://levels/tr/Tlevel5.tscn"
-#	elif present_scene_path == "Tlevel5":
-#		scene_path_to_load = "res://levels/hj/Hlevel1.tscn"
-#	elif present_scene_path == "tut1":
-#		scene_path_to_load = "res://levels/tutorial/tut2.tscn" 
-#	elif present_scene_path == "tut2":
-#		scene_path_to_load = "res://levels/tutorial/tut3.tscn"
-#	elif present_scene_path == "tut3":
-#		scene_path_to_load = "res://levels/tutorial/tut4.tscn" 
-#	elif present_scene_path == "tut4":
-#		scene_path_to_load = "res://levels/tutorial/tut5.tscn"
-#	elif present_scene_path == "tut5":
-#		scene_path_to_load = "res://levels/level1.tscn" 
-#	else:
-#		scene_path_to_load = "res://levels/tut/tut1.tscn"
-	if present_scene_path == "tut1":
-		scene_path_to_load = "res://levels/tutorial/tut2.tscn" 
-	elif present_scene_path == "tut2":
-		scene_path_to_load = "res://levels/tutorial/tut3.tscn"
-	elif present_scene_path == "tut3":
-		scene_path_to_load = "res://levels/tutorial/tut4.tscn" 
-	elif present_scene_path == "tut4":
-		scene_path_to_load = "res://levels/tutorial/tut5.tscn"
-	elif present_scene_path == "tut5":
-		scene_path_to_load = "res://levels/hj/Hlevel1.tscn" 
-	elif present_scene_path == "Hlevel1":
-		scene_path_to_load = "res://levels/tr/Tlevel1.tscn"
-	elif present_scene_path == "Tlevel1":
-		scene_path_to_load = "res://levels/hj/Hlevel2.tscn"
-	elif present_scene_path == "Hlevel2":
-		scene_path_to_load = "res://levels/tr/Tlevel2.tscn"
-	elif present_scene_path == "Tlevel2":
-		scene_path_to_load = "res://levels/ag/ag1.tscn"
-	elif present_scene_path == "ag1":
-		scene_path_to_load = "res://levels/hj/Hlevel3.tscn"
-	elif present_scene_path == "Hlevel3":
-		scene_path_to_load = "res://levels/ag/ag4.tscn"
-	elif present_scene_path == "ag4":
-		scene_path_to_load = "res://levels/tr/Tlevel3.tscn"
-	elif present_scene_path == "Tlevel3":
-		scene_path_to_load = "res://levels/hj/Hlevel4.tscn"
-	elif present_scene_path == "Hlevel4":
-		scene_path_to_load = "res://levels/hj/Hlevel5.tscn"
-	elif present_scene_path == "Hlevel5":
-		scene_path_to_load = "res://levels/tr/Tlevel4.tscn"
-	elif present_scene_path == "Tlevel4":
-		scene_path_to_load = "res://levels/ag/ag2.tscn"
-	elif present_scene_path == "ag2":
-		scene_path_to_load = "res://levels/ag/ag3.tscn"
-	elif present_scene_path == "ag3":
-		scene_path_to_load = "res://levels/ag/ag5.tscn"
-	elif present_scene_path == "ag5":
-		scene_path_to_load = "res://levels/tr/Tlevel5.tscn"
-	elif present_scene_path == "Tlevel5":
-		scene_path_to_load = "res://title_scene/title_screen.tscn"
+	var currLevel = present_scene_path.replace("l", "")
+	currLevel = String(int(currLevel) + 1)
+	print (currLevel)
+	scene_path_to_load = "res://levels/l" + currLevel + ".tscn"
+	print (scene_path_to_load)
 	
+	if (currLevel == "32"):
+		scene_path_to_load = "res://title_scene/title_screen.tscn"
 	
 	get_tree().change_scene(scene_path_to_load)

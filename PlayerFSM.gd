@@ -155,7 +155,7 @@ func _enter_state(new_state, old_state):
 			sprite.play("jump")
 			parent.air_deacceleration = parent.wall_jump_deacceleration
 		states.dead:
-			pass
+			get_tree().reload_current_scene()
 
 
 func _exit_state(old_state, new_state):

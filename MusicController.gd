@@ -14,6 +14,7 @@ onready var _player = $AudioStreamPlayer
 func play(track_url: String):
 	#track_url = "res://Audio/Antnio_Bizarro_-_11_-_The_Long_Way_Back.mp3"
 	var track = load(track_url)
+	_player.set_volume_db(-20.0)
 	_player.stream = track
 	_player.play()
 

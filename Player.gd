@@ -60,6 +60,7 @@ onready var sprite = $Sprite
 onready var wall_jump_timer = $WallJumpTimer
 onready var soundFX = $soundFX
 onready var fadeIn = $ColorRect/AnimationPlayer
+onready var death_timer = $DeathTimer
 
 var velocity = Vector2()
 var on_ground = false

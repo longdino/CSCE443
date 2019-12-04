@@ -62,7 +62,7 @@ func _state_logic(delta):
 	if [states.wallslide].has(state):
 		parent._cap_gravity_wallslide()
 		parent._handle_wall_slide_sticking()
-	if state != states.dead:
+	if parent.death_timer.is_stopped():
 		parent._apply_movement()
 	#if [states.run].has(state):
 	#	sprite.frames.set_animation_speed("idle",abs(parent.velocity.x / parent.SPEED))
@@ -168,14 +168,9 @@ func _enter_state(new_state, old_state):
 			parent.soundFX.stream = load("res://sounds/death_sound.wav")
 			parent.soundFX.set_volume_db(-30.0)
 			parent.soundFX.play()
-			var t = Timer.new()
-			t.set_wait_time(2.0)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
+			parent.death_timer.start()
 			parent.fadeIn.play("FadeIn")
-			yield(t, "timeout")
-			t.queue_free()
+			yield(parent.death_timer, "timeout")
 			get_tree().reload_current_scene()
 
 

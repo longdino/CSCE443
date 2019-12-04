@@ -5,14 +5,14 @@
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=4]
 [ext_resource path="res://OutOfBounds.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Hazard.gd" type="Script" id=8]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=12]
-[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Hazard.gd" type="Script" id=7]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_2_01.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Enviornment/Tree_anim_1_01.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.9903, 8 )
@@ -45,16 +45,13 @@ tile_data = PoolIntArray( 327683, 1610612736, 0, 327685, 1610612736, 0, 327686, 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( -2.26828, -42.2626 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 19.0789, 186.773 )
-
-[node name="teleportBlock" parent="." instance=ExtResource( 7 )]
+[node name="teleportBlock" parent="." instance=ExtResource( 6 )]
 position = Vector2( 652.113, 299.535 )
 
 [node name="SpikeHazard1" type="Area2D" parent="."]
 position = Vector2( 232, 268.162 )
 collision_layer = 17
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SpikeHazard1"]
 position = Vector2( -8.61301, 1.582 )
@@ -64,7 +61,7 @@ shape = SubResource( 1 )
 [node name="SpikeHazard2" type="Area2D" parent="."]
 position = Vector2( 304.923, 160.837 )
 collision_layer = 17
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SpikeHazard2"]
 position = Vector2( -8.61298, 1.58101 )
@@ -73,7 +70,7 @@ shape = SubResource( 1 )
 [node name="SpikeHazard3" type="Area2D" parent="."]
 position = Vector2( 113.799, 82.8368 )
 collision_layer = 17
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="SpikeHazard3"]
 position = Vector2( -8.6131, 1.5811 )
@@ -82,7 +79,7 @@ shape = SubResource( 1 )
 [node name="SpikeHazard4" type="Area2D" parent="."]
 position = Vector2( 80.9051, 83.3001 )
 collision_layer = 17
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="SpikeHazard4"]
 position = Vector2( -8.6131, 1.5811 )
@@ -92,7 +89,7 @@ shape = SubResource( 1 )
 position = Vector2( 542.006, 272.41 )
 rotation = 1.56478
 collision_layer = 17
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard5"]
 position = Vector2( -8.61308, 1.5811 )
@@ -107,62 +104,65 @@ z_index = -1
 position = Vector2( -248.582, 76.8892 )
 rotation = 3.05645
 scale = Vector2( 1.48057, -1.4838 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_1_03" type="Sprite" parent="backdrop"]
 position = Vector2( 10.079, 54.4322 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_1_04" type="Sprite" parent="backdrop"]
 position = Vector2( 241.751, 68.7215 )
 scale = Vector2( -1.53072, 1.91524 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_2_01" type="Sprite" parent="backdrop"]
 position = Vector2( -152.361, 68.9467 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_2_02" type="Sprite" parent="backdrop"]
 position = Vector2( 70.7454, 67.9373 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_2_04" type="Sprite" parent="backdrop"]
 position = Vector2( 277.543, -17.9359 )
 scale = Vector2( -1.90199, 1.61549 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Tree_anim_1_01" type="Sprite" parent="backdrop"]
 position = Vector2( -59.2807, 72.7667 )
 scale = Vector2( 1.69801, 1.61549 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Tree_anim_1_02" type="Sprite" parent="backdrop"]
 visible = false
 position = Vector2( -21.2637, 44.9194 )
 rotation = -3.14159
 scale = Vector2( 1.55269, -1.24553 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="log1" type="Sprite" parent="backdrop"]
 position = Vector2( 110.971, 41.2098 )
 scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="log2" type="Sprite" parent="backdrop"]
 position = Vector2( -151.689, 85.682 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
-[node name="GamePopupMenu" parent="." instance=ExtResource( 13 )]
+[node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
 show_behind_parent = true
 margin_left = 2.33233
 margin_top = -0.344492
 margin_right = 2.33233
 margin_bottom = -0.344492
+
+[node name="Player" parent="." instance=ExtResource( 13 )]
+position = Vector2( 19.0789, 186.773 )
 [connection signal="body_entered" from="SpikeHazard1" to="SpikeHazard1" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="SpikeHazard2" to="SpikeHazard2" method="_on_Hazard_body_entered"]
 [connection signal="body_entered" from="SpikeHazard3" to="SpikeHazard3" method="_on_Hazard_body_entered"]

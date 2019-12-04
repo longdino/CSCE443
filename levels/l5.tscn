@@ -10,10 +10,10 @@
 [ext_resource path="res://teleportBlock.gd" type="Script" id=8]
 [ext_resource path="res://sprites/TeleportBlock.png" type="Texture" id=9]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=12]
-[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=13]
-[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Enviornment/log2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Enviornment/rock_1.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Enviornment/log1.png" type="Texture" id=13]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 43.6909 )
@@ -74,10 +74,8 @@ margin_top = -341.0
 margin_right = 293.0
 margin_bottom = 177.0
 
-[node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 83.0766, 287.708 )
-
 [node name="backdrop" type="Sprite" parent="."]
+editor/display_folded = true
 visible = false
 position = Vector2( 252.261, 190.485 )
 z_index = -1
@@ -85,20 +83,23 @@ z_index = -1
 [node name="log2" type="Sprite" parent="backdrop"]
 position = Vector2( -84.408, 113.503 )
 scale = Vector2( 1.89398, 1.74498 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="rock_1" type="Sprite" parent="backdrop"]
 position = Vector2( 247.436, -25.934 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="rock_2" type="Sprite" parent="backdrop"]
 position = Vector2( 54.5275, 134.012 )
 rotation = 0.570723
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="log1" type="Sprite" parent="backdrop"]
 position = Vector2( -11.924, -104.562 )
 scale = Vector2( 1.83012, 1.59598 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
+
+[node name="Player" parent="." instance=ExtResource( 14 )]
+position = Vector2( 83.0766, 287.708 )
 [connection signal="body_entered" from="teleportBlock" to="teleportBlock" method="_on_teleportBlock_body_entered"]
 [connection signal="fade_finished" from="teleportBlock/FadeIn" to="teleportBlock" method="_on_FadeIn_fade_finished"]

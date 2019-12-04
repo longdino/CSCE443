@@ -89,9 +89,9 @@ text = "Version 1.2.4
 Team 8"
 
 [node name="FadeIn" parent="." instance=ExtResource( 8 )]
-margin_left = 1.0
-margin_top = -1.0
+margin_left = -5.0
+margin_top = -4.0
 margin_right = 1.0
-margin_bottom = -1.0
+margin_bottom = 16.0
 [connection signal="pressed" from="Menu/CenterRow/Buttons/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

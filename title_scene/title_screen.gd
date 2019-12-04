@@ -22,6 +22,13 @@ func _on_Button_pressed(scene_to_load):
 	$FadeIn.fade_in()
 
 func _on_FadeIn_fade_finished():
+	var t = Timer.new()
+	t.set_wait_time(0.1)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
 	get_tree().change_scene(scene_path_to_load)
 
 

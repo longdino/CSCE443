@@ -4,8 +4,8 @@
 [ext_resource path="res://Switch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Hazard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=8]
 
@@ -32,19 +32,19 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 327711, 2, 0, 327712, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 2, 0, 851983, 2, 0, 851984, 2, 0, 851985, 2, 0, 851986, 2, 0, 851987, 2, 0, 851988, 2, 0, 851989, 2, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 41, 320.459 )
-
 [node name="Switch" parent="." instance=ExtResource( 2 )]
 position = Vector2( 379, 332.459 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 592, 224 )
-frame = 3
+frame = 14
 
-[node name="Door2" parent="." instance=ExtResource( 6 )]
+[node name="Door2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 624, 224 )
-frame = 3
+frame = 14
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 41, 320.459 )
 
 [node name="Hazard" parent="." instance=ExtResource( 7 )]
 position = Vector2( 255, 223 )

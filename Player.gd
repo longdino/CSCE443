@@ -59,7 +59,7 @@ onready var dash_timer = $DashTimer
 onready var sprite = $Sprite
 onready var wall_jump_timer = $WallJumpTimer
 onready var soundFX = $soundFX
-onready var musicPlayer = $musicPlayer
+onready var fadeIn = $ColorRect/AnimationPlayer
 
 var velocity = Vector2()
 var on_ground = false

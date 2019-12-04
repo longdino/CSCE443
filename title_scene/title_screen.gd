@@ -6,7 +6,7 @@ export(String)var SAVE_PATH = "./savegame.json"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Menu/CenterRow/Buttons/NewGameButton.grab_focus()
-	MusicController.play("res://Audio/BGM.ogg")
+	MusicController.play("res://Audio/Far_Out_There.ogg")
 	for button in $Menu/CenterRow/Buttons.get_children():
 		if button.name == "ExitButton":
 			button.connect("pressed", self, "quitGame")

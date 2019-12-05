@@ -5,6 +5,7 @@ extends Area2D
 # var b = "text"
 
 export (float) var bulletSpeed = 2
+export (float) var bulletDist = 7
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 	if (has_node(bulletNode)):
 		var node = get_node(bulletNode)
 		node.bulletSpeed = bulletSpeed
+		node.bulletDist = bulletDist
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

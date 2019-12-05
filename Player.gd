@@ -26,8 +26,8 @@ var wall_jump_duration = .27
 var wall_jump_deacceleration
 
 
-var max_wallslide_velocity = 16 * 4
-var norm_wallslide_velocity = 16 * 2
+var max_wallslide_velocity = 16 * 6
+var norm_wallslide_velocity = 16 * 4
 
 
 
@@ -58,6 +58,9 @@ onready var wall_slide_sticky_timer = $WallSlideStickTimer
 onready var dash_timer = $DashTimer
 onready var sprite = $Sprite
 onready var wall_jump_timer = $WallJumpTimer
+onready var soundFX = $soundFX
+onready var fadeIn = $ColorRect/AnimationPlayer
+onready var death_timer = $DeathTimer
 
 var velocity = Vector2()
 var on_ground = false
@@ -154,13 +157,27 @@ func set_reset_location(newPosition):
 
 func get_reset_location():
 	get_node("FSM").set_state(get_node("FSM").states.dead)
+#	#resetting all switches #########################################
+#	var switchName = "../Switch"
+#	var iteration = 1
+#	while (true):
+#		if (has_node(switchName)):
+#			var switchVar = get_node(switchName)
+#			switchVar.toggleSwitch(false)
+#			iteration += 1
+#			switchName = "../Switch"
+#			switchName = switchName + String(iteration)
+#			print(switchName)
+#		else:
+#			break
+#	##################################################################
 	return resetPoint
 	#print(resetPoint)
 
 # updates the the wall direction bases on the raycasts
 func _update_wall_direction():
-	var is_near_wall_left = _check_is_valid_wall(left_wall_raycasts)
-	var is_near_wall_right = _check_is_valid_wall(right_wall_raycasts)
+	var is_near_wall_left = _check_is_valid_wall_beta(left_wall_raycasts)
+	var is_near_wall_right = _check_is_valid_wall_beta(right_wall_raycasts)
 
 	if is_near_wall_left && is_near_wall_right:
 		wall_direction = move_direction
@@ -175,6 +192,17 @@ func _check_is_valid_wall(wall_raycasts):
 		if raycast.is_colliding():
 			return true
 	return false
+
+func _check_is_valid_wall_beta(wall_raycasts):
+	var numRaycasts = wall_raycasts.get_children().size()
+	var trueRC = 0
+	for raycast in wall_raycasts.get_children():
+		if raycast.is_colliding():
+			trueRC += 1
+	if trueRC == numRaycasts:
+		return true
+	else:
+		return false
 
 func _update_move_direction():
 	move_direction = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
@@ -223,3 +251,13 @@ func _handle_move_input(delta):
 	velocity.x = new_velocity
 	if move_direction != 0:
 		$Sprite.scale.x = facing
+
+func save():
+	var save_dict = {
+		path = get_parent().get_path(),
+		pos = {
+			x = resetPoint.x,
+			y = resetPoint.y
+		}
+	}
+	return save_dict

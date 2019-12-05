@@ -1,63 +1,108 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://PlayerFSM.gd" type="Script" id=2]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_01.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_02.png" type="Texture" id=4]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=5]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=6]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_03.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_02.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_idle_04.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_01.png" type="Texture" id=8]
 [ext_resource path="res://sprites/Characters/Fox/fox_anim_walljump_01.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_jump_02.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=11]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=12]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=13]
-[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_01.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_03.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_04.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_run_02.png" type="Texture" id=13]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_01.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_02.png" type="Texture" id=15]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_dash_03.png" type="Texture" id=16]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_01.png" type="Texture" id=17]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_02.png" type="Texture" id=18]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_03.png" type="Texture" id=19]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_04.png" type="Texture" id=20]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_05.png" type="Texture" id=21]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_06.png" type="Texture" id=22]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_07.png" type="Texture" id=23]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_08.png" type="Texture" id=24]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_09.png" type="Texture" id=25]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_10.png" type="Texture" id=26]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_11.png" type="Texture" id=27]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_12.png" type="Texture" id=28]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_13.png" type="Texture" id=29]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_14.png" type="Texture" id=30]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_15.png" type="Texture" id=31]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_16.png" type="Texture" id=32]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_20.png" type="Texture" id=33]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_21.png" type="Texture" id=34]
+[ext_resource path="res://sprites/Characters/Fox/fox_anim_doom_22.png" type="Texture" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 14 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "idle",
-"speed": 0.8
+"speed": 4.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": false,
-"name": "dash",
+"name": "fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": false,
 "name": "jump",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "wallslide",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "dash",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "death",
+"speed": 4.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="Animation" id=3]
+resource_name = "FadeIn"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0.2, 1.5, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Level",
+]]
 script = ExtResource( 1 )
 
 [node name="FSM" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
+editor/display_folded = true
 shape = SubResource( 1 )
 
 [node name="WallRaycasts" type="Node2D" parent="CollisionBox"]
@@ -65,7 +110,7 @@ shape = SubResource( 1 )
 [node name="LeftWallRaycasts" type="Node2D" parent="CollisionBox/WallRaycasts"]
 
 [node name="LeftWallRaycast1" type="RayCast2D" parent="CollisionBox/WallRaycasts/LeftWallRaycasts"]
-position = Vector2( -14, -7 )
+position = Vector2( -14, -9 )
 enabled = true
 cast_to = Vector2( -2, 0 )
 
@@ -75,11 +120,10 @@ enabled = true
 cast_to = Vector2( -2, 0 )
 
 [node name="RightWallRaycasts" type="Node2D" parent="CollisionBox/WallRaycasts"]
-editor/display_folded = true
 position = Vector2( -12, 0 )
 
 [node name="RightWallRaycast1" type="RayCast2D" parent="CollisionBox/WallRaycasts/RightWallRaycasts"]
-position = Vector2( 26, -7 )
+position = Vector2( 26, -9 )
 enabled = true
 cast_to = Vector2( 2, 0 )
 
@@ -114,6 +158,7 @@ cast_to = Vector2( 0, 1 )
 position = Vector2( 1, 1 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="State Label" type="Label" parent="."]
@@ -147,5 +192,21 @@ autostart = true
 
 [node name="WallJumpTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="soundFX" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -672.0
+margin_top = -410.0
+margin_right = 669.0
+margin_bottom = 418.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/FadeIn = SubResource( 3 )
 [connection signal="timeout" from="WallSlideStickTimer" to="FSM" method="_on_WallSlideStickTimer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="FSM" method="_on_GhostTimer_timeout"]

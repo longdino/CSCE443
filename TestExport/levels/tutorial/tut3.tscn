@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://levels/tutorial/tutorials.gd" type="Script" id=1]
+[ext_resource path="res://levels/tutorials.gd" type="Script" id=1]
 [ext_resource path="res://teleportBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=6]
 [ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=7]
 [ext_resource path="res://gameMenu.tscn" type="PackedScene" id=8]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 128 )

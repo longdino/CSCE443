@@ -7,6 +7,9 @@ func _input(event):
 		if event.is_action_pressed("jump") && parent.jumps > 0:
 			if [states.walljump].has(state):
 				set_state(states.jump)
+			parent.soundFX.stream = load("res://sounds/jump_sound.wav")
+			parent.soundFX.set_volume_db(-40.0)
+			parent.soundFX.play()
 			parent.jumps -= 1
 			parent.velocity.y = parent.max_jump_velocity
 
@@ -17,6 +20,9 @@ func _input(event):
 	if [states.wallslide].has(state):
 		if event.is_action_pressed("jump"):
 			set_state(states.walljump)
+			parent.soundFX.stream = load("res://sounds/jump_sound.wav")
+			parent.soundFX.set_volume_db(-40.0)
+			parent.soundFX.play()
 			parent.wall_jump_beta()
 
 	if [states.wallslide, states.idle, states.run, states.fall, states.jump, states.walljump].has(state):
@@ -56,7 +62,8 @@ func _state_logic(delta):
 	if [states.wallslide].has(state):
 		parent._cap_gravity_wallslide()
 		parent._handle_wall_slide_sticking()
-	parent._apply_movement()
+	if parent.death_timer.is_stopped():
+		parent._apply_movement()
 	#if [states.run].has(state):
 	#	sprite.frames.set_animation_speed("idle",abs(parent.velocity.x / parent.SPEED))
 	#parent.get_node("Wall Label").set_text(str(parent.velocity.x) + " " + str(parent.move_direction))
@@ -132,7 +139,7 @@ func _get_transition(delta):
 
 func _enter_state(new_state, old_state):
 	#parent.get_node("State Label").set_text(states.keys()[new_state])
-	print(new_state)
+	#print(new_state)
 	match new_state:
 		states.idle:
 			sprite.play("idle")
@@ -151,11 +158,20 @@ func _enter_state(new_state, old_state):
 			parent.dashes = parent.max_dashes
 		states.dash:
 			sprite.play("dash")
+			parent.soundFX.stream = load("res://sounds/dash_sound.wav")
+			parent.soundFX.set_volume_db(-35.0)
+			parent.soundFX.play()
 		states.walljump:
 			sprite.play("jump")
 			parent.air_deacceleration = parent.wall_jump_deacceleration
 		states.dead:
-			pass
+			parent.soundFX.stream = load("res://sounds/death_sound.wav")
+			parent.soundFX.set_volume_db(-30.0)
+			parent.soundFX.play()
+			parent.death_timer.start()
+			parent.fadeIn.play("FadeIn")
+			yield(parent.death_timer, "timeout")
+			get_tree().reload_current_scene()
 
 
 func _exit_state(old_state, new_state):

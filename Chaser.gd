@@ -30,15 +30,29 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	var theSprite = get_node("KinematicBody2D/Sprite") #get refrences to nodes
+	var pathName = "KinematicBody2D"
+	var currentBlock = get_node(pathName)
+	
+	#this if statement updates the animation
+	if(currentBlock.global_position.x >= (startPosition.x - 5) && currentBlock.global_position.x <= (startPosition.x + 5)): 
+				theSprite.play("idle")
+	else: 
+		if((playerPosition.x - originalPosition.x) < 0): #check direction
+			theSprite.scale.x = 1
+			theSprite.play("move")
+		else:
+			theSprite.scale.x = -1
+			theSprite.play("move")
+	#this if statement updates the chaser's movement
 	if (inArea):
 		var playerPath = "../Player"
 		if (has_node(playerPath)):
 			var playerBlock = get_node(playerPath)
 			playerPosition = playerBlock.global_position
 		
-		var pathName = "KinematicBody2D"
 		if (has_node(pathName)):
-			var currentBlock = get_node(pathName)
 			originalPosition = currentBlock.global_position
 			speedIncrease += 0.05
 			currentBlock.move_and_collide((playerPosition - originalPosition) * delta * moveSpeed * speedIncrease)
@@ -46,9 +60,7 @@ func _process(delta):
 	else:
 		# resetting hazard
 		speedIncrease = 1
-		var pathName = "KinematicBody2D"
 		if (has_node(pathName)):
-			var currentBlock = get_node(pathName)
 			originalPosition = currentBlock.global_position
 			currentBlock.move_and_collide((startPosition - originalPosition) * delta * moveSpeed / 2)
 

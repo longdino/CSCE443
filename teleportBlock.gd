@@ -26,11 +26,9 @@ func _on_teleportBlock_body_entered(body):
 func _on_FadeIn_fade_finished():
 	var currLevel = present_scene_path.replace("l", "")
 	currLevel = String(int(currLevel) + 1)
-	print (currLevel)
 	scene_path_to_load = "res://levels/l" + currLevel + ".tscn"
-	print (scene_path_to_load)
 	
-	if (currLevel == "32"):
-		scene_path_to_load = "res://title_scene/title_screen.tscn"
+	if (currLevel == "33"):
+		scene_path_to_load = "res://levels/credits.tscn"
 	
 	get_tree().change_scene(scene_path_to_load)

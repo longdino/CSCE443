@@ -50,7 +50,6 @@ format = 1
 position = Vector2( 16.9246, 34.7771 )
 
 [node name="teleportBlock" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 650.681, 171.63 )
 script = ExtResource( 7 )
 
@@ -63,10 +62,10 @@ texture = ExtResource( 8 )
 shape = SubResource( 1 )
 
 [node name="FadeIn" parent="teleportBlock" instance=ExtResource( 9 )]
-margin_left = -73.2064
-margin_top = -117.915
-margin_right = 976.794
-margin_bottom = 400.085
+margin_left = -829.589
+margin_top = -248.612
+margin_right = 220.411
+margin_bottom = 269.388
 
 [node name="backdrop" type="Sprite" parent="."]
 editor/display_folded = true

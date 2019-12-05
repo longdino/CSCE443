@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://title_scene/title_screen.gd" type="Script" id=1]
 [ext_resource path="res://background_main.tscn" type="PackedScene" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://title_scene/Buttons/OptionButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://title_scene/Buttons/ExitButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sprites/aesymatt.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/logo.png" type="Texture" id=8]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -88,7 +89,12 @@ custom_fonts/font = SubResource( 1 )
 text = "Version 1.2.4
 Team 8"
 
-[node name="FadeIn" parent="." instance=ExtResource( 8 )]
+[node name="logo" type="Sprite" parent="."]
+position = Vector2( 319.26, 86.045 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 8 )
+
+[node name="FadeIn" parent="." instance=ExtResource( 9 )]
 margin_left = -5.0
 margin_top = -4.0
 margin_right = 1.0

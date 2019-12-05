@@ -1,0 +1,188 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://sprites/Tiles/Ground_TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hazard.gd" type="Script" id=3]
+[ext_resource path="res://Checkpoint.gd" type="Script" id=4]
+[ext_resource path="res://Chaser.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/Tiles/Hazard_TileSet.tres" type="TileSet" id=6]
+[ext_resource path="res://Switch.gd" type="Script" id=7]
+[ext_resource path="res://sprites/switchBlock.png" type="Texture" id=8]
+[ext_resource path="res://sprites/doorBlock.png" type="Texture" id=9]
+[ext_resource path="res://teleportBlock.gd" type="Script" id=10]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gameMenu.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 128 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Sprite
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+func removeDoor():
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 34 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 64 )
+
+[node name="ag2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 458752, 5, 0, 458753, 5, 0, 458754, 5, 0, 458755, 5, 0, 458756, 5, 0, 458757, 5, 0, 458776, 5, 0, 458786, 5, 0, 458787, 5, 0, 458788, 5, 0, 458789, 5, 0, 458790, 5, 0, 458791, 5, 0, 524288, 5, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524312, 5, 0, 524323, 5, 0, 524324, 5, 0, 524325, 5, 0, 524326, 5, 0, 524327, 5, 0, 589824, 5, 0, 589825, 5, 0, 589826, 5, 0, 589827, 5, 0, 589848, 5, 0, 589860, 5, 0, 589861, 5, 0, 589862, 5, 0, 589863, 5, 0, 655360, 5, 0, 655361, 5, 0, 655362, 5, 0, 655363, 5, 0, 655384, 5, 0, 655397, 5, 0, 655398, 5, 0, 655399, 5, 0, 720896, 5, 0, 720897, 5, 0, 720898, 5, 0, 720899, 5, 0, 720920, 5, 0, 720934, 5, 0, 720935, 5, 0, 786432, 5, 0, 786433, 5, 0, 786434, 5, 0, 786435, 5, 0, 786456, 5, 0, 786471, 5, 0, 851968, 5, 0, 851969, 5, 0, 851970, 5, 0, 851971, 5, 0, 851992, 5, 0, 852007, 5, 0, 917504, 5, 0, 917505, 5, 0, 917506, 5, 0, 917507, 5, 0, 917528, 5, 0, 917543, 5, 0, 983040, 5, 0, 983041, 5, 0, 983042, 5, 0, 983043, 5, 0, 983064, 5, 0, 983079, 5, 0, 1048576, 5, 0, 1048577, 5, 0, 1048578, 5, 0, 1048579, 5, 0, 1048600, 5, 0, 1048615, 5, 0, 1114112, 5, 0, 1114113, 5, 0, 1114114, 5, 0, 1114115, 5, 0, 1114136, 5, 0, 1114151, -1073741821, 0, 1179648, 5, 0, 1179649, 5, 0, 1179650, 5, 0, 1179651, 5, 0, 1179672, 5, 0, 1245184, 5, 0, 1245185, 5, 0, 1245186, 5, 0, 1245187, 5, 0, 1245208, 5, 0, 1310720, 5, 0, 1310721, 5, 0, 1310722, 5, 0, 1310723, 5, 0, 1310744, 5, 0, 1376256, 5, 0, 1376257, 5, 0, 1376258, 5, 0, 1376259, 5, 0, 1376280, 5, 0, 1441792, 5, 0, 1441793, 5, 0, 1441794, 5, 0, 1441795, 5, 0, 1441816, 5, 0, 1441817, -1073741821, 0, 1441818, -1073741821, 0, 1441819, -1073741821, 0, 1441820, -1073741821, 0, 1441821, -1073741821, 0, 1441822, -1073741821, 0, 1441823, -1073741821, 0, 1441824, -1073741821, 0, 1441825, -1073741821, 0, 1441826, -1073741821, 0, 1441827, -1073741821, 0, 1441828, -1073741821, 0, 1441829, -1073741821, 0, 1441830, -1073741821, 0, 1441831, -1073741821, 0, 1507328, 5, 0, 1507329, 5, 0, 1507330, 5, 0, 1507331, 5, 0, 1572867, 5, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 51.4951, 95.5341 )
+
+[node name="SpikeHazard1" type="Area2D" parent="."]
+position = Vector2( 388.863, 242.058 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard1"]
+position = Vector2( -9.82634, -3.01512 )
+shape = SubResource( 1 )
+
+[node name="SpikeHazard2" type="Area2D" parent="."]
+position = Vector2( 389.943, 106.523 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHazard2"]
+position = Vector2( 0.327072, -0.398193 )
+scale = Vector2( 1, 0.05 )
+shape = SubResource( 1 )
+
+[node name="outofbounds" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 226.827, 233.813 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds"]
+position = Vector2( -23.4488, 134.285 )
+rotation = 1.5708
+scale = Vector2( 1, 1.5 )
+shape = SubResource( 1 )
+
+[node name="outofbounds2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 722.256, 59.5882 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds2"]
+position = Vector2( -69.335, -7.31702 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="outofbounds3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 52.218, 74.034 )
+collision_layer = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outofbounds3"]
+position = Vector2( -69.335, -7.31702 )
+scale = Vector2( 1, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Checkpoint" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 25.998, 93.8731 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2( 1.0145, 3.50836 )
+shape = SubResource( 2 )
+
+[node name="Chaser" parent="." instance=ExtResource( 5 )]
+position = Vector2( 331.569, 63.9723 )
+
+[node name="Hazards" type="TileMap" parent="."]
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393240, 3, 0, 458775, -1073741821, 0, 524311, -1073741821, 0, 589847, -1073741821, 0, 655383, -1073741821, 0, 720919, -1073741821, 0, 786455, -1073741821, 0, 851991, -1073741821, 0, 917527, -1073741821, 0, 983063, -1073741821, 0, 1048599, -1073741821, 0, 1114135, -1073741821, 0, 1179671, -1073741821, 0, 1245207, -1073741821, 0, 1310743, -1073741821, 0, 1376279, -1073741821, 0, 1441815, -1073741821, 0 )
+
+[node name="Switch1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 604.838, 84.278 )
+script = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Switch1"]
+position = Vector2( 0.0577092, -0.242981 )
+
+[node name="Sprite" type="Sprite" parent="Switch1/StaticBody2D"]
+position = Vector2( 0.025177, 0.109222 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1/StaticBody2D"]
+position = Vector2( -0.200409, 0.340973 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1"]
+position = Vector2( -0.0186768, -0.0723877 )
+scale = Vector2( 0.4, 0.4 )
+shape = SubResource( 4 )
+
+[node name="Door1" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 608.773, 313.611 )
+texture = ExtResource( 9 )
+script = SubResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1/StaticBody2D"]
+shape = SubResource( 6 )
+
+[node name="teleportBlock1" type="Area2D" parent="."]
+position = Vector2( 641.47, 311.37 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleportBlock1"]
+position = Vector2( 0.928223, -1.52916 )
+shape = SubResource( 7 )
+
+[node name="FadeIn" parent="teleportBlock1" instance=ExtResource( 11 )]
+margin_left = -675.0
+margin_top = -356.0
+margin_right = 108.0
+margin_bottom = 119.0
+
+[node name="GamePopupMenu" parent="." instance=ExtResource( 12 )]
+[connection signal="body_entered" from="SpikeHazard1" to="SpikeHazard1" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="SpikeHazard2" to="SpikeHazard2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="outofbounds" to="outofbounds" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="outofbounds2" to="outofbounds2" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="outofbounds3" to="outofbounds3" method="_on_Hazard_body_entered"]
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_Checkpoint_body_entered"]
+[connection signal="body_entered" from="Switch1" to="Switch1" method="_on_Switch_body_entered"]
+[connection signal="body_entered" from="teleportBlock1" to="teleportBlock1" method="_on_teleportBlock_body_entered"]
+[connection signal="fade_finished" from="teleportBlock1/FadeIn" to="teleportBlock1" method="_on_FadeIn_fade_finished"]
